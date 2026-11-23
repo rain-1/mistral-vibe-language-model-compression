@@ -92,135 +92,115 @@ python3 plot.py              # training_ppl.png
 ### LSTM — example 1 (prompt: `static int __init `, temp 0.5 + top-k 40, 1200 chars)
 
 ```c
-static int __init set_mask(struct omap_mask_device *dev, struct scan_register *skb)
-{
-	struct mmc_device *dev;
+static int __init *id = size = irq;
 
-	if (!(node != 0)
-		return -EINVAL;
-
-	return NULL;
-}
-
-static inline int op_irq_init(void)
-{
-	struct msg_crtc *host = dst_config->regs[i].lock;
-	dev_priv->resource = 0;
-
-	case SENSOR_CONFIG_HW_FCS_TX_ENABLE:
-		spin_unlock(&state->dev, "%s of not mode");
-			if (mode == NULL) {
-			printk(KERN_ERR "Source the disconnection allocate the first stop state in driver to "
-				            "protocol %d)\n", const netdev, port->dev, "result on the mask commands.\n");
-			status = 1;
-		case 0x13:
-			printk(KERN_ERR "%s: %d\n", tuner_mask, count);
-		return -EINVAL;
-		}
-		if (skb_support_init(&mode) < 0)
-			goto out;
-		if (!read_reset(&isd->first);
-		if (ret) {
-			printk(KERN_WARNING "%s %s %d\n", __func__);
-			spin_unlock_irqrestore(&priv->i_state + 0xFFFFFFFFFFFFFFFFC);
-		if (stats->ops->rx_control & BNX2_CONFIG_STATUS_CAN_CONFIG_STATUS_ERROR))
-			dev_err(&inode->i_num, cpu);
-
-		if (ret) {
-			if ((port->max_regs & SSI_DEVICE_ID_MAX_IOCTL_CONFIG_REG_CONFIG_FNG));
-			if (parent != 0) {
-			if (!static != 0)
-			return ret;
-		} else {
-			if (!strcount)
-			goto out;
+	if (status & TX_INT) && (page & IWL_RIVER_SHIFT) && !(skb->port != 0x00) {
+		if ((ret <= 0)
+						return const struct tty_table *pdev;
+		int err;
 	}
 
-	if (area == 1)
-		return -EINVAL;
+	if (!port->io_mutex)
+		return 0;
+}
 
-	/* 
+static void __iomem *mask = {
+	.start = 0x00000000000000000000000000000000000000000008, .rx_priv = 0x000000000000000000, -1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 ```
 
 ### LSTM — example 2 (prompt: `static void `, temp 0.5 + top-k 40, 1200 chars)
 
 ```c
-static void irq_common(struct scsi_device *dev, unsigned int stats)
+static void saa_start_to_netdev(struct drm_device *dev, int offset, long flags)
 {
-	struct snd_port *host = netdev_priv(mmc_priv->tx_port_info, struct pci_device *dev);
-static inline void __init skb_request_exit(void)
-{
-	struct scale_size *icode;
-	unsigned int pci_dev;
-	int redistribute = pci_reg_priv;
-
-	if (!tp->ptr == 0) {
-		if (!priv->dev.port_priv->dev);
-			if (status & SM_IRQ_TX_OK)
-			return -EINVAL;
-	}
-
-	if (netif_config == 0) {
-		if (!status)
-			return -EINVAL;
-	}
-
-	return 0;
-}
-
-static void spi_set_port(struct max_priv *dev)
-{
-	struct netdev *id = dma_desc;
-};
-
-static inline struct hv_set_device *seq;
-	unsigned int reserved;
-
 	int ret;
 
-	return 0;
-}
-
-static int pdev_priv(struct pci_device *pdev)
-{
-	if ((current->irq == 0)
-		return -EINVAL;
-	if (!cmd->hw_size < 0x00)
-		goto ret;
-
-	if (error == 0) {
-		if (!pid->port > 0)
-					goto out;
-		if (phy_find_list != 0) {
-			dev_err(dev, "%s\n", "pdev->dev, "\n");
+	if (err < 0)
 		return 0;
 
-	}
+	/* FIXME: mask device */
+	if (ret < 1) {
+		printk(KERN_ERR "%s: endpoint is port from is device of a signal: Register and a reset the device in allocation.
+ */
 
-	return ret;
-}
+#include <linux/pci.h>
+#include <asm/mach/arm/module.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/start.h>
+#include <linux/slab.h>
+#include <linux/mach/dma.h>
+#include <linux/irq.h>
+#include <linux/start.h>
+#include <linux/string.h>
+#include <linux/io.h>
+#include <asm/irq.h>
+#include <linux/module.h>
+#include <linux/module.h>
+#include <linux/pci.h>
+#include <linux/parameter.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/skb.h>
+#include <linux/init.h>
+#include <linux/slab.h>
+#include <linux/module.h>
+#include <linux/slab.h>
+#include <linux/slab.h>
+#include <asm/mmc.h>
+#include <linux/init.h>
+#include <linux/slab.h>
+#include <linux/slab.h>
+#include <asm/irq.h>
+#include <linux/module.h>
+#include <linux/init.h>
+#include <linux/size.h>
+#include <linux/processor.h>
+#include <linux/module.h>
+#include <linux/irq.h>
+#include <lin
+```
 
-static struct at97_device *private_enable_insert_device(struct device *dev, struct iommand *tlm, struct max_section *idx)
-{
-	unsigned int nfs_raw_stats = (struct device_data *) size;
-	int i;
-
-	return 0;
-}
-
-static void init_tx_probe(struct pci_device *### Transformer (matched, continued) — example 1 (prompt: `static int __init `, temp 0.5 + top-k 40, 1200 chars)
+### Transformer (matched, continued) — example 1 (prompt: `static int __init `, temp 0.5 + top-k 40, 1200 chars)
 
 ```c
-static int __init pare *part_bare the she for the controller the and that to the at not
-- the comention is the reade by modut to the a and a stated to be the discribed all be
-- Cond it the pointion the maing on a porte that of the is are the is the
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+static int __init struct treatturn the set ass the can of that is and a can be the function to for
+a coure an the not the can for the on the should be and a the stand to the
+the driver to muations struct to in the set as the be are the firer that ling the contatins
+for the sare in the set the seect probeess the device to the stare freed the
+the first the the seving the the can be device the on of the sight the mation in in the dever
+in the lock not the call waiting the device sime stllem in the free or the
+stage in the the sto is pare the of the the that ime if the card parter
+is in the a s are and some shave art wo the ware conting of the synce filloce the befoore the prout the compic, in the
+the are lock to is the can the chare the can ince in the contem.
+
+
+The comple is the semincess in the rett the nater prober to the
+instamenter.  This the the sime ame sot can in the to conterfaction the
+contration is and in the cand in the the vall be of the use the capper in the
+device in the card the set the firstame and the to the for driver the can whe the sat shat
+or not the rester not imemater boot in to the can be ast the tat pare ally to the driver the device the
+lock the seret but the of the seation o
 ```
 
 ### Transformer (matched, continued) — example 2 (prompt: `static void `, temp 0.5 + top-k 40, 1200 chars)
 
 ```c
-static void as unstated the the device fire and the
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                
+static void und in the acking contard be so and on the whe
+requerese the with a can pare set in thre the pagen set in the kernel with the
+acke the sincall the to can the provent the lock is the kernel file the
+withere a not stame the kernel sot the all to the chardwaing the file the is the
+the can onstre the device the set are the change sen in the stemems of the the is in the
+conter at be chares ore the constans of the can the defirest it the
+the the list and the cher the to the coment is a allock in of the can an bot ment of the
+impletex in the conter bexit the shat as it shat ctrive and the file the
+staske the device the memory the or have of the wither to ime a itime interface
+
+ardiver the semight that ime int is interface the conticall
+
+seed in the she to mememory the shat have regading to dever, which aus have of the pating to the strice perrate in which
+                                                                                                                                                                                                                                                                                                                                                   
 ```
 
