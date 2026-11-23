@@ -18,17 +18,17 @@ Perplexity is per BPE token. Character-level perplexities from the original repo
 
 ## Compression on the first 100,000 characters
 
-The new measurements use bits per UTF-8 byte. The historical LSTM and character GPT values use bits per character and omit the first symbol of each model window. The slices contain at most 33 extra UTF-8 bytes per 100,000 characters.
+Rates are measured in bits per UTF-8 byte. Each system compressor ran on the same slice as the full-tree BPE Transformer.
 
-| Linux | Full-tree BPE | Previous BPE | Historical LSTM | Historical GPT | gzip -9 | xz -9 | zstd -19 | Full-tree BPE bytes | Raw bytes |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 2.0.40 | 2.509 | 2.682 | 3.450 | 4.705 | 3.234 | 2.986 | 3.083 | 31,368 | 100,000 |
-| 3.0 | 3.035 | 2.973 | 4.110 | 5.146 | 3.566 | 3.238 | 3.368 | 37,946 | 100,030 |
-| 4.0 | 3.049 | 2.987 | 4.140 | 5.163 | 3.574 | 3.241 | 3.372 | 38,124 | 100,030 |
-| 5.0 | 3.056 | 3.010 | 4.170 | 5.194 | 3.561 | 3.221 | 3.352 | 38,210 | 100,032 |
-| 6.0 | 3.055 | 3.025 | 4.170 | 5.195 | 3.555 | 3.216 | 3.344 | 38,202 | 100,033 |
+| Linux | Full-tree BPE | gzip -9 | xz -9 | zstd -19 | Full-tree BPE bytes | Raw bytes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 2.509 | 3.234 | 2.986 | 3.083 | 31,368 | 100,000 |
+| 3.0 | 3.035 | 3.566 | 3.238 | 3.368 | 37,946 | 100,030 |
+| 4.0 | 3.049 | 3.574 | 3.241 | 3.372 | 38,124 | 100,030 |
+| 5.0 | 3.056 | 3.561 | 3.221 | 3.352 | 38,210 | 100,032 |
+| 6.0 | 3.055 | 3.555 | 3.216 | 3.344 | 38,202 | 100,033 |
 
-The BPE benchmark arithmetic-codes all tokens, including the first token of each context window, and counts the packed payload, framing, and repair bytes. The Linux 5.0 and 6.0 slices each needed a two-byte repair for text the tokenizer could not represent. All five slices reconstructed byte-for-byte for both models using the encoder's probability tables. The reported rates assume the model and tokenizer are shared. The benchmark does not independently regenerate the probability tables during decoding.
+The BPE benchmark arithmetic-codes all tokens, including the first token of each context window, and counts the packed payload, framing, and repair bytes. The Linux 5.0 and 6.0 slices each needed a two-byte repair for text the tokenizer could not represent. All five slices reconstructed byte-for-byte using the encoder's probability tables. The reported rates assume the model and tokenizer are shared. The benchmark does not independently regenerate the probability tables during decoding.
 
 ## Whole-tree projection
 

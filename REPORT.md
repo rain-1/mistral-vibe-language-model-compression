@@ -90,45 +90,17 @@ static int device_probe(struct platform_device *pdev)
 
 The same seed on `static int __init` repeated `__init` for the full completion. A descriptive interrupt-registration comment still led to repetition. [Matched old and new BPE samples](samples_bpe_full_comparison.md) · [Ten additional full-tree samples](samples_bpe_full_extra.md) · [Archived LSTM samples](samples.md)
 
-## 5. Compression
+## 5. Full-tree BPE Transformer compression
 
-### System tools (whole tree, tar + compressor)
+| Linux | Raw slice bytes | Compressed slice bytes | Bits per UTF-8 byte | Whole-tree estimate (MiB) |
+| --- | ---: | ---: | ---: | ---: |
+| 2.0.40 | 100,000 | 31,368 | 2.509 | 9.4 |
+| 3.0 | 100,030 | 37,946 | 3.035 | 163.2 |
+| 4.0 | 100,030 | 38,124 | 3.049 | 214.4 |
+| 5.0 | 100,032 | 38,210 | 3.056 | 314.5 |
+| 6.0 | 100,033 | 38,202 | 3.055 | 488.2 |
 
-| tree | raw | gzip -9 | **xz -9** | zstd -19 | LSTM neural, whole tree (est.) | GPT neural, whole tree (est.) |
-|---|---|---|---|---|---|---|
-| 2.0.40 | 29.6 MB | 7.3 MB | **5.0 MB** | 5.2 MB | 11.9 MB | 16.2 MB |
-| 3.0 | 421 MB | 94.1 MB | **61.5 MB** | 65.6 MB | 207 MB | 260 MB |
-| 4.0 | 551 MB | 121.1 MB | **78.9 MB** | 83.8 MB | 275 MB | 343 MB |
-| 5.0 | 813 MB | 158.7 MB | **100.5 MB** | 106.9 MB | 417 MB | 520 MB |
-| 6.0 | 1.28 GB | 208.9 MB | **123.7 MB** | 132.9 MB | 664 MB | 824 MB |
-
-Neural columns are extrapolated from a 100k-char slice (bits/char × tree size): LSTM
-3.45–4.17 bits/char, GPT 4.71–5.20 bits/char. xz -9 (~1.2 bits/char) beats both by ~3–5x.
-
-### Neural compression (arithmetic coding with model probabilities, 100k chars each)
-
-| corpus | LSTM bits/char | GPT bits/char |
-|---|---|---|
-| 2.0.40 | **3.45** | 4.71 |
-| 3.0 | **4.11** | 5.15 |
-| 4.0 | **4.14** | 5.16 |
-| 5.0 | **4.17** | 5.19 |
-| 6.0 | **4.17** | 5.20 |
-
-Neural coders land at ~1.5–2.3x — consistent with their perplexities — but xz -9 (~1.2
-bits/char) remains the king. A one-hour CPU-trained char model is a baseline, not a contender.
-
-### Full-tree BPE compression
-
-| Linux | Previous BPE bits/byte | Full-tree BPE bits/byte | xz -9 bits/byte on same slice |
-| --- | ---: | ---: | ---: |
-| 2.0.40 | 2.682 | **2.509** | 2.986 |
-| 3.0 | **2.973** | 3.035 | 3.238 |
-| 4.0 | **2.987** | 3.049 | 3.241 |
-| 5.0 | **3.010** | 3.056 | 3.221 |
-| 6.0 | **3.025** | 3.055 | 3.216 |
-
-The 100,000-character slices reconstructed byte-for-byte using the encoder's probability tables. The measurements include arithmetic coding, framing, and any bytes needed to repair tokenizer losses. They assume shared model weights and tokenizer. The full-tree model used about 26–27% fewer bits than the historical LSTM on these slices. The existing whole-tree xz archives were 1.9–3.9× smaller than the full-tree BPE projections from the same prefixes. [Compression details, gzip and zstd results, and whole-tree projections](BPE_FULL_BENCHMARK.md#compression-on-the-first-100000-characters)
+Each measurement uses the first 100,000 characters of the corpus. All five slices reconstructed byte-for-byte using the encoder's probability tables. The measured sizes include arithmetic coding, framing, and repairs for tokenizer losses. They assume shared model weights and tokenizer. The whole-tree estimates apply the slice compression ratios to the uncompressed tar sizes. [Compression methods and standard compressor benchmarks](BPE_FULL_BENCHMARK.md#compression-on-the-first-100000-characters)
 
 ## 6. Reproduce
 
