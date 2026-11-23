@@ -28,15 +28,15 @@ Every method processed the same UTF-8 bytes. Rates are in bits per UTF-8 byte.
 | 5.0 | 3.561 | 3.221 | 3.352 | 4.302 | **3.056** |
 | 6.0 | 3.555 | 3.216 | 3.344 | 4.302 | **3.055** |
 
-### Exact neural payload sizes
+### Exact compressed sizes in bytes
 
-| Linux | Raw bytes | LSTM compressed bytes | Transformer compressed bytes |
-| --- | ---: | ---: | ---: |
-| 2.0.40 | 100,000 | 44,726 | 31,368 |
-| 3.0 | 100,030 | 53,067 | 37,946 |
-| 4.0 | 100,030 | 53,352 | 38,124 |
-| 5.0 | 100,032 | 53,793 | 38,210 |
-| 6.0 | 100,033 | 53,796 | 38,202 |
+| Linux | Raw bytes | gzip -9 | xz -9 | zstd -19 | LSTM | Full-tree BPE Transformer |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 100,000 | 40,426 | 37,320 | 38,539 | 44,726 | **31,368** |
+| 3.0 | 100,030 | 44,590 | 40,488 | 42,109 | 53,067 | **37,946** |
+| 4.0 | 100,030 | 44,689 | 40,528 | 42,158 | 53,352 | **38,124** |
+| 5.0 | 100,032 | 44,522 | 40,280 | 41,916 | 53,793 | **38,210** |
+| 6.0 | 100,033 | 44,448 | 40,208 | 41,817 | 53,796 | **38,202** |
 
 The benchmark uses the same arithmetic coder for both models. It encodes every symbol, including the first symbol of each context window, and counts the packed payload, framing, and repair bytes. The LSTM uses its original 100-character windows. The Transformer uses 256-token windows. The Linux 5.0 and 6.0 Transformer slices each required a two-byte repair for text the BPE vocabulary could not represent. Both models reconstructed all five slices byte-for-byte using the encoder's probability tables. Sizes assume the model weights and vocabulary are shared.
 

@@ -94,15 +94,15 @@ The same seed on `static int __init` repeated `__init` for the full completion. 
 
 ### Measured on the same 100,000-character slices
 
-Lower is better. Rates are in bits per UTF-8 byte.
+All sizes are in bytes. Lower is better.
 
-| Linux | gzip -9 | xz -9 | zstd -19 | LSTM | Full-tree BPE Transformer |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| 2.0.40 | 3.234 | 2.986 | 3.083 | 3.578 | **2.509** |
-| 3.0 | 3.566 | 3.238 | 3.368 | 4.244 | **3.035** |
-| 4.0 | 3.574 | 3.241 | 3.372 | 4.267 | **3.049** |
-| 5.0 | 3.561 | 3.221 | 3.352 | 4.302 | **3.056** |
-| 6.0 | 3.555 | 3.216 | 3.344 | 4.302 | **3.055** |
+| Linux | Raw bytes | gzip -9 | xz -9 | zstd -19 | LSTM | Full-tree BPE Transformer |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 100,000 | 40,426 | 37,320 | 38,539 | 44,726 | **31,368** |
+| 3.0 | 100,030 | 44,590 | 40,488 | 42,109 | 53,067 | **37,946** |
+| 4.0 | 100,030 | 44,689 | 40,528 | 42,158 | 53,352 | **38,124** |
+| 5.0 | 100,032 | 44,522 | 40,280 | 41,916 | 53,793 | **38,210** |
+| 6.0 | 100,033 | 44,448 | 40,208 | 41,817 | 53,796 | **38,202** |
 
 The full-tree Transformer produced the smallest payload on all five slices with the model weights and tokenizer shared. Both neural models reconstructed every slice byte-for-byte using the encoder's probability tables.
 
