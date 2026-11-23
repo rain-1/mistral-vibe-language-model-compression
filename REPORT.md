@@ -1,7 +1,9 @@
-# 🐧 Linux Kernel Char-Level Language Models — LSTM vs Transformer
-### *Trained on Linux 3.0 source in under an hour on a laptop, evaluated across five kernel generations, and used as neural compressors.*
+# 🐧 Linux Kernel Language Models — LSTM vs Transformer
+### *Character-level and BPE models trained on Linux 3.0 and evaluated across five kernel generations.*
 
 **Author:** Mistral Vibe · **Date:** 2025-11-23 · **Hardware:** 8-core CPU, 15 GB RAM, PyTorch 2.15 (CPU)
+
+The follow-up BPE experiment ran on an RTX 2060. [Full benchmark tables and methods](BPE_FULL_BENCHMARK.md)
 
 ---
 
@@ -17,6 +19,8 @@ Official tarballs from kernel.org, all source text (`.c/.h/.S`, Kconfig, Makefil
 | 5.0 | eval | 801M |
 | 6.0 | eval | 1.27B |
 
+The full-tree BPE run used 34,675 Linux 3.0 source files (399.6 MB, 188.35 million BPE tokens) and reserved 358 files by path for validation. The previous BPE run used the first 3 million characters of the corpus.
+
 ## 2. Models
 
 | | LSTM | Transformer (streamed) | Transformer (matched) |
@@ -25,6 +29,8 @@ Official tarballs from kernel.org, all source text (`.c/.h/.S`, Kconfig, Makefil
 | context | 100 chars | 256 chars | 256 chars |
 | data seen in 50 min | full 3.0 stream (~2.8M chars) | full 3.0 stream (~2.5M chars) | first 3M chars, many epochs |
 | final train PPL | ~40s, still falling | 17.3 | **9.76** |
+
+The full-tree Transformer trained from scratch with the existing 4,000-token BPE vocabulary, six layers, width 384, eight heads, and a 256-token context. It completed one pass over the training split in 45,984 optimizer steps, about 31 minutes on the RTX 2060.
 
 ![Training PPL](training_ppl.png)
 
@@ -41,6 +47,18 @@ Official tarballs from kernel.org, all source text (`.c/.h/.S`, Kconfig, Makefil
 versions (flat ~10 PPL) than the LSTM, which overfits to 3.0-era style and degrades on newer
 kernels. Temporal proximity helps the LSTM only on 2.0.
 
+### BPE Transformer perplexity
+
+| Linux | Previous BPE | Full-tree BPE |
+| --- | ---: | ---: |
+| 2.0.40 | 127.69 | **64.77** |
+| 3.0 | 28.26 | **26.22** |
+| 4.0 | 30.23 | **25.36** |
+| 5.0 | 36.81 | **26.92** |
+| 6.0 | 43.58 | **28.54** |
+
+These results use the first 300,000 characters of each corpus and are measured per BPE token. The character-level results above measure perplexity per character. Linux 3.0 is the training version, and kernel releases can share source. On a separate sample of 256 windows from the Linux 3.0 validation files, perplexity fell from 131.31 to 6.04. Four validation files also appeared in the old BPE training slice. The full-tree run changed both the amount of data and the number of training steps.
+
 ## 4. Generated samples (prompt: `static int __init ` / `static void `)
 
 Two 1200-char samples per model at temp 0.5 + top-k 40 are appended at the end of this
@@ -48,8 +66,29 @@ report (`samples.md`). The LSTM produces the most code-like output; the transfor
 after continued training (train PPL 7.99) — tends to collapse into repetitive token loops,
 a classic small-char-LM failure mode where held-out PPL (~10) overstates sample coherence.
 
-A **BPE-tokenized transformer** (vocab 4000, same architecture/data, 50 min, train PPL ~118)
-produces far more word-like output — see `samples_bpe.md`, appended below.
+The first BPE Transformer used a 4,000-token vocabulary and trained for 50 minutes. Its samples are appended below.
+
+### Full-tree BPE samples
+
+The full-tree model produced more recognizable C on both original prompts. With the same seed, temperature 0.7, and top-k 40, the init sample emitted an init/exit pair and `module_init`, with seven identical registration calls. The `static void` sample began with a function body and degenerated into a chain of `port->port` accesses. The archived LSTM samples also repeated, with a long whitespace run on one prompt and a sequence of `#include` directives on the other. The LSTM samples used temperature 0.5.
+
+Ten further completions used seeds 17 and 42 across five prompts. On the platform probe prompt, seed 42 generated this excerpt before repeating `.dma_addr[i]`:
+
+```c
+static int device_probe(struct platform_device *pdev)
+{
+	int retval;
+	int i;
+
+	for (i = 0; i < ARRAY_SIZE(dev->name); i++) {
+		if (dev->dev) {
+			dev_err(&pdev->dev, "can't register resource\n");
+			return -EINVAL;
+		}
+	}
+```
+
+The same seed on `static int __init` repeated `__init` for the full completion. A descriptive interrupt-registration comment still led to repetition. [Matched old and new BPE samples](samples_bpe_full_comparison.md) · [Ten additional full-tree samples](samples_bpe_full_extra.md) · [Archived LSTM samples](samples.md)
 
 ## 5. Compression
 
@@ -79,6 +118,18 @@ Neural columns are extrapolated from a 100k-char slice (bits/char × tree size):
 Neural coders land at ~1.5–2.3x — consistent with their perplexities — but xz -9 (~1.2
 bits/char) remains the king. A one-hour CPU-trained char model is a baseline, not a contender.
 
+### Full-tree BPE compression
+
+| Linux | Previous BPE bits/byte | Full-tree BPE bits/byte | xz -9 bits/byte on same slice |
+| --- | ---: | ---: | ---: |
+| 2.0.40 | 2.682 | **2.509** | 2.986 |
+| 3.0 | **2.973** | 3.035 | 3.238 |
+| 4.0 | **2.987** | 3.049 | 3.241 |
+| 5.0 | **3.010** | 3.056 | 3.221 |
+| 6.0 | **3.025** | 3.055 | 3.216 |
+
+The 100,000-character slices reconstructed byte-for-byte using the encoder's probability tables. The measurements include arithmetic coding, framing, and any bytes needed to repair tokenizer losses. They assume shared model weights and tokenizer. The full-tree model used about 26–27% fewer bits than the historical LSTM on these slices. The existing whole-tree xz archives were 1.9–3.9× smaller than the full-tree BPE projections from the same prefixes. [Compression details, gzip and zstd results, and whole-tree projections](BPE_FULL_BENCHMARK.md#compression-on-the-first-100000-characters)
+
 ## 6. Reproduce
 
 ```bash
@@ -88,6 +139,14 @@ python3 train_gpt_matched.py # transformer, matched slice
 python3 eval.py / eval_gpt_matched.py
 python3 compress_lstm.py / compress_gpt.py
 python3 plot.py              # training_ppl.png
+```
+
+For the full-tree experiment, run these commands with CUDA PyTorch, NumPy, and Tokenizers, using the original Linux 3.0 source archive and corpus text files.
+
+```bash
+python3 train_bpe_full.py --prepare linux-3.0.tar.xz
+python3 train_bpe_full.py --baseline model_bpe.pt
+python3 eval_bpe_full.py . model_bpe_full.pt model_bpe.pt
 ```
 
 ---
