@@ -1,0 +1,13 @@
+
+
+
+/home/riv/kernels/train_bpe.py:24: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.tr = nn.TransformerEncoder(layer, NLAYERS); self.fc = nn.Linear(EMB, V)
+vocab 4000 tokens 998878
+step 100 loss 6.6388 ppl 764.20 elapsed 447s tok/s 1832
+step 200 loss 5.7177 ppl 304.20 elapsed 897s tok/s 1826
+step 300 loss 5.2918 ppl 198.69 elapsed 1345s tok/s 1827
+step 400 loss 4.9948 ppl 147.64 elapsed 1792s tok/s 1829
+step 500 loss 4.7729 ppl 118.26 elapsed 2241s tok/s 1828
+step 600 loss 4.5996 ppl 99.45 elapsed 2691s tok/s 1827
+DONE 669
