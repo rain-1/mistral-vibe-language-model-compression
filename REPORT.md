@@ -58,16 +58,16 @@ static int __init mtd0(struct ieee80211_req_conn *phy_priv);
 
 ### System tools (whole tree, tar + compressor)
 
-| tree | raw | gzip -9 | **xz -9** | zstd -19 | neural LSTM* | neural GPT* |
+| tree | raw | gzip -9 | **xz -9** | zstd -19 | LSTM neural, whole tree (est.) | GPT neural, whole tree (est.) |
 |---|---|---|---|---|---|---|
-| 2.0.40 | 29.6 MB | 7.3 MB | **5.0 MB** | 5.2 MB | **0.043 MB** | 0.059 MB |
-| 3.0 | 421 MB | 94.1 MB | **61.5 MB** | 65.6 MB | **0.051 MB** | 0.064 MB |
-| 4.0 | 551 MB | 121.1 MB | **78.9 MB** | 83.8 MB | **0.052 MB** | 0.065 MB |
-| 5.0 | 813 MB | 158.7 MB | **100.5 MB** | 106.9 MB | **0.052 MB** | 0.065 MB |
-| 6.0 | 1.28 GB | 208.9 MB | **123.7 MB** | 132.9 MB | **0.052 MB** | 0.065 MB |
+| 2.0.40 | 29.6 MB | 7.3 MB | **5.0 MB** | 5.2 MB | 11.9 MB | 16.2 MB |
+| 3.0 | 421 MB | 94.1 MB | **61.5 MB** | 65.6 MB | 207 MB | 260 MB |
+| 4.0 | 551 MB | 121.1 MB | **78.9 MB** | 83.8 MB | 275 MB | 343 MB |
+| 5.0 | 813 MB | 158.7 MB | **100.5 MB** | 106.9 MB | 417 MB | 520 MB |
+| 6.0 | 1.28 GB | 208.9 MB | **123.7 MB** | 132.9 MB | 664 MB | 824 MB |
 
-\* neural columns: arithmetic coding with the respective model on a 100k-char slice of the
-corpus (≈3.4–5.2 bits/char; 100k raw chars ≈ 0.095 MB). System columns are whole-tree archives.
+Neural columns are extrapolated from a 100k-char slice (bits/char × tree size): LSTM
+3.45–4.17 bits/char, GPT 4.71–5.20 bits/char. xz -9 (~1.2 bits/char) beats both by ~3–5x.
 
 ### Neural compression (arithmetic coding with model probabilities, 100k chars each)
 
