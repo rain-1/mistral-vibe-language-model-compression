@@ -1,0 +1,11 @@
+vocab 116, train chars 3000000
+/home/riv/kernels/train_gpt_matched.py:19: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.tr = nn.TransformerEncoder(layer, NLAYERS)
+step 100 loss 3.1033 ppl 22.27 elapsed 419s chars/s 1957
+step 200 loss 2.7700 ppl 15.96 elapsed 835s chars/s 1962
+step 300 loss 2.6738 ppl 14.49 elapsed 1245s chars/s 1974
+step 400 loss 2.5650 ppl 13.00 elapsed 1654s chars/s 1981
+step 500 loss 2.4579 ppl 11.68 elapsed 2066s chars/s 1983
+step 600 loss 2.3551 ppl 10.54 elapsed 2475s chars/s 1986
+step 700 loss 2.2783 ppl 9.76 elapsed 2902s chars/s 1976
+DONE steps 723 elapsed 3002s

@@ -1,0 +1,5 @@
+linux-2.0.40: LSTM-arithmetic 0.043 MB / 99999 chars = 3.446 bits/char (ratio 2.32x) [12s]
+linux-3.0: LSTM-arithmetic 0.051 MB / 99999 chars = 4.113 bits/char (ratio 1.95x) [11s]
+linux-4.0: LSTM-arithmetic 0.052 MB / 99999 chars = 4.136 bits/char (ratio 1.93x) [12s]
+linux-5.0: LSTM-arithmetic 0.052 MB / 99999 chars = 4.171 bits/char (ratio 1.92x) [12s]
+linux-6.0: LSTM-arithmetic 0.052 MB / 99999 chars = 4.172 bits/char (ratio 1.92x) [12s]

@@ -1,0 +1,7 @@
+/home/riv/kernels/compress_gpt.py:12: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  tr = nn.TransformerEncoder(layer, NLAYERS); fc = nn.Linear(EMB, V)
+linux-2.0.40: GPT-arithmetic 0.059 MB / 99999 chars = 4.705 bits/char (ratio 1.70x) [14s]
+linux-3.0: GPT-arithmetic 0.064 MB / 99999 chars = 5.146 bits/char (ratio 1.55x) [12s]
+linux-4.0: GPT-arithmetic 0.065 MB / 99999 chars = 5.163 bits/char (ratio 1.55x) [13s]
+linux-5.0: GPT-arithmetic 0.065 MB / 99999 chars = 5.194 bits/char (ratio 1.54x) [14s]
+linux-6.0: GPT-arithmetic 0.065 MB / 99999 chars = 5.195 bits/char (ratio 1.54x) [14s]

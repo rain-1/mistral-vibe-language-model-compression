@@ -1,0 +1,34 @@
+/home/riv/kernels/eval_gpt_matched.py:9: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  tr = nn.TransformerEncoder(layer, NLAYERS); fc = nn.Linear(EMB, V)
+linux-2.0.40: PPL 10.00 (300000 chars eval)
+linux-4.0: PPL 9.61 (300000 chars eval)
+linux-5.0: PPL 10.01 (300000 chars eval)
+linux-6.0: PPL 10.42 (300000 chars eval)
+
+--- samples ---
+
+=== temp 0.5 ===
+static int __init stret and the the the pareces device and is a the a conterfor as
+are in tres the resceated and in the the dentiver the de cand the
+the is a as add steren a see the for the semem more are in the set as ind
+alle in the the the stach the sout wach she whach parese and setion
+(seeect) amend for exation the deeving to the devices int as
+cont in the the syould ints on the the faters the is a is the cann
+
+=== temp 0.8 ===
+static int __init bete for for is addifers of of the mene shing
+the kcoperned the whin tht whin sect the can are explocks in a sue the
+ind indis achomborer, sticts sys. The with an systeemem id are sof ased and use se
+be in ansed befor musing or the seache seering in the "ment ans eminstemons
+   waitilly wis acked the sememanctions is sechor semchtm up ble keching that
+ *  Exa sews, athe apploce-ed ares whit osh ki
+
+=== temp 1.0 ===
+static int __init ite();
+Tal io remar utres trond in ask saticonly ins, conled the and aloataraturnd vers as
+of the dionter fess us in t agnctee in enacherats and fand sparcese is the ffor
+driver bers a whos shecing lon les on alls to adilased the sy. Yurzboat esvees an uner to llock iss whi enet int dofed oen, nhand)
+thebse 2ys" int pring is an.    Cnit hreade sation. Devir
+ the as in f " retpeoons. Seteviding."
+
+

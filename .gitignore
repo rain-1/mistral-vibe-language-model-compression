@@ -1,0 +1,6 @@
+linux-*/
+*.tar.*
+comp/
+corpus_*.txt
+__pycache__/
+get-pip.py

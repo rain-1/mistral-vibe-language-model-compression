@@ -1,0 +1,52 @@
+/home/riv/kernels/eval_gpt.py:9: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  tr = nn.TransformerEncoder(layer, NLAYERS); fc = nn.Linear(EMB, V)
+linux-2.0.40: PPL 21.33 (300000 chars eval)
+linux-4.0: PPL 40.76 (300000 chars eval)
+linux-5.0: PPL 40.45 (300000 chars eval)
+linux-6.0: PPL 39.98 (300000 chars eval)
+
+--- samples ---
+
+=== temp 0.5 ===
+static int __init * inone torut it n it it  vot ion ive                                                                                                       *                                                                                                                                                                                                                                                                   
+
+=== temp 0.8 ===
+static int __init p wot */
+
+	if  = 1IFIB_F  (Cutimb s->pmestxffiou) itot(()) f)) (lor) (pt)
+ & ade ion p  = (s olag) F_C_ORFS_s);
+}
+}
+	if   &plindutalelo_be;
+
+/*/** itind (ctt iopup ste s tooun_s * ust mauntopt * devuitereatit  * rt */
+ */
+ *othid in to rin c t ilotow unnste */
+ */
+  l ct n ine omale ptiff thignofgint  uf, sel sm  s  umis butor  *  one ns igu coiberuped     t  at: oprabube t,  @ na t  f inge    .  
+
+=== temp 1.0 ===
+static int __init te(it_poctov, ugo_vbio_pis) er;
+	itrue = 06_was2
+		= rernnge_i;
+
+}
+
+st_ock(vla, < cha_or);
+}
+	inifoudstH_matasta cururuegagi_b; a_S_inatt itdre Bad(sen &dd) rotrosctiuet (lorosctnurt->tes.lurut fl_q_ret(pr);
+
+
+s = v);
+{
+	paspodetespt (bl uc_ta == ->scuss b; |=  f ++;
+	pt;
+	a[bif 0;
+	fyfrid ale_ign32_gpufstere;
+	r__rbl;
+}
+
+	icyse_eapy_p__us-C32c */*/oruc HITY;
+};
+statuct rero_B_llag
+/*stodlat sstua

@@ -1,0 +1,2 @@
+vocab 1750, train chars 403378988
+step 200 loss 3.9891 ppl 54.01 elapsed 1028s chars/s 934

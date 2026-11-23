@@ -1,0 +1,20 @@
+vocab 1750, train chars 403378988
+step 200 loss 3.3474 ppl 28.43 elapsed 189s chars/s 3392
+step 400 loss 2.4286 ppl 11.34 elapsed 384s chars/s 3334
+step 600 loss 2.1710 ppl 8.77 elapsed 614s chars/s 3127
+step 800 loss 2.0516 ppl 7.78 elapsed 835s chars/s 3064
+step 1000 loss 1.9115 ppl 6.76 elapsed 1139s chars/s 2809
+step 1200 loss 1.8762 ppl 6.53 elapsed 1325s chars/s 2897
+step 1400 loss 1.8155 ppl 6.14 elapsed 1521s chars/s 2946
+step 1600 loss 1.7741 ppl 5.89 elapsed 1680s chars/s 3048
+step 1800 loss 1.7618 ppl 5.82 elapsed 1818s chars/s 3168
+step 2000 loss 1.7598 ppl 5.81 elapsed 1925s chars/s 3325
+step 2200 loss 1.7138 ppl 5.55 elapsed 2065s chars/s 3409
+step 2400 loss 1.6951 ppl 5.45 elapsed 2229s chars/s 3445
+step 2600 loss 1.6584 ppl 5.25 elapsed 2385s chars/s 3489
+step 2800 loss 1.6424 ppl 5.17 elapsed 2521s chars/s 3554
+step 3000 loss 1.6573 ppl 5.25 elapsed 2669s chars/s 3597
+step 3200 loss 1.6484 ppl 5.20 elapsed 2774s chars/s 3691
+step 3400 loss 1.6039 ppl 4.97 elapsed 2879s chars/s 3779
+step 3600 loss 1.6170 ppl 5.04 elapsed 2986s chars/s 3859
+DONE steps 3627 elapsed 3001s
