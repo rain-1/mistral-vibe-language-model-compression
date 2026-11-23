@@ -1,0 +1,10 @@
+/home/riv/kernels/train_gpt_cont.py:15: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.tr = nn.TransformerEncoder(layer, NLAYERS); self.fc = nn.Linear(EMB, V)
+step 100 loss 2.1778 ppl 8.83 elapsed 440s
+step 200 loss 2.1548 ppl 8.63 elapsed 856s
+step 300 loss 2.1371 ppl 8.47 elapsed 1261s
+step 400 loss 2.1137 ppl 8.28 elapsed 1668s
+step 500 loss 2.0784 ppl 7.99 elapsed 2077s
+step 600 loss 2.0679 ppl 7.91 elapsed 2487s
+step 700 loss 2.0353 ppl 7.65 elapsed 2897s
+DONE steps 726
