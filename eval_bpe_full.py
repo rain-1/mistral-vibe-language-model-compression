@@ -1,4 +1,4 @@
-"""Benchmark both BPE checkpoints on the original kernel corpus prefixes."""
+"""Benchmark BPE checkpoints and LSTM compression on the kernel corpus prefixes."""
 
 import argparse
 from bisect import bisect_right
@@ -19,6 +19,7 @@ QUARTER = HALF >> 1
 MASK = (HALF << 1) - 1
 TOTAL = 1 << 24
 HEADER = struct.Struct(">IIIII")
+LSTM_SEQUENCE = 100
 
 
 class ArithmeticStream:
@@ -112,17 +113,15 @@ def perplexity(model, ids, device):
 
 
 @torch.inference_mode()
-def compression(model, tokenizer, text, device):
-    ids = tokenizer.encode(text).ids
-    vocab = tokenizer.get_vocab_size()
+def compression(model, ids, vocab, restore_text, text, device, sequence):
     uniform = np.arange(vocab + 1, dtype=np.int32)
     decoded = []
     chunks = []
-    for offset in range(0, len(ids), 16 * SEQUENCE):
-        block = ids[offset:offset + 16 * SEQUENCE]
+    for offset in range(0, len(ids), 16 * sequence):
+        block = ids[offset:offset + 16 * sequence]
         # Padding follows all real tokens in each row and is causally invisible.
-        padded = block + [0] * (-len(block) % SEQUENCE)
-        inputs = torch.tensor(padded, device=device).view(-1, SEQUENCE)
+        padded = block + [0] * (-len(block) % sequence)
+        inputs = torch.tensor(padded, device=device).view(-1, sequence)
         cdf = model(inputs[:, :-1]).softmax(-1).cumsum(-1)
         cdf = (cdf * (TOTAL - vocab)).round().to(torch.int32)
         cdf += torch.arange(1, vocab + 1, dtype=torch.int32, device=device)
@@ -130,7 +129,7 @@ def compression(model, tokenizer, text, device):
         cdf = torch.nn.functional.pad(cdf, (1, 0)).cpu().numpy()
         rows = []
         for index, boundaries in enumerate(cdf):
-            remaining = min(SEQUENCE, len(block) - index * SEQUENCE)
+            remaining = min(sequence, len(block) - index * sequence)
             rows.append(uniform)
             rows.extend(boundaries[:remaining - 1])
         payload = encode(block, rows)
@@ -140,7 +139,7 @@ def compression(model, tokenizer, text, device):
     if decoded != ids:
         raise RuntimeError("Arithmetic token round trip failed")
     original = text.encode("utf-8")
-    reconstructed = tokenizer.decode(decoded).encode("utf-8")
+    reconstructed = restore_text(decoded).encode("utf-8")
     position, remove, patch = byte_patch(reconstructed, original)
     # Count the header, payload length per batch, byte padding, and repair bytes.
     archive = HEADER.pack(len(ids), len(chunks), position, remove, len(patch))
@@ -158,12 +157,14 @@ def compression(model, tokenizer, text, device):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("corpus_dir", type=Path)
-    parser.add_argument("checkpoints", nargs="+", type=Path)
+    parser.add_argument("checkpoints", nargs="*", type=Path)
+    parser.add_argument("--lstm", type=Path, help="character LSTM compression checkpoint")
     parser.add_argument("--tokenizer", type=Path, default=Path("bpe_tokenizer.json"))
     parser.add_argument("--device", default="cuda")
     args = parser.parse_args()
+    if not args.checkpoints and args.lstm is None:
+        parser.error("provide a BPE checkpoint or --lstm")
     torch.set_num_threads(4)
-    tokenizer = Tokenizer.from_file(str(args.tokenizer))
     texts = {}
     for version in VERSIONS:
         with (args.corpus_dir / f"corpus_{version}.txt").open(encoding="utf-8") as file:
@@ -171,15 +172,51 @@ def main():
 
     print("checkpoint,step,version,ppl,raw_bytes,coded_bytes,patch_bytes,bits_per_byte", flush=True)
     for path in args.checkpoints:
+        tokenizer = Tokenizer.from_file(str(args.tokenizer))
         checkpoint = torch.load(path, map_location="cpu", weights_only=True)
         model = Transformer(tokenizer.get_vocab_size()).to(args.device).eval()
         model.load_state_dict(checkpoint["sd"])
         for version, text in texts.items():
             ppl = perplexity(model, tokenizer.encode(text).ids, args.device)
-            raw, coded, patch = compression(model, tokenizer, text[:100_000], args.device)
+            prefix = text[:100_000]
+            raw, coded, patch = compression(
+                model, tokenizer.encode(prefix).ids, tokenizer.get_vocab_size(),
+                tokenizer.decode, prefix, args.device, SEQUENCE,
+            )
             print(
                 f"{path.name},{checkpoint.get('step', '')},{version},{ppl:.6f},"
                 f"{raw},{coded},{patch},{8 * coded / raw:.6f}",
+                flush=True,
+            )
+
+    if args.lstm is not None:
+        checkpoint = torch.load(args.lstm, map_location="cpu", weights_only=True)
+        chars = checkpoint["itos"]
+        lookup = {char: index for index, char in enumerate(chars)}
+        unknown = lookup["<unk>"]
+        width, hidden, layers = checkpoint["cfg"]
+        emb = torch.nn.Embedding(len(chars), width).to(args.device).eval()
+        lstm = torch.nn.LSTM(width, hidden, layers, batch_first=True).to(args.device).eval()
+        fc = torch.nn.Linear(hidden, len(chars)).to(args.device).eval()
+        emb.load_state_dict(checkpoint["emb"])
+        lstm.load_state_dict(checkpoint["lstm"])
+        fc.load_state_dict(checkpoint["fc"])
+
+        def predict(inputs):
+            hidden_states, _ = lstm(emb(inputs))
+            return fc(hidden_states)
+
+        def restore(ids):
+            return "".join(chars[index] for index in ids)
+
+        for version, text in texts.items():
+            prefix = text[:100_000]
+            ids = [lookup.get(char, unknown) for char in prefix]
+            raw, coded, patch = compression(
+                predict, ids, len(chars), restore, prefix, args.device, LSTM_SEQUENCE,
+            )
+            print(
+                f"{args.lstm.name},,{version},,{raw},{coded},{patch},{8 * coded / raw:.6f}",
                 flush=True,
             )
 

@@ -90,17 +90,35 @@ static int device_probe(struct platform_device *pdev)
 
 The same seed on `static int __init` repeated `__init` for the full completion. A descriptive interrupt-registration comment still led to repetition. [Matched old and new BPE samples](samples_bpe_full_comparison.md) · [Ten additional full-tree samples](samples_bpe_full_extra.md) · [Archived LSTM samples](samples.md)
 
-## 5. Full-tree BPE Transformer compression
+## 5. Compression
 
-| Linux | Raw slice bytes | Compressed slice bytes | Bits per UTF-8 byte | Whole-tree estimate (MiB) |
-| --- | ---: | ---: | ---: | ---: |
-| 2.0.40 | 100,000 | 31,368 | 2.509 | 9.4 |
-| 3.0 | 100,030 | 37,946 | 3.035 | 163.2 |
-| 4.0 | 100,030 | 38,124 | 3.049 | 214.4 |
-| 5.0 | 100,032 | 38,210 | 3.056 | 314.5 |
-| 6.0 | 100,033 | 38,202 | 3.055 | 488.2 |
+### Measured on the same 100,000-character slices
 
-Each measurement uses the first 100,000 characters of the corpus. All five slices reconstructed byte-for-byte using the encoder's probability tables. The measured sizes include arithmetic coding, framing, and repairs for tokenizer losses. They assume shared model weights and tokenizer. The whole-tree estimates apply the slice compression ratios to the uncompressed tar sizes. [Compression methods and standard compressor benchmarks](BPE_FULL_BENCHMARK.md#compression-on-the-first-100000-characters)
+Lower is better. Rates are in bits per UTF-8 byte.
+
+| Linux | gzip -9 | xz -9 | zstd -19 | LSTM | Full-tree BPE Transformer |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 3.234 | 2.986 | 3.083 | 3.578 | **2.509** |
+| 3.0 | 3.566 | 3.238 | 3.368 | 4.244 | **3.035** |
+| 4.0 | 3.574 | 3.241 | 3.372 | 4.267 | **3.049** |
+| 5.0 | 3.561 | 3.221 | 3.352 | 4.302 | **3.056** |
+| 6.0 | 3.555 | 3.216 | 3.344 | 4.302 | **3.055** |
+
+The full-tree Transformer produced the smallest payload on all five slices with the model weights and tokenizer shared. Both neural models reconstructed every slice byte-for-byte using the encoder's probability tables.
+
+### Whole-tree archives and neural projections
+
+Sizes are in MiB. gzip, xz, and zstd are measured tar archives. The LSTM and Transformer columns project each model's slice compression ratio to the raw tar size and exclude model weights. xz produced the smallest whole-tree archives measured here, and its archives are smaller than both neural projections.
+
+| Linux | Raw tar | gzip -9 | xz -9 | zstd -19 | LSTM est. | Full-tree BPE Transformer est. |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 30.0 | 7.3 | **5.0** | 5.2 | 13.4 | 9.4 |
+| 3.0 | 430.1 | 94.1 | **61.5** | 65.6 | 228.2 | 163.2 |
+| 4.0 | 562.7 | 121.1 | **78.9** | 83.8 | 300.1 | 214.4 |
+| 5.0 | 823.3 | 158.7 | **100.5** | 106.9 | 442.7 | 314.5 |
+| 6.0 | 1278.4 | 208.9 | **123.7** | 132.9 | 687.5 | 488.2 |
+
+[Benchmark methods and exact neural payload sizes](BPE_FULL_BENCHMARK.md#compression-on-the-first-100000-characters)
 
 ## 6. Reproduce
 
@@ -118,7 +136,7 @@ For the full-tree experiment, run these commands with CUDA PyTorch, NumPy, and T
 ```bash
 python3 train_bpe_full.py --prepare linux-3.0.tar.xz
 python3 train_bpe_full.py --baseline model_bpe.pt
-python3 eval_bpe_full.py . model_bpe_full.pt model_bpe.pt
+python3 eval_bpe_full.py . model_bpe_full.pt --lstm model.pt
 ```
 
 ---

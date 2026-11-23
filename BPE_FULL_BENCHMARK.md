@@ -18,32 +18,42 @@ Perplexity is per BPE token. Character-level perplexities from the original repo
 
 ## Compression on the first 100,000 characters
 
-Rates are measured in bits per UTF-8 byte. Each system compressor ran on the same slice as the full-tree BPE Transformer.
+Every method processed the same UTF-8 bytes. Rates are in bits per UTF-8 byte.
 
-| Linux | Full-tree BPE | gzip -9 | xz -9 | zstd -19 | Full-tree BPE bytes | Raw bytes |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 2.0.40 | 2.509 | 3.234 | 2.986 | 3.083 | 31,368 | 100,000 |
-| 3.0 | 3.035 | 3.566 | 3.238 | 3.368 | 37,946 | 100,030 |
-| 4.0 | 3.049 | 3.574 | 3.241 | 3.372 | 38,124 | 100,030 |
-| 5.0 | 3.056 | 3.561 | 3.221 | 3.352 | 38,210 | 100,032 |
-| 6.0 | 3.055 | 3.555 | 3.216 | 3.344 | 38,202 | 100,033 |
-
-The BPE benchmark arithmetic-codes all tokens, including the first token of each context window, and counts the packed payload, framing, and repair bytes. The Linux 5.0 and 6.0 slices each needed a two-byte repair for text the tokenizer could not represent. All five slices reconstructed byte-for-byte using the encoder's probability tables. The reported rates assume the model and tokenizer are shared. The benchmark does not independently regenerate the probability tables during decoding.
-
-## Whole-tree projection
-
-Sizes are in MiB. gzip, xz, and zstd sizes are measured from the existing tar archives. The Transformer projection multiplies each tree's raw tar size by its 100,000-character compressed-to-raw ratio. It is a projection from the prefix and excludes the model and tokenizer.
-
-| Linux | Raw tar | gzip -9 | xz -9 | zstd -19 | Full-tree BPE estimate |
+| Linux | gzip -9 | xz -9 | zstd -19 | LSTM | Full-tree BPE Transformer |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 2.0.40 | 30.0 | 7.3 | 5.0 | 5.2 | 9.4 |
-| 3.0 | 430.1 | 94.1 | 61.5 | 65.6 | 163.2 |
-| 4.0 | 562.7 | 121.1 | 78.9 | 83.8 | 214.4 |
-| 5.0 | 823.3 | 158.7 | 100.5 | 106.9 | 314.5 |
-| 6.0 | 1278.4 | 208.9 | 123.7 | 132.9 | 488.2 |
+| 2.0.40 | 3.234 | 2.986 | 3.083 | 3.578 | **2.509** |
+| 3.0 | 3.566 | 3.238 | 3.368 | 4.244 | **3.035** |
+| 4.0 | 3.574 | 3.241 | 3.372 | 4.267 | **3.049** |
+| 5.0 | 3.561 | 3.221 | 3.352 | 4.302 | **3.056** |
+| 6.0 | 3.555 | 3.216 | 3.344 | 4.302 | **3.055** |
 
-Run the [benchmark script](eval_bpe_full.py) on the training machine with both checkpoints and the original corpus prefixes available.
+### Exact neural payload sizes
+
+| Linux | Raw bytes | LSTM compressed bytes | Transformer compressed bytes |
+| --- | ---: | ---: | ---: |
+| 2.0.40 | 100,000 | 44,726 | 31,368 |
+| 3.0 | 100,030 | 53,067 | 37,946 |
+| 4.0 | 100,030 | 53,352 | 38,124 |
+| 5.0 | 100,032 | 53,793 | 38,210 |
+| 6.0 | 100,033 | 53,796 | 38,202 |
+
+The benchmark uses the same arithmetic coder for both models. It encodes every symbol, including the first symbol of each context window, and counts the packed payload, framing, and repair bytes. The LSTM uses its original 100-character windows. The Transformer uses 256-token windows. The Linux 5.0 and 6.0 Transformer slices each required a two-byte repair for text the BPE vocabulary could not represent. Both models reconstructed all five slices byte-for-byte using the encoder's probability tables. Sizes assume the model weights and vocabulary are shared.
+
+## Whole-tree archives and neural projections
+
+Sizes are in MiB. gzip, xz, and zstd sizes come from the existing tar archives. The neural columns multiply each tree's raw tar size by the model's measured slice compression ratio. The projections exclude model weights and vocabulary.
+
+| Linux | Raw tar | gzip -9 | xz -9 | zstd -19 | LSTM est. | Full-tree BPE Transformer est. |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2.0.40 | 30.0 | 7.3 | **5.0** | 5.2 | 13.4 | 9.4 |
+| 3.0 | 430.1 | 94.1 | **61.5** | 65.6 | 228.2 | 163.2 |
+| 4.0 | 562.7 | 121.1 | **78.9** | 83.8 | 300.1 | 214.4 |
+| 5.0 | 823.3 | 158.7 | **100.5** | 106.9 | 442.7 | 314.5 |
+| 6.0 | 1278.4 | 208.9 | **123.7** | 132.9 | 687.5 | 488.2 |
+
+Run the [benchmark script](eval_bpe_full.py) with the two model checkpoints and the original corpus prefixes.
 
 ```bash
-python eval_bpe_full.py /path/to/corpora model_bpe_full.pt model_bpe.pt
+python eval_bpe_full.py /path/to/corpora model_bpe_full.pt --lstm model.pt
 ```
