@@ -265,6 +265,20 @@ but references real kernel symbols the stub harness lacks. Treat the balanced-
 delimiter rate (81.8%) and exact-line match (30.4%) as the generation metrics;
 full kernel-tree compilation of generations is future work.
 
+## Conditional vs total compression (model/tokenizer overhead)
+
+All BPB numbers above are **conditional** (decoder has the model). Deployable
+model = state_dict only: 12.19M params → 48.8 MB fp32 / **24.4 MB fp16** (+0.25 MB
+tokenizer.json). The 146 MB `.pt` on disk additionally stores AdamW optimizer
+state — not needed for inference.
+
+Total BPB(N) = conditional_BPB + 8·(24.7 MB)/N. For small-16k (0.7075 conditional)
+vs xz-6 (1.51) on in-domain code: **crossover at N ≈ 250 MB** of corpus. At 1 GB:
+total ≈ 0.91 BPB (still beats xz); at 10 GB: ≈ 0.73. On the 6.9 MB val split the
+model cost dominates (total ≈ 29 BPB) — the model only pays off when compressing
+corpora much larger than itself. `evaluation/compression.py --model-bytes`
+prints this per run.
+
 ## Negative / limitation results (kept per methodology)
 
 - Looped transformer (n_loop=2): +1.5% BPB at equal tokens but 2× FLOPs → not a
