@@ -1,0 +1,36 @@
+device=cuda  run=tiny-bpe1024-4k
+model params: 3.41M
+step     0 | loss 7.5191 | lr 6.00e-06 | gnorm 4.37 | 28204 tok/s | 0.62 GB | 1.16s
+step    10 | loss 6.7516 | lr 6.60e-05 | gnorm 3.45 | 46979 tok/s | 0.65 GB | 0.70s
+step    20 | loss 6.1787 | lr 1.26e-04 | gnorm 1.54 | 85771 tok/s | 0.65 GB | 0.38s
+step    30 | loss 5.6671 | lr 1.86e-04 | gnorm 1.01 | 53199 tok/s | 0.65 GB | 0.62s
+step    40 | loss 5.4607 | lr 2.46e-04 | gnorm 0.75 | 70634 tok/s | 0.65 GB | 0.46s
+step    50 | loss 5.1741 | lr 3.06e-04 | gnorm 0.69 | 69463 tok/s | 0.65 GB | 0.47s
+step    60 | loss 5.0206 | lr 3.66e-04 | gnorm 0.59 | 69191 tok/s | 0.65 GB | 0.47s
+step    70 | loss 4.8858 | lr 4.26e-04 | gnorm 0.74 | 71937 tok/s | 0.65 GB | 0.46s
+step    80 | loss 4.6354 | lr 4.86e-04 | gnorm 0.78 | 70584 tok/s | 0.65 GB | 0.46s
+step    90 | loss 4.6665 | lr 5.46e-04 | gnorm 0.86 | 70338 tok/s | 0.65 GB | 0.47s
+step   100 | loss 4.3735 | lr 6.00e-04 | gnorm 0.80 | 68830 tok/s | 0.65 GB | 0.48s
+step   110 | loss 4.1737 | lr 6.00e-04 | gnorm 0.82 | 69095 tok/s | 0.65 GB | 0.47s
+step   120 | loss 4.1543 | lr 6.00e-04 | gnorm 0.82 | 97419 tok/s | 0.65 GB | 0.34s
+step   130 | loss 4.0192 | lr 6.00e-04 | gnorm 0.72 | 78530 tok/s | 0.65 GB | 0.42s
+step   140 | loss 3.8418 | lr 6.00e-04 | gnorm 1.07 | 72549 tok/s | 0.65 GB | 0.45s
+step   150 | loss 3.8620 | lr 6.00e-04 | gnorm 0.81 | 84702 tok/s | 0.65 GB | 0.39s
+step   160 | loss 3.7868 | lr 6.00e-04 | gnorm 0.85 | 89068 tok/s | 0.65 GB | 0.37s
+step   170 | loss 3.6798 | lr 6.00e-04 | gnorm 0.99 | 76728 tok/s | 0.65 GB | 0.43s
+step   180 | loss 3.7016 | lr 5.99e-04 | gnorm 0.90 | 83230 tok/s | 0.65 GB | 0.39s
+step   190 | loss 3.4772 | lr 5.99e-04 | gnorm 1.01 | 83873 tok/s | 0.65 GB | 0.39s
+step   200 | loss 3.5663 | lr 5.99e-04 | gnorm 0.99 | 82526 tok/s | 0.65 GB | 0.40s
+step   210 | loss 3.5045 | lr 5.99e-04 | gnorm 1.04 | 88283 tok/s | 0.65 GB | 0.37s
+step   220 | loss 3.3461 | lr 5.99e-04 | gnorm 1.16 | 84755 tok/s | 0.65 GB | 0.39s
+step   230 | loss 3.1680 | lr 5.99e-04 | gnorm 1.01 | 79000 tok/s | 0.65 GB | 0.41s
+step   240 | loss 3.3127 | lr 5.98e-04 | gnorm 0.85 | 97676 tok/s | 0.65 GB | 0.34s
+  >> val loss 3.3075  ppl 27.32
+step   250 | loss 3.3087 | lr 5.98e-04 | gnorm 0.98 | 90519 tok/s | 0.65 GB | 0.36s
+step   260 | loss 3.2381 | lr 5.98e-04 | gnorm 1.07 | 81749 tok/s | 0.65 GB | 0.40s
+step   270 | loss 3.2419 | lr 5.97e-04 | gnorm 1.19 | 86774 tok/s | 0.65 GB | 0.38s
+step   280 | loss 3.1941 | lr 5.97e-04 | gnorm 1.03 | 84668 tok/s | 0.65 GB | 0.39s
+step   290 | loss 3.1428 | lr 5.97e-04 | gnorm 0.89 | 87516 tok/s | 0.65 GB | 0.37s
+step   300 | loss 3.0191 | lr 5.97e-04 | gnorm 0.96 | 88050 tok/s | 0.65 GB | 0.37s
+step   310 | loss 2.9138 | lr 5.96e-04 | gnorm 0.98 | 86574 tok/s | 0.65 GB | 0.38s
+step   320 | loss 3.3054 | lr 5.96e-04 | gnorm 0.97 | 99301 tok/s | 0.65 GB | 0.33s

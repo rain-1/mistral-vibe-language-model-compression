@@ -1,0 +1,5 @@
+loaded checkpoints/tiny-loop2-8k/ckpt_008000.pt  params=4.20M step=7999 ctx=1024
+  val                      files=  600 toks=  2779824 ce=1.3897 ppl=    4.01 bpt=2.005 BPB=0.8925 ratio=8.96x
+  holdout_subsystem        files=  600 toks=  5969941 ce=1.7555 ppl=    5.79 bpt=2.533 BPB=1.2098 ratio=6.61x
+  holdout_driver           files=  600 toks=  5835533 ce=1.3073 ppl=    3.70 bpt=1.886 BPB=0.9016 ratio=8.87x
+saved -> results/eval/loop2_kernel.json

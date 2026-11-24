@@ -90,10 +90,14 @@ def main():
     ap.add_argument("--wandb-project", default="kernel-lm")
     ap.add_argument("--tokens-dir", default=str(DATA / "tokens"),
                     help="directory with train.bin/val.bin (allows tokenizer experiments)")
+    ap.add_argument("--vocab-size", type=int, default=None, help="override model vocab_size")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
     mc = ModelConfig.from_dict(cfg["model"])
+    if args.vocab_size:
+        mc.vocab_size = args.vocab_size
+        cfg["model"]["vocab_size"] = args.vocab_size
     tc = cfg["training"]
     if args.context:
         mc.context_length = args.context

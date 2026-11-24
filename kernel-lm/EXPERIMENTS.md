@@ -175,6 +175,19 @@ parameters beats more of the same** — consistent with Chinchilla scaling.
 (tiny-8k wall ~45 min at ~135k tok/s vs small-8k 70 min at ~62k tok/s, so at
 equal *wall-clock* the gap narrows; FLOPs-matched comparison still queued.)
 
+## E7b — Medium-8k (27.3M params, 262M tokens, 8×1024×4, 2.82 GB peak, 35.8k tok/s, ~2h)
+
+Equal-token scaling ladder at 262.1M tokens (val BPB):
+
+| params | val BPB | holdout_subsystem | holdout_driver | wall |
+|---:|---:|---:|---:|---:|
+| 4.2M (tiny-8k) | 0.907 | 1.225 | 0.924 | ~45 min |
+| 12.2M (small-8k) | 0.775 | 1.097 | 0.815 | ~70 min |
+| **27.3M (medium-8k)** | **0.713** | **1.048** | **0.773** | ~2h |
+
+Monotonic gains with params at fixed tokens; medium beats xz-6 (1.51) on val by
+**2.1x**. Diminishing per-param returns (4.2→12.2: −0.13 BPB; 12.2→27.3: −0.06).
+
 ## E8 — Context sweep at equal tokens (262.1M): small ctx512 vs ctx1024
 
 small-ctx512-16k: 16×512×2 = 16,384 tok/step × 16000 steps = 262.1M tokens,
@@ -210,11 +223,24 @@ exact-line 28.4%, token-acc 51.6%, balanced 79.7%; sampled t=0.8: 25.7% exact.
 
 ## Planned next
 
-- E7: eval small-8k (kernel val/holdouts, 12 external repos, temporal v6.12)
-- E8: tiny model per tokenizer vocab (512…16384), equal steps — BPB vs vocab
-- E9: context-length sweep (256…2048) at fixed tokens
-- E10: lexical loss breakdown (evaluation/lexical_analysis.py) + generation eval
-- E11: cross-subsystem generalization matrix
-- E12: architecture variants (deep-vs-wide, shared layers, recurrent) at equal
-  params and equal FLOPs; pointer/copy mechanism for identifiers
-- E13: near-duplicate function detection (LSH) for contamination audit
+## E11 — Looped transformer: tiny-loop2 (4 layers × n_loop=2, 8.4M params, 262M tokens)
+
+Same architecture as tiny-8k but each block stack applied twice per forward
+(2× FLOPs/token). Result at equal 262.1M tokens:
+
+| corpus | tiny-8k (loop1) BPB | tiny-loop2 BPB |
+|---|---:|---:|
+| val | 0.9070 | **0.8925** |
+| holdout_subsystem | 1.2254 | **1.2098** |
+| holdout_driver | 0.9244 | **0.9016** |
+
+Looping gives a small gain at equal tokens (~1.5%), but costs 2× compute — at
+equal FLOPs (loop2 trained on half the tokens) it would lose. **Verdict: recurrent
+looping is not a per-FLOP win at this scale** (parameter-matched comparison still
+possible with 8-layer loop1 vs 4-layer loop2).
+
+- E11b: tiny model per tokenizer vocab (1024, 16384 token arrays ready), 4000 steps
+- E12: tiny model per tokenizer vocab (1024, 16384 token arrays ready), equal steps
+- E13: cross-subsystem generalization matrix (train per subsystem)
+- E14: small ctx2048 (4×2048, 4000 steps = 262M tokens) vs ctx1024
+- E15: compile-based generation eval (evaluation/compile_eval.py, gcc -fsyntax-only)

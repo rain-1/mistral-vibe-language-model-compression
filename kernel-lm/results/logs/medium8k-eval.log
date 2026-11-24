@@ -1,0 +1,5 @@
+loaded checkpoints/medium-8k/ckpt_008000.pt  params=27.27M step=7999 ctx=1024
+  val                      files=  600 toks=  2779824 ce=1.1103 ppl=    3.04 bpt=1.602 BPB=0.7131 ratio=11.22x
+  holdout_subsystem        files=  600 toks=  5969941 ce=1.5207 ppl=    4.58 bpt=2.194 BPB=1.0480 ratio=7.63x
+  holdout_driver           files=  600 toks=  5835533 ce=1.1201 ppl=    3.07 bpt=1.616 BPB=0.7725 ratio=10.36x
+saved -> results/eval/medium8k_kernel.json
