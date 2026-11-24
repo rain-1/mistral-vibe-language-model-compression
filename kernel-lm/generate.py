@@ -21,6 +21,7 @@ def main():
     ap.add_argument("--max-new-tokens", type=int, default=256)
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--top-k", type=int, default=50)
+    ap.add_argument("--repetition-penalty", type=float, default=1.0)
     ap.add_argument("--tokenizer", default=str(ROOT / "data" / "tokenizer.json"))
     args = ap.parse_args()
 
@@ -40,7 +41,8 @@ def main():
         text = sys.stdin.read() if False else "/*\n * "
     ids = tok.encode(text).ids
     idx = torch.tensor([ids], dtype=torch.long, device=device)
-    out = model.generate(idx, args.max_new_tokens, temperature=args.temperature, top_k=args.top_k)
+    out = model.generate(idx, args.max_new_tokens, temperature=args.temperature, top_k=args.top_k,
+                         repetition_penalty=args.repetition_penalty)
     print(tok.decode(out[0, len(ids):].tolist()))
 
 

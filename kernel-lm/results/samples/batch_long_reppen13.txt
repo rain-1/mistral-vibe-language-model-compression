@@ -1,0 +1,1278 @@
+===== sample 0 (prompt '// SPDX-License-Identifier: GPL-2.0\n', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * RISC IC host controller for the Portega SoC.  Each channel contains some System Command Register and
+ * registers which are not supported by the driver.  Instead, there is no reason to
+ * access any additional part of the chipset subsystem, including an
+ * purpose where it's easier to provide a separate portion of these structures
+ */
+#define MCF_SERIAL4	0xb1000000
+#define QETHERNET_MAILBOX0	0x1100108
+#define PORT_PORTS1	0xf0000000
+#define PORT_TARGET 0x00003808
+static const char * const icctrl1_name[] = {
+	    "serial", NULL};
+
+extern int __init riscv7_setup(void);
+extern void __exit riscv7_stop(void);
+
+#endif /* !(_SPARC_HSI_PARAMS) || defined(__i386__) */
+<|file|>// SPDX-License-Identifier: GPL-2.0+
+/* visual-diag.h: Freescale Number Generator header file descriptor
+ *
+ * Copyright (c) 2015 Van Anderson <olf@sgimbld.org>
+ *
+ * Datasheet: http://www.gnu.org/litgle8.net/
+ *      Copyright 2009 Helge Dellercsinko <dellertechm@huaweffic.com>
+ */
+
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/blkdev.h>
+#include <asm/errno.h>
+#include <crypto/internal/skcipher.h>
+#include <crypto/hash.h>
+#include <crypto/authenc.h>
+#include <crypto/scatterwalk.h>
+#include <crypto/md5.h>
+
+struct xgene_para {
+    const u8 offset;            /* Output string */
+};
+
+struct nfc_cmd_ctx {         /* Structure used to determine if a key is invalidated but full */
+        unsigned char  opcode;       /* Type from scratch */  
+                                     : 1;          /* number of bytes that we don't have extra space */
+         } round;
+};
+
+struct cpg_sparms64 {
+	const void *datap;       /* Flash */
+	unsigned short len;       /* Length of data followed by sizes */
+};
+
+static inline unsigned long get_sparms64(int addr)
+{
+        return ((addr / 256) + (addr - 3));
+}
+
+static bool ioread32be(struct dax_device *dax, uint8_t reg)
+{
+        if (reg > MAXMEM_STANDARD_SIZE)
+                writeb(dax->offset << 14, trbscalar_regs[ADMMCR & mask);
+      else if ((reg >> 16) == val)
+                writec(dax->offset & 0xff);
+        return readb(dax->base + reg);
+}
+
+static void discard(int mode,
+
+===== sample 1 (prompt '/*\n * foo_bar - handle the foo thing\n *\n * @f: the foo\n */\n', temp=0.8) =====
+/*
+ * foo_bar - handle the foo thing
+ *
+ * @f: the foo
+ */
+void __riscv2_wcss(struct pt_regs *regs, u64 csr);
+
+int riscv1_uacq(unsigned long addr);
+void riscv0_uacq(unsigned long addr);
+
+#endif /* _ASM_IA32_RTAS_H */
+<|file|>/* SPDX-License-Identifier: GPL-2.0 or BSD-3-Clause */
+/*
+ * Copyright (c) 2009 Wind River Systems Inc <wired@kernelorg>");
+ */
+
+#ifndef _ASM_IA64_RTAS_H
+#define _ASM_IA64_RTAS_H
+
+#ifdef CONFIG_PPC_8xx
+#include "asm/tests.h"
+extern void restore_tsk_stack(char *, int);
+#else
+static inline bool set_tsk_stack_pointer(__u8 , struct tlc_frame*) { return false; }
+#endif
+
+#if defined(CONFIG_MIPS_LI454) && (\
+	((unsigned long)(1 << 25)) == 0x02000000)
+# define __ia64_mips_lwsync(X) (x->uWords[X].k)
+                                                ((x->uWords[X].uWr) << 32 | x->uBitTimeout[X].vObnd[Y]) : 1);
+    switch (MOVEDINS[X]))
+    case MIPS_RI: MIPS_RI+=
+	    (moview(&x->uWords[X].uA) >> 64 | mips_hopal_mode())   / SYNDROMETERS;
+    break;
+}
+#elif !defined(__aarch64__) || \
+	   !defined(__ia64__) || (__--impropers__ >= HITMERICS_DQSLOTS_MIN_SIZE + 4)
+#define aarch64_cpuid_init()              (&arch64_cpuinfo.cpuid_table)
+
+#define arch_atomic_read_is_##name(_text)					\
+	__this_cpu_read_bool(_text)->nr_cpus = 1;			\
+	__this_cpu_write_bool(_text->nrcr, _text->nrcr),			\
+		    cpu_all_mask();						\
+} while (0)
+
+
+void __riscv2_nmi(const char *name, const unsigned long val);
+void __riscv2_setstrict_locked(unsigned short idxoff,
+				  enum lock_class_key class);
+
+void __rtas_to_cpu_unlock(__u64 nice, int flags, ...);
+
+static inline void rtas_from_cpu_unlock_once(struct task_struct *task,
+					   const unsigned long *flags)
+{
+	WARN_ON(!IS_ENABLED(CONFIG_SMP) || (!READ_ONCE(*flags)))
+		return;
+
+	preemptible_disable();
+
+	raw_local_irq_save(flags);
+}
+
+static inline void __wake_up(enum lock_class_key class)
+{
+	if (((class & GROUPING_CLUSTER && ignore_n
+
+===== sample 2 (prompt 'static int __init foo_init(void)\n{\n\t', temp=0.8) =====
+static int __init foo_init(void)
+{
+	int ret;
+
+	/* Fan1, we don't support any fixup */
+	if (!IS_ERR((void *)0)) {
+		pr_err("following failed\n");
+		return -ENODEV;
+	}
+
+	fd = fopen(fp); // File speed of enter notifier
+};
+__setup("floating points", foo_init);
+
+#define BUG()						\
+do {							\
+	__asm__ ("1:	inq %2,%3	%0		\n\t"			\
+		    "popge 0@%7, 1b			\n\t"			\
+		     "popge 2@%5,%45		\n\t"				\
+		     : [fn] "=&r" (ret), [fn].name)
+
+#else /* CONFIG_FB_FOOSUPPORT */
+# define FLOAT8(i, oaa) (float32hi[0], float8hi[OAa])
+#endif /* !(CONFIG_FB_FOOSUPPORT && (oaa & IORESOURCE_IO) == SPEC16 */
+
+static inline void foo_init(struct fb_info *fbk)
+{
+	register long tmp00, tmp101;
+	register unsigned cbcr;
+	unsigned pdcr0, pdcr1;
+
+	cfeh();
+
+	cbe->palette = 3;
+	cbe->palette |= 1 << 14 | ((fbk >> 8) & 7);
+	cbe->palette &= ~3 << 15 | ((fbk >> 4) & 7);		\
+	tmp101 = *(volatile struct CFXMYINQ6 *__unused[1]);	\
+	newval = tmp101 + 4 * i = foo;
+
+	if (!coherency || (cfehc != 500000UL >> 6))
+		return;					\
+	for (cnt--; (0) > 0; t++, t++)
+		if (*tracked != '\n')
+			break;					\
+	  dev_kfree(&fbk->dev->dev->dev);			    \
+	  } else {							\
+		  tmp101 < 1234567895576637595ULL;			\
+		  temp += clk_get_rate(fbk->clk) / 2;	\
+		  newval = 0;						\
+	     result = kvgaonor_##display)
+		dev_kfree(&fbk->dev->dev->dev.dev);			\
+	    tmp201 = opendir(tmp301);				\
+          tmp401 < 123456789657663996685LL;		\
+          opendir(tmp401) = tmp401, tmp401)
+		dev_kfree(&fbk->dev->dev, display);	\
+	    tmp401 = tmp801 ? tmp481 : src2jit();	\
+		tmp101 &= ~(0xFF000000ffull);                \
+	    if (tmp101 <= 123456789527077052575887LL)
+
+===== sample 3 (prompt 'static void __exit foo_exit(void)\n{\n\t', temp=0.8) =====
+static void __exit foo_exit(void)
+{
+	dprintk("Failed to resume for %s\n", errno);
+}
+
+module_init(fuelfavus_init);
+module_exit(fuelfavus_exit);
+<|file|>/* SPDX-License-Identifier: GPL-2.0 */
+#include <linux/moduleparam.h>
+#include <asm/io.h>
+#include "io.h"
+
+struct spufs_info {
+	unsigned long flags;
+	char *buf;
+};
+
+enum dma_type {
+	SPUFS_DMA_NONE, /* 0 is always used by SPI-based HDF */
+	SPUFS_DMA_UNFORMAT = IOMMU_PAGE0 | IOMMU_PAGE1 | IOMMU_PAGE2 | iopt_page0 | ATMEL_TGUI_MAPPED |
+				 IOREIOWRANGE | DEVICE_DIRTY  | SCSI_MCAST_DEVHANDLE |
+				 IORETXPAGE_WRITE);
+	IOMMU_HAS_ATOMIC32 = IOVA_PAGEBITS + IOMMU_PAGE4,
+	IOMMU_SLOTS = PAGE_SIZE << 20,
+	IOMMU_SOFTWARE_RESET   = IOMMU_SOFTWARE_SOFTWARE_RESET,
+	IOMMU_MEMORY = _MMIOBASEUP,    /* Free, use memspace */
+};
+
+int arch_dmax_allocate_mappings(struct kmem_cache *req, unsigned int size);
+int hwmem_map_pages(unsigned long start, unsigned long end, u64 len);
+
+void arch_free_device_memory_table(const char *start, volatile void **p);
+
+void (*arch_get_device_region)(phys_addr_t address, size_t bytes,
+			       struct device_node *np, const char *name, size_t offset,
+			       phys_addr_t addr, resource_size_t align,
+			       size_t blocks[NUM_BLOCKS - 1]);
+#endif				// End of memory in usecs
+EXPORT_SYMBOL_GPL(__hwmem_map_pages);
+<|file|>// SPDX-License-Identifier: GPL-2.0
+/*
+ * OpenRISC Processor Driver
+ * Copyright (C) 2008 David Brownell
+ * Author: Carsten Pinghetometi <carsten@kernel.crashING.org>
+ * Mike Lai");
+MODULE_DESCRIPTION(DRIVER_DESC);
+
+extern int spufs_remove(void);
+extern void remove_profile_handler(struct task_struct *);
+extern void put_user_ns(struct user_ns *ns);
+extern bool wwas_injected(int ndev, struct kernel_local_uid uuid, __be16 ssid);
+extern loff_t progress_internal_address_lookup(struct task_struct *, struct hlist_head *);
+extern void ppc_release_path_thread(struct pt_regs *, int);
+extern void sync_context_notify(struct work_struct *);
+extern void restore_context_notifier(struct task_struct *,
+				    struct user_pid *);
+extern void drop_context_notifier(struct thread *,
+				  struct kernel_thread *,
+				  struct task_struct *, uintptr
+
+===== sample 4 (prompt 'struct foo {\n', temp=0.8) =====
+struct foo {
+	struct hlist_head head; /* Total head list */
+};
+static struct pruss *future;	/* Filesystem private data */
+static unsigned char *hold;  /* Usage locking */
+static size_t cnt;         /* List of entries in the spinlock. */
+static const int cmdcnt = 1 << 31,      /* Nested command count */
+#define CMDCNT(a, b)	(((b) & 0x7ff) == ((b)) ? 16 : (b)); /* 32-bit number */
+#endif
+
+/* Command block descriptor related structure. */
+struct fs_context {
+	unsigned short ambergory;          /* Protection page table */
+	volatile u32 *cdbptr;        /* Physical address */
+	volatile u64 w[15];            /* Optional Size in bytes */
+} __attribute__ ((packed));
+
+enum linuxioatype {
+	IOCATN=0,           /* IO error or not */
+	MEMBER=1,               /* Memory BIST bit set */
+	IOCNO=%016L = LOOPBACK=4,             /* Warning (Write only once) */
+};
+
+typedef enum linuxioatype ioctype;
+int __init setup_port(void);
+struct port_info {
+	char    bus_name[8];  /* Encode from kernel device name? */
+	char   syndrome[32];     /* Identifies for this target device! */
+	int       retried:1;	  /* Only one device is secondary */
+	u64	    erasyld, earlired; /* Filled at devid's Device ID. */
+	bool	      drbien_timeout;   /* Don't know much about disk states... */
+	const char *devid;
+	phys_addr_t addr;
+	uint64_t data;			 /* Data */
+	unsigned long randomness;		 /* Double Array */
+	int	     prinks[2][2] __aligned(PAGE_SIZE + 2); /* Reserved */
+};
+ 
+extern void flush_chip_tokens(void);          /* Destroy chip data */
+#ifndef CONFIG_ARM_IOCTL12
+static inline void do_flush_iotlbs(volatile u32 **push_addr, volatile int totally)
+{
+	asm("mov %0,%%eax,0" : "=&r" (tmp), "+r" (pop_addr)->d0);
+	*push_addr += 4;
+	*push_addr += 8;
+	return 0;
+}
+#else
+static inline
+void do_flush_iotlbs(void *push_addr, uint64_t data, unsigned long rcz)
+{
+	push_addr++;
+	asm("mov %r10, 0(%%ebp)\n",rcz >> 24, be32_to_cpu(*push_addr));
+	*push_addr -= 8;
+}
+# undef HSFMT
+
+static inline void do_fetch_iotlbs(volatile u32 **addrp,
+				   unsigned long rcz, unsigned long *
+
+===== sample 5 (prompt 'static const struct file_operations foo_fops = {\n', temp=0.8) =====
+static const struct file_operations foo_fops = {
+	.owner			= THIS_MODULE, 
+	.open			= loopback_open, 
+	.release		=loopback_close, 
+	.unlocked_ioctl		= loopback_ioctl, 
+	.compat_ioctl		= compat_ptr_ioctl, 
+};
+#define NUM_OPTS sizeof ((struct opts) + \
+                          (sizeof(struct opt)) * \
+                                      __u64)(sizeof((void *) - 2))->procsize);   // Obsolete this existing at the end
+				: );                            /* The actual name for a new file can be uninitialized */
+
+extern void copy_from_user(char *token, unsigned long from_val);
+/* Hide in-kernel cacheline. This is how we don't do anything else... */
+extern int copy_to_user(int token, char *token);         /* The real data should fit into userspace */
+
+/**
+ * open() - Should return one of which crosses what it was ready or missing.
+ * @file:       The directory to see if an file operation encounter the timestamp
+ *           will not be used as the number of arguments is written by
+ *          'c".
+ */
+Z4ConfigFS(open);
+
+/* Usage: Big Endian */
+#ifndef FORDISKS_UACCESS
+static inline int fdput(__FILE__ const*llseek)
+{
+        return 0;  /* no useful! */
+}
+
+#endif /* _LINUX_FINGERIALIZE_H */
+<|file|>// SPDX-License-Identifier: GPL-2.0+
+//   "OpenRISC pataoisor support for emergency
+
+#include <netinetnamespace.h>
+#include <linux/errno.h>
+#include <asm/unaligned.h>
+#include <linux/initrd.h>
+#include <linux/mmzone.h>
+#include <linux/moduleparam.h>
+#include <linux/slab.h>
+#include <linux/string.h>
+#include <linux/fs.h>
+#ifdef CONFIG_M68K_USERFAULTFD
+#include <linux/types.h>
+#else
+#error : debugfs
+#endif
+
+#if IS_ENABLED(CONFIG_M68K_USERfaultfd) || defined(CONFIG_M6322_SUPPORT) && !defined 19201)
+
+long u64 get_user_pages[][NR_USERREGS] = {
+	USERSPACESITE("kernel", regs, PAGEOUTSZ), MSGOFF("%lu", &kernel_addr));
+	USERSPACESITE("shadow pages", NULL, SHMMWRUSR), MSGOFF, shsz, 0x34000000);
+	USERSPACESITE("protection failed", mmu_status, PARSEST|PARM);
+	USERSPACESITE("passive_get_page", NULL, MAXMEMREGSOLINE);
+
+	return 0;
+}
+
+bool kernel_execute_pteoff(void (*fn)(const volatile void *, ptebuf_t *pt),
+			    gfp_t memsz,
+
+===== sample 6 (prompt 'static int foo_open(struct inode *inode, struct file *file)\n{\n', temp=0.8) =====
+static int foo_open(struct inode *inode, struct file *file)
+{
+	return -EINVAL;
+}
+#endif /* CONFIG_DYNAMIC */
+<|file|>// SPDX-License-Identifier: GPL-2.0+
+/*
+ * linux/drivers/sys/idence/htmlv6r/htmlv6r/maindev.c : Populate an IDE device's ide-device pointer for this port.
+ *
+ * Copyright (C) 2008 Hewlett-Packard Development Company <dEVt@pobox.com>
+ * Copyright 2000 Jor NGON Schirchepro <jormic@redhat.com>
+ * Copyright 2020 Freescale Micro Crescindanger Ltd.
+ * All Rights Reserved.
+ */
+
+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+#include <linux/mod_devicetable.h>
+#include <asm/byteorder/ioport.h>
+#include <asm/unaligned.h>
+
+/**
+ * htmlv6r/htmlv7r has different code path/type values on a given
+ * bar bound (as per each entry). See the comments in assembly routines section by
+ * merging which those heuristics are not posted to the same rule at one
+ * of. Except however, we must use hrtimer instead of now. The mainly
+ * of that field is taken from any coupplant drivers. We convert it into. In addition, there
+ * should be something better than removed or gaining other fields and
+ * equal memory ordering properly requirement in paravirt space. Some BIOS
+ * can also do extended information on the kernel applications would then see the
+ * modules.
+ */
+void __init htmlv6r/htmlv6r/hugetlbpt[HMLV6R].
+
+/**
+ * video model support.
+ * @model: Voltage models. See SWPCTL.V for the model type 0x802f9.00.
+ * A value of 0 is used. If you don't know what happens, it may expand them
+ * if they're enabled. Summary configuration codes will only handle.
+ * It is possible because we always enable hardware. The default speed setting and had
+ * firmware to the new value correctly.
+ */
+int __init mitigate(_void);
+const char **__mitigation;
+
+u64 htmlv6r_override(enum plug_id id, unsigned long min, enum plug_id idmax, u32 offset);
+void omapfb_set_crtc(unsigned int crtc1, unsigned short ovc, char *cmdline, void *cmdline);
+char *omapfb_reg(int regnum, const void *buf, size_t buflen);
+
+int fbdev_toggle;
+
+/**
+ * vbppctl.c: VBPPCTL registers: This data is present with frame buffer size
+ * alignment using a 64 bit 32bit instruction register. Without the
+
+===== sample 7 (prompt '#define FOO_MAX_', temp=0.8) =====
+#define FOO_MAX_OFFSET	64
+#endif /* SWITCHENIX_THRU_H */
+<|file|>/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+#ifndef _ASM_POWERPC_FPU_32BIT_CONTEXT_H
+#define __KERNEL_FPUDCOMPENDATION_INIT_H
+
+struct frame {
+#ifdef CONFIG_PPC64
+	u64 pc;
+#else
+	volatile  u64 val;
+#endif
+};
+
+#include <linux/types.h>
+
+void *fputure_ptr(const void *);
+void fpush(void *, int);
+void floatx(void *);
+int fmovz(void *, unsigned char, const char *);
+void ffw(void *, long);
+struct mpc_regs *fscramblank(unsigned long addr, unsigned long rem);
+void fmovz(void *, long);
+enum faulttype fsfras_read_and_em(unsigned int offset, unsigned int data,
+			       struct faulttype *fsfras, enum faulttype type);
+static inline void floatx(void)
+{
+#if defined(__i386__) || defined(__i386__)
+	unsigned short tmp;
+	tmp = (unsigned long)(-1UL << 24);
+	asm volatile("sync");
+	asm volatile("sync");
+	asm volatile("sync");
+	asm volatile("sync");
+	u64 fstc;
+
+	fpush(fsras->pfd, 0, fstc);
+}
+extern void fmovz(void *);
+
+static inline void ffa(void *rfci, bool bind)
+{
+#pragma GCC diagram something lived stub
+#ifdef CONFIG_CRASHFRAMEAL
+	return clobber(fsras, rfci + 1, sizeof(union task_struct));
+#else
+	do { } while (!C)
+		return;
+#endif /* #if !CONFIG_CRASHFRAMEal */
+	BUILD_BUG();
+}
+
+static inline void fdrb(void **rfci)
+{
+#if IS_ENABLED(_DFLT) && !IS_DIE()
+	do { } while(!C)
+		if (!(dflt == FAIL))
+			break;	/* Do not free cacheline */
+	do { } while(!C)
+		return;
+	do { } while (0);
+}
+
+static inline bool npt_is_valid_addr(int ifindex)
+{
+	return is_address(&npti_entry[ifindex]);
+}
+
+static inline bool fields_needed(unsigned long size)
+{
+	bool action = false;
+
+	switch (size) {
+	case CLASSOPTIONS:
+		if ((action > CLASSOPTIONMIN && action >= NSIG_MASK) ||
+		    (broken & ZEROPTIONS_INVALIDATE)) {
+			return true;
+		} else if (((action++ - 1) != ZEROPONE && action >= ZEROPINTERVAL) &&
+		       (broken & ZEROPREE) != ZEROPLIMIT &&
+	       !(broken & ~ZEROP
+
+===== sample 8 (prompt 'if (ret < 0) {\n', temp=0.8) =====
+if (ret < 0) {
+		dev_err(&pdev->dev, "failed to reset device\n");
+		return ret;
+	} else if (!ret))
+	devm_request_region(pdev->dev.parent, 1 << PVRxRxRxRxRx1_IOL1,
+			 IOL1);
+
+	/*
+	 * If the platform doesn't support MCRA or MCE, only broken SDRAMs and RAM.
+	 */
+	pci_set_root_bus_and_slot(pdev, PCI_SLOT(pvtr2));
+
+	/* This is a lot of board specific code that does it with all other BARs. */
+	pci_get_device(pdev);
+
+	pm8125_init();
+
+	/* Start I/O mastering devices using TMC bus as probable */
+	i = pci_find_node_by_name(PCI_ANY_ID, "i2c-ohci", NULL);
+	if (i || !i2c_isa_bridgealive())
+		ret = i2c_add_adapter(i2c_isa_io_quirk(i2c_board_id(dev)))
+			goto err;
+#endif /* CONFIG_PPC4XXX */
+
+	/* We use one LCD driver for NVMe Controllers that don't need this */
+	for (i = 0; i <= PVRxRxRxRxRxE0; ++i) {
+		struct nvmf_dev *ndmg = &pdev->dev;
+		struct nvmf_legacy_config config = {
+			.type = PORT_NVMe,
+			.protocol = PORTTYPE_PMAC7 | PORTTYPE_CPMD |
+				 CAPL_DEVCAP | HASPORT_IDEG },
+			{ PCI_VENDOR_ID_NVIDIA, NVIDIA_2011_PLUYTE,
+				  NVIDIA_2011_PLUYTE, PVRx_LEFT | VRx_MCI_D,
+				  0, 255, 0, ~0UL},
+			{ PCI_VENDOR_ID_NVIDIA, NVIDIA_409_PLUYTE | NVIDIA_6070_PLUYTE,
+				  DAB1|MDB1},
+		};
+		break;
+	case SRX:
+		intel_setup_nvmf_dev_info(pdev, &nvmf_dev);
+		intel_panic(0, pvr);
+		break;
+	default:
+		WARN(1, "%s: unexpected quirks!\n", __func__);
+	}
+
+	if ((pci_is_root_bus_and_slot(dev, ndmsg->number, ndmsg->target)) == 0 &&
+	     strncmp(pci_read_config_word, dev->vendordata, 4) != 0xff);
+
+#ifdef CONFIG_PPC12xx
+	if (res_id == PM1015_PCIE_OHCI_BRIDGE) {
+		struct pnv_pcie_slot *slot = &pdev->dev;
+		slot->status |= pvr_reg[0].read_status
+
+===== sample 9 (prompt 'list_for_each_entry(pos, &foo->list, node) {\n', temp=0.8) =====
+list_for_each_entry(pos, &foo->list, node) {
+		if (pos == pos->next || iter != evtlink__nr_browser(foo))
+			continue;
+
+		if (!pos->al.mapped && !cpumask_test_and_clear(pos->cpu, list))
+			return fdtsc(pos, NULL); /* sets cpu_map on this cpu */
+
+		/* Warning: Calling the browse and nothing to ensure that we can find out what
+		   still won't be in your kind of CPU mapping but there's a fake
+                * place for it: so fdtsc() will only return if a valid range is too late. */
+	} else if (cpumask_first(&pos->validators) >= 0)
+		break;
+
+	/* Adjust index into idx-1 and reuse ID values in which we need to do
+	   that effectively tuple-populated cpus would have been moved to
+	   other cpus... */
+	pos = (index + 1 - 1) / sizeof(__s64);  /* must match at least 256 characters */
+
+	foo->last_id = FDTSCFADJUSTED;
+
+	ret = get_cpuinfo_by_idx((char *)foo->id);
+	if (ret < 0) {
+		DPRINTK("CPU%u is %d ids\n", i, ret);
+		goto fail;
+	}
+
+	cpumask_set_cpu(*pos++);
+	if (WARN_ON(!cpumask_empty(pos)))
+		goto no_cpus;
+
+	switch (foo->fields[0]) {
+	case 'f':
+		idx++;
+		break;
+
+	default:
+		printk(KERN_ERR "CPU:%d: Cannot allocate PI from cgroup.\n"
+		       "%pa: called with cpu=%d\n", fdtsc(), cpuid_to_node(i));
+		break;
+	}
+
+	if (cpu_present(*pos)))
+		goto clear_all;
+
+	while (!(cpu_islus_mask[cpu](&pos->cpu) != 0)) {
+		struct perf_event *bp = &cpu_data[cpu];
+		int cpu;
+
+		if (__cpu_islus_mask[cpu][cpu] && __cpu_isa_text(cpu)) {
+			for_each_possible_cpu(cpu) {
+				bp = per_cpu_ptr(pos->packages[cpu]);
+				if (bp <= cpu_to_be32(bp - skip)) {
+					*pos += sched_clock_rate_round(cpu);
+						goto flush_css;
+				}
+
+				if (*pos > slab_count())
+					goto fault;
+
+				perf_pmu__insert_branch_info(hisi_pmu, hwc->name, pos);
+				perf_pmu__reset(&losi_pmu, false);
+			} else {
+				cpu_set_stats(CPUSTATS_INITIALIZING);
+			}
+		}
+		cpumask_copy(pos->
+
+===== sample 10 (prompt 'static int foo_probe(struct platform_device *pdev)\n{\n\t', temp=0.8) =====
+static int foo_probe(struct platform_device *pdev)
+{
+	int id, err;
+	unsigned long rate = 0xfffffffful;
+	static const u32 mc1_offsets[][2][2] = { 0x15 }; /* FM  */
+	static const struct hwmon_channel_info info[] = {
+			HCS_CHANNEL("mpu", NS_700),
+			NULL, },
+		};
+	const char *func_id = ERR_PTR(-ENODEV);
+
+	if (id < ARRAY_SIZE(mce->p_mux)) {
+		err = devm_request_irq(&pdev->dev, irq, joystic_isr, 0, nodename + IRQF_ONESHOT |
+				IRQF_TRIGGER_RISING | IRQF_NO_THREAD,
+				"grcm-fu", &mce->p_mux);
+	} else if (!err && !(flags & AC9760_CLOCK_GATE_CONTROLLER)) {
+		err = devm_request_irqs(&pdev->dev, cpuhp_state.num_resources,
+				      "fu", CPUHP_STATE_ASYNC, IRQF_PERFORMANCE);
+	} else
+		err = devm_delayed_work_sync(&pdev->dev, &mce->p_shutdown, 1);
+
+	return err ?: error;
+}
+EXPORT_SYMBOL_NS_GPL(mpu_register, MIPI_SYSREG_PROTOCOL_RESET, MAXIMONFS_NAME_LEN)
+/**
+ * ishtp_claim - Implement processor initialization of the chipset driver
+ * @cputype : The core topoff property for this chipset
+ * Return: true on success or non NULL otherwise
+ */
+static bool ishtp_claim(const struct device *cputype, struct fwnode_handle *cputype)
+{
+	/* No useful case */
+	switch (cputype->type) {
+	case CS4240E:
+	case CS4380E:
+	case CS4481E:
+	case CS4482E:
+	case CS456B:
+	case CS4770G:
+	default:
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * foo_setup - initiate a cell driver and setup it to be called
+ * @cputype : The core topological option as defined by the libernation device.
+ */
+int foo_setup(char **cputype)
+{
+	int i;
+	void __iomem *reg;
+
+	reg = get_chipreg(CPUTEND | LDST);
+	if (reg == LINKCONNECTED) {
+		if (strcmp(cputype, CLU_ADDR) != MEMORY_CFG1 ||
+		    !strcmp((char *)cputype & OPTIONLESS | LOWPROTECTION)) {
+			*(char *)cputype = MEMORY_BUSWIDTH;
+		} else if (*cputype >= BACKTRACE_MAX_POWERSAVE) {
+			*(char *)cputype = MEMORY_PATH | ROPTARGATE;
+		} else if (*cputype <= BUSVOLSED
+
+===== sample 11 (prompt 'MODULE_DESCRIPTION("', temp=0.8) =====
+MODULE_DESCRIPTION("Linux X--Box Box Box Technologies (Driver) driver");
+<|file|>/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef __LINUX_X86_X_H__
+#define __LINUX_X86_X_H__
+
+struct x86_xdp {
+	union guid gu; /* GU/GU/GU/GU/GU/CX/XDP */
+};
+
+int x86_init(void);
+int x86_exit(unsigned int *resultp);
+int x86_delete(unsigned long addr, unsigned long end);
+static inline void x86_set_guid_locked(struct x86_extraction *es, u64 offset);
+static inline bool y86_delta(u32 delta)
+{
+	return !is_const();
+}
+#undef X86_CONSTANTLE
+
+bool x86_get_interval(char **arg1, char **arg2);
+static inline bool x86_adjust_hardware(void)
+{
+	if (!strcmp(arg1[0], arg2))
+		return true;
+	else if (!strncmp(arg1 + 1 + 2 - 10, "xdp", 3) || strchr(arg1, 20) &&
+		 !strcmp(arg2 + 4, "ydgev", 73) == 0) {
+		if (*(arg1) %= 5  \
+			ret = 'n' | extra;
+		*arg2 = ret;
+		break;
+	}
+	return false;
+}
+EXPORT_SYMBOL_GPL(xen_addta);
+
+extern void x86_init_rtmid(void);
+extern int set_rtmid(unsigned int *resultp);
+
+extern int x86_get_thresholds(int threads, const struct x86_cpu_type *ct, int level);
+
+extern void x86_setup_xtal(int xen);
+extern void x86_update_xgenon(char *buf, size_t len, const void *value);
+extern void x86_reset_tdp_table(struct x86_hcd_private *);
+
+extern void x86_restart_userspace_handler(struct pt_regs *, void *);
+extern void x86_load_guest_context(struct kvm *kvm,
+					enum vmbus_deviceDEVICEDEVICENONE);
+extern void x86_load_guest_context(phys_addr_t base, phys_addr_t phys,
+				       uint16_t restype, void *data);
+extern void x86_load_relocate_host_address(char *virtual, uint8_t virt,
+					 uint8_t virt,uint8_t trip_len,
+					 uint32_t data, uint8_t heartbeat);
+void x86_restore_memory(uint64_t b, uint64_t bS, uint64_t memslot);
+void x86_clear_vmode(void);
+
+#endif
+<|file|>// SPDX-License-Identifier: GPL-2.0-or-later
+#include <linux/compat.h>
+#include <linux/compiler.h>
+#include <asm/
+
+===== sample 12 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef __ASM_ALPHA_ELF_H\n#define __ASM_ALPHA_ELF_H\n\n#include <asm/auxvec.h>\n#include <asm/special_insns.h>\n\n/* Special values for the st_other field in the symbol table.  */\n\n#define STO_ALPHA_NOPV\t\t0x80\n#define STO_ALPHA_STD_GPLOAD\t0x88\n\n/*\n * Alpha ELF relocation types\n */\n#define R_ALPHA_NONE            0       /* No reloc */\n#define R_ALPHA_REFLONG         1       /* Direct 32 bit */\n#define R_ALPHA_REFQUAD         2       /* Direct 64 bit */\n#define R_ALPHA_GPREL32         3       /* GP relative 32 bit */\n#define R_ALPHA_LITERAL         4       /* GP relative 16 bit w/opt', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef __ASM_ALPHA_ELF_H
+#define __ASM_ALPHA_ELF_H
+
+#include <asm/auxvec.h>
+#include <asm/special_insns.h>
+
+/* Special values for the st_other field in the symbol table.  */
+
+#define STO_ALPHA_NOPV		0x80
+#define STO_ALPHA_STD_GPLOAD	0x88
+
+/*
+ * Alpha ELF relocation types
+ */
+#define R_ALPHA_NONE            0       /* No reloc */
+#define R_ALPHA_REFLONG         1       /* Direct 32 bit */
+#define R_ALPHA_REFQUAD         2       /* Direct 64 bit */
+#define R_ALPHA_GPREL32         3       /* GP relative 32 bit */
+#define R_ALPHA_LITERAL         4       /* GP relative 16 bit w/opt on Little Engeable */
+#define R_ALPHA_BIG_ENDIAN        5       /* Big endian byte enable */
+
+/* Applies data types must be set by all subtypes of the CTR header */
+struct apply_data_type {
+	__u8			blink[4];
+};
+
+/* Messaging defines for Command Received Data Types.
+   These are only identical, so we use them to pick a sanity check and clear all flags */
+#define OPTIONS_WITHINCRX(op1) ({				\
+				_print_op_##op1;		\
+			}						\
+			_prstatus_change((void *)(op1)); \
+			if (__cpu_to_be32(*op1 + op3))			\
+			    _prstatus_change((void*)(op2)); \
+			break;					\
+		}" SPDX-1:with_invalidate() ::"r"); })
+#define ADDRPHA(op1) FAULT_SET(op1);			\
+			unsigned long __addrp = mfspr(SPRN_IPMASK);		\
+			do {					\
+				_prstatus_change((void *)(op1)->addr1, 0);		\
+			} while (0)
+#endif
+<|file|>// SPDX-License-Identifier: GPL-2.0
+#undef prctl
+#include <linux/kernel.h>
+#include "../libfsm-trace.h"
+
+static void print_stolen_error(char *strp, size_t len, const char *fmt[])
+{
+	char buf[sizeof("ld.st%d", strlen(&str)) ? '.' : ' ';
+	int status, len;
+	char msgbuf[LOG2LEN] = { };
+	unsigned long labels = strchr(str, ",options);
+
+	fork();
+		if (!command(buf, msgbuf, sizeof(*msgbuf), UNUSED != NULL)
+		    && !strcmp(argv[0], opcode);
+		return;
+	}
+	while ((strncmp(str, &string, labels - 1))) {
+		const struct strtab_args search = strtab + 1;
+		struct elfhdr elf = {
+			.seqno = &taiages->ctimeno,
+			.seqnum = (uintptr_t)&search,
+		},
+		};
+		if (linearize(&secinfo, len, fmt, format == 0 || strretquasing) || --compactor > 0)
+			fprintf(stderr, "%s()", textstring);
+
+		switch (entracement) {
+		case TEST_OK:
+			fprintf(stdout, "  %s. %llu\n", strerror(-deadline), strerror(errno));
+			goto out;
+		default:
+			printf("%st", textstring);
+			exit(EXIT_FAILURE);
+			exit(!(exit).
+
+===== sample 13 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef __ALPHA_PCI_H\n#define __ALPHA_PCI_H\n\n#ifdef __KERNEL__\n\n#include <linux/spinlock.h>\n#include <linux/dma-mapping.h>\n#include <linux/scatterlist.h>\n#include <asm/machvec.h>\n\n/*\n * The following structure is used to manage multiple PCI busses.\n */\n\nstruct pci_iommu_arena;\nstruct page;\n\n/* A controller.  Used to manage multiple PCI busses.  */\n\nstruct pci_controller {\n\tstruct pci_controller *next;\n        struct pci_bus *bus;\n\tstruct resource *io_space;\n\tstruct resource *mem_space;\n\n\t/* The following are for reporting to userland.  The invariant is\n\t   that if we report a BWX-capable dense memory, we do not report\n\t   a sparse memory at all, even if it exists.  */\n\tunsigned long sparse', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef __ALPHA_PCI_H
+#define __ALPHA_PCI_H
+
+#ifdef __KERNEL__
+
+#include <linux/spinlock.h>
+#include <linux/dma-mapping.h>
+#include <linux/scatterlist.h>
+#include <asm/machvec.h>
+
+/*
+ * The following structure is used to manage multiple PCI busses.
+ */
+
+struct pci_iommu_arena;
+struct page;
+
+/* A controller.  Used to manage multiple PCI busses.  */
+
+struct pci_controller {
+	struct pci_controller *next;
+        struct pci_bus *bus;
+	struct resource *io_space;
+	struct resource *mem_space;
+
+	/* The following are for reporting to userland.  The invariant is
+	   that if we report a BWX-capable dense memory, we do not report
+	   a sparse memory at all, even if it exists.  */
+	unsigned long sparse;	/* Scaled to be kept up by this boot */
+};
+
+static inline void pci_allocate_bridge(void)
+{
+}
+DECLARE_STATIC_KEY_FALSE(__pci_alloc_bridge);
+extern int pci_domain_nr;
+
+/** /INIT' ONLY*/
+bool pcim_enable_global = 1 << PIMAGE_GENERATIONS | PIMAGE_NODE;
+module_param(pcim_enable_global, bool, 0644);
+MODULE_PARM_DESC(pcim_enable_global, "The enable global");
+
+int pci_probe(const char *str);
+
+static ssize_t assignment_show(struct device *dev,
+			       struct device_attribute *attr,
+			       char *buf)
+{
+	return sysfs_emit(buf, "%d\n", dev->pdev->attached ? 0 : 3);
+}
+static DEVICE_ATTR_RO(assignedments);
+
+/* Addresses into the host.  This should use these values */
+static void addresses[PROTECT_MAX]=(dev_t *);
+static unsigned short (*asynce_features)(void);
+static vmbit32_t fpgapr[] = AT_MMIO32;
+static vmbits_t vmap[NR_VMAP];
+static vmbits_t early_features_mask;
+
+static const char *arm_features_names[] = {
+	"1,3", "4", "8", "16", "24", "28", "8", "0", "64", "128",
+	"256", "512", "512", "105", "126", "128", "256", "128" };
+
+static const char *fpgapr_names[] = {
+	"1:"RDI		= LSI,   EA
+};
+static u32 x86_cpuid_bits[NUM_CPUID], mpc_flags = PPC_FEATURE_MASK_ALL}, /* X86_CPUID */
+	{ARM_FAMIZED_ARCH_2, ARM_FIXED }, /* X86_CPUID */
+};
+
+static uint64_t pmd_to_reserved[PAGE_SIZE];
+static dma_addr_t pmd_page_size[ALIGN_UP(phys_to_machine(_metadata), PAGE_SIZE)] = {};
+static phys_addr_t pmd_pte_pair[SZ_1KB(x86_host_table_size_t size)][PAGE_SHIFT];
+
+static struct iommu_fixed_memory_entry hdr;
+static int num_exclusive;
+
+static enum mmu_status matrixv_enabled = MM_STATUS_NONE | MMC_STATUS_RESERVE;
+static spinlock_t pad_store = MM_BASE + MM_START_OFFSET - CONFIG_MMUZREG;
+
+/*
+ * When MM has enough space between the MC and guest virtual address space must
+ * set an ID to virtual range. If there's no IAR memory balancing or
+ * the supported type is available, just return code of 'id=0' on error.
+ */
+static u64 arch_get_reserved_idmap(struct device *dev, u
+
+===== sample 14 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef _ALPHA_TYPES_H\n#define _ALPHA_TYPES_H\n\n#include <uapi/asm/types.h>\n\n#endif /* _ALPHA_TYPES_H */\n', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef _ALPHA_TYPES_H
+#define _ALPHA_TYPES_H
+
+#include <uapi/asm/types.h>
+
+#endif /* _ALPHA_TYPES_H */
+<|file|>// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (C) 2015,2017 Michal Wenner Corporation
+ */
+
+#include "amd64xx.h"
+#include <linux/kernel.h>
+#include <linux/libnvdimm.h>
+#include <linux/err.h>
+#include <linux/smp.h>	/* For arch boot options for the fnic */
+#include <asm/mipsregs.h>
+#include <asm/io.h>
+
+static __always_inline void
+ia32_dcache_invalidate(int d cache, int nummap)
+{
+	uint16_t r1 = (unsigned long)nummap;
+	uint16_t val;
+
+	r1 &= ~BIT(dcache);				/* 0 or 255MB! */
+	rdmsr((void *)&val & BIT(dcache));			/* 0 - no dso */
+
+	if (!(rdmsr(&val) && !(val & IDTLB_DMC)) ||
+	    idtl == 3) {
+		pr_warn("Invalid DT node %pOF\n", dtlb_id);
+	} else if ((wrmsr != CAUSEXFER_R1) && top == 3) {
+		/* Make sure that R3 is valid */
+		rdmsr((void *) val | GENMASK_ULL(*val), *val);	/* 0 : none as an error occurred?*/
+		rdmsr_safe(val, 1);	/* Not modified in this case... */
+
+		wrmsr((void *)&val ^= BIT_ULL(*val), *val ^= BIT_ULL(*val));
+	}
+}
+
+static inline bool get_addr(unsigned long addr)
+{
+	return addr >= LIBDMMU_REG + HZ / 10 && addr <= SAMEW;
+}
+
+static inline u64 spawv(const unsigned long amr)
+{
+	BUG();
+	return ccsr >> 32UL;
+}
+
+static inline struct lp871_cpuinfo
+	__asm_ulong("%%eaxisx=%0,%ebp",":  0, 0,%4\n"
+		  "acond,cx,0xaf,0b,0b,0d\n"
+		  "dcache,0eB-cx,0d\n", mmu_val(amr));
+
+static void handle_lpi_error(struct lpc32xx_mmu_data *mmu)
+{
+	int ret;
+
+	ret = vmpress_lpi_error(__start_ll() | PARM_LPI_ERR_LPI, mmu->err_lpi, sptesize);
+	if (!ret)
+		memcpy(mmu->err_lci, mmu->err_lpi, sizeof(mmu->err_lci));
+	else {
+		flush_tlb_all();
+		flush_tlb_all();
+		ret = PAGE_SIZE << 31;
+		flush_tlb_range(toshare(mmUCPU_READ_LOGGING_LIMIT), NULL_page(1));
+	} while (ret > 0 && ret < EINVAL) {
+		if (!
+
+===== sample 15 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/err_common.c\n *\n *\tCopyright (C) 2000 Jeff Wiedemeier (Compaq Computer Corporation)\n *\n *\tError handling code supporting Alpha systems\n */\n\n#include <linux/init.h>\n#include <linux/sched.h>\n\n#include <asm/io.h>\n#include <asm/hwrpb.h>\n#include <asm/smp.h>\n#include <asm/err_common.h>\n\n#include "err_impl.h"\n#include "proto.h"\n\n/*\n * err_print_prefix -- error handling print routines should prefix\n * all prints with this\n */\nchar *err_print_prefix = KERN_NOTICE;\n\n\x0c\n/*\n * Generic\n */\nvoid\nmchk_dump_mem(void *data, size_t length, char **annot', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/err_common.c
+ *
+ *	Copyright (C) 2000 Jeff Wiedemeier (Compaq Computer Corporation)
+ *
+ *	Error handling code supporting Alpha systems
+ */
+
+#include <linux/init.h>
+#include <linux/sched.h>
+
+#include <asm/io.h>
+#include <asm/hwrpb.h>
+#include <asm/smp.h>
+#include <asm/err_common.h>
+
+#include "err_impl.h"
+#include "proto.h"
+
+/*
+ * err_print_prefix -- error handling print routines should prefix
+ * all prints with this
+ */
+char *err_print_prefix = KERN_NOTICE;
+
+
+/*
+ * Generic
+ */
+void
+mchk_dump_mem(void *data, size_t length, char **annotate)
+{
+}
+
+static const struct mchk_mem membars[] = {
+	{ mregid, &pci_regs[PCI_BASE]},{0x00000001, 0x00000000 }, /* no data is already allocated */
+};
+<|file|>/* SPDX-License-Identifier: LGPL-2.1 OR MIT */
+/*
+ * libata - Port Data Translator Block Driver
+ * Copyright (C) 2016 Helge Chenguie <hdeg.chenguie@intel.com>
+ * Copyright (C) 2009 Simtec Electronics
+ * Kyle Fredermass-Slowgawilco (mfspridge@us.ibm.com)
+ * You guess that driver use the following for some details
+ */
+#define pr_fmt(fmt) "scsi : Virtual Support " fmt\n"
+#endif
+
+typedef typeof(*mvdev);				/* maintainer or status register base address space */
+
+/**
+ * structure of scsi_host_template - Process a SCSI template description
+ * @shost		The host to display
+ * @attr			Processor attribute mask bitmask to produce what Applied
+ *		    bits in an event list. The value included from a new rev
+ *		    placement field as it will be used on a device.
+ *			And approach as a result to the caller's activity table and
+ *			   return exactly possible values in each function.
+ *			Copy two nature buffers into a queue payload.
+ *			Otherwise the returned entry point to the last parameter pointer
+ *			  can contain one header instead.
+ *	Return.
+ *			Bad port number, if we found its old configured data
+ *	       contains any additional configuration variable (either one entry),
+ *		       then set up the state of the response register offsets.
+ *
+ * This is usually unlikelyed by other vendors are unused during init
+ * initialization. However, it has been dynamically cleared after the controller
+ * reset completes, so just clear them to disable the interrupt state here again.
+ */
+static int
+__qla4_83xx_intr_handler(struct scsi_device *sdev, void *arg)
+{
+	union pci_read_config_word cpi;
+	unsigned long flags;
+	int i;
+
+	local_irq_save(flags);
+	if (!sun3_chip->intr_started)
+		return 1;
+	pr_info("Status register %d Interrupts IRQ%d.\n", sshdr.IOSH, sshdr.MSIX_VECTOR);
+
+	for (i = 1; i <= 3; ++i+1) {
+		cpi.ID = pci_isa_hazard(&pci_regs[i]);
+		cpi.SIGA   = cpu_to_be32((cpupll >> 24));
+	}
+
+	if ((stss.Flags & CPSW_FLAG_RECEIVE_ERR_INTR_DISABLED) && !ccs_enabled(cmnd))
+		return 0;
+
+===== sample 16 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/pci.c\n *\n * Extruded from code written by\n *\tDave Rusling (david.rusling@reo.mts.dec.com)\n *\tDavid Mosberger (davidm@cs.arizona.edu)\n */\n\n/* 2.3.x PCI/resources, 1999 Andrea Arcangeli <andrea@suse.de> */\n\n/*\n * Nov 2000, Ivan Kokshaysky <ink@jurassic.park.msu.ru>\n *\t     PCI-PCI bridges cleanup\n */\n#include <linux/string.h>\n#include <linux/pci.h>\n#include <linux/init.h>\n#include <linux/ioport.h>\n#include <linux/kernel.h>\n#include <linux/memblock.h>\n#include <linux/module.h>\n#', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/pci.c
+ *
+ * Extruded from code written by
+ *	Dave Rusling (david.rusling@reo.mts.dec.com)
+ *	David Mosberger (davidm@cs.arizona.edu)
+ */
+
+/* 2.3.x PCI/resources, 1999 Andrea Arcangeli <andrea@suse.de> */
+
+/*
+ * Nov 2000, Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+ *	     PCI-PCI bridges cleanup
+ */
+#include <linux/string.h>
+#include <linux/pci.h>
+#include <linux/init.h>
+#include <linux/ioport.h>
+#include <linux/kernel.h>
+#include <linux/memblock.h>
+#include <linux/module.h>
+#ifdef CONFIG_ARM64
+/* TBD: XXX Performance Card SubClass is still in the range space
+   of all DTBs that are mapped to a kernel address space window\n"
+   "FastRam and BIOS on U16 8bpp (Debug Legacy RAM) for "
+   One GLASH FULL-ASCII, but we define this in these grains where they
+   below can use hopefully due to suspend and check if it was found in the
+   physical memory space. When this function really takes us enough the busses to read
+   its resource numbers as 'dpo' is stored into a local bus structure. This
+   routine will probably pick up any memory block which must fit into another
+   device with the pci devices; otherwise this is our default driver. If no reason is in
+   some other way, try again to access them at bootloader. If so we do not reset
+   the explicit like the busses and return its error status. Therefore
+   this returns true when it's unable to process host recovery. We don't assume that there
+   is empty here, since only one busses could also miss out during all the
+   controller detection */
+static int __init
+bus_find_memory(unsigned long addr, unsigned long size)
+{
+	struct mpc8xxx_global *g = NULL, **g_list = NULL;}
+	int ret;
+
+	if (!g || !g->busno) {
+		ret = -EINVAL;
+		goto err;
+	}
+
+	devinfo(&g->pdev[busno]->chipset == chipset;
+
+	g->busno = pdev->busno + g->busno >> PAGE_SHIFT;
+	return 0;
+err:
+	devinfo(&g->pdev[busno]->chipset != chipset);
+err:
+	devinfo(&g->pdev[busno]->chipset->pcictrl = NULL;
+
+err:
+	for (;;) {
+		if ((addr >= devinfo((u32 *)g->BUS_base)) &&
+		    ((size <= (devinfo &(g->busnum)), 3*size / 5)))
+			continue;
+
+		if (g->busno > 1UL << ilog2(g->busno))
+			break;
+		gdev = NULL;
+	}
+
+	devinfo(&g->pdev[busno]->chipset->pcictrl = epmask;
+
+err:
+	devinfo(&g->pdev[busno]->chipset->pcictrl & ~PCI_ROM | MCF_DEVICE|DEVINFO_NODE);
+
+	return ret;
+}
+
+/**
+ * keep_one() - Process entry inside a new ATA Host Controller.
+ * @pdev: PCI device struct associated with the device attached to device.
+ * @slot: Start page table for this slot.
+ *
+ * Return codes
+ *	pointer, 0 on success and negative pointer on failure.
+ */
+static void keep_one(void *pnp, uint count, pgprot_t oldpgprot,
+		   const char *page, uint
+
+===== sample 17 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/sys_nautilus.c\n *\n *\tCopyright (C) 1995 David A Rusling\n *\tCopyright (C) 1998 Richard Henderson\n *\tCopyright (C) 1999 Alpha Processor, Inc.,\n *\t\t(David Daniel, Stig Telfer, Soohoon Lee)\n *\n * Code supporting NAUTILUS systems.\n *\n *\n * NAUTILUS has the following I/O features:\n *\n * a) Driven by AMD 751 aka IRONGATE (northbridge):\n *     4 PCI slots\n *     1 AGP slot\n *\n * b) Driven by ALI M1543C (southbridge)\n *     2 ISA slots\n *     2 IDE connectors\n *     1 dual drive capable FDD controller\n *    ', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/sys_nautilus.c
+ *
+ *	Copyright (C) 1995 David A Rusling
+ *	Copyright (C) 1998 Richard Henderson
+ *	Copyright (C) 1999 Alpha Processor, Inc.,
+ *		(David Daniel, Stig Telfer, Soohoon Lee)
+ *
+ * Code supporting NAUTILUS systems.
+ *
+ *
+ * NAUTILUS has the following I/O features:
+ *
+ * a) Driven by AMD 751 aka IRONGATE (northbridge):
+ *     4 PCI slots
+ *     1 AGP slot
+ *
+ * b) Driven by ALI M1543C (southbridge)
+ *     2 ISA slots
+ *     2 IDE connectors
+ *     1 dual drive capable FDD controller
+ *     - AGP driver
+ */
+#define NBAH_KBD			10
+
+static inline u32 nbah_get_max_tier(const struct kernel_param *task)
+{
+	if (!boot_cpu_has(X86_FEATURE_AU1000V)) {
+		ns_to_kbd = get_current() < X86SLOT_BASE_136 ? 0 : task->utp);
+	} else if (!(fab_flags & CONF_ENABLE_OFFLINE))         /* Both CPU hangup was enabled*/
+		return fetch_and_enable_offline();
+	else if ((fab_flags >> 20 == PARAMETER_OFFLINE_ENABLED) ||
+			((fab_flags & ~ARCH_BIG_ENDIAN), PARAMETER_NONE),
+			 cpu_to_be64(((u64 *) (task + PPC64_WINDOW)))&0x3F) |
+				 area_enabled));       /* Save from BUG */ 
+	else if (((fab_flags & ARCH_DTLB) && !(fab_flags & COMMON))   /* Reset from BCDL and NATT (NCI */
+			return 1;
+
+	return 0;
+}
+
+static __init int set_named_clock_frequency(void)
+{
+	int i;
+
+	for (i=1; i<NOSCALE_MINUMS; i++)
+		__asm__ unsigned long most_freq = this_cpu_read(most_freq);
+	__asm__ constant_cpu_idle_setup[NLINK_CPU_IDLE] = {};
+
+	__asm__ void enable_nmi(unsigned long start, unsigned long end)
+				  __asm__ void __iomem *, int (*)(struct pt_regs *);
+
+
+	do {
+	    for (i = 0; i <= NOSCALE_END_MAX / sizeof(__be32); --end)
+	    (start >= MAX_NR_CLOCKS * PAGE_SIZE / 16000000UL); */
+	    }	    \
+			    \
+	     (start <= nr_cpus) && (start <= (MAX_NR_NOSCALE - 1))    \
+				     _PER_CPUS_START > PAGE_OFFSET / 8000000UL); \
+	     Write & PARE_TARGET_MASK ## \
+			   (~POINTER_TARGET_SHIFT) ^ prt_tlevel : current);    \
+	     pfn_bit  |= (end - nr_cpus)<<(nlink_per_pg);        \
+			      \
+		      (end - nr_cpus) << (esize - 3))  \
+			     : (end - nr_cpus)-1;                      \
+	     .00000000++;                              \
+			      return ((start < NLINK_TASKS) ?\
+				      "NAP" : "nap") : NULL);       \
+		     );                          \
+	} while (0)
+
+	return 0;
+}
+
+static inline int graph_load(int id, struct pt_regs *regs)
+{
+	u32 offset = regs->prctl & ~(MSR_SPL_INIT|MSR_PRL);
+	return topology_mode_mask();
+}
+
+static __init int is_native_cp
+

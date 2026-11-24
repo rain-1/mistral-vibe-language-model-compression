@@ -1,0 +1,201 @@
+===== sample 0 (prompt '// SPDX-License-Identifier: GPL-2.0\n', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/* Copyright (C) 2018 Hangzhou C-SKY Microelectronics plc6_btn Corporation */
+#ifndef _DT_BINDINGS_RESET_MEDIA_COMMON_H
+#define _DT_BINDINGS_reset_MEDIA_COMMON_H
+
+/** @brief reset holes for the DT binding state machine
+ * @hpriv: Fixed Security state machine
+ * @baser: Point to be executed by BO's binding state for this
+ */
+struct m
+
+===== sample 1 (prompt '/*\n * foo_bar - handle the foo thing\n *\n * @f: the foo\n */\n', temp=0.8) =====
+/*
+ * foo_bar - handle the foo thing
+ *
+ * @f: the foo
+ */
+static void foo_bar(struct hwrng *hc, unsigned int bar)
+{
+	unsigned long flags;
+
+	local_irq_save(&hc->lock);
+}
+
+/**
+ * cvmx_ldt_read() - read the FLT entry's identity data from an LDT
+ * @hc: the HC portion of the adapter struct
+ * @data: pointer to be passed back
+ *
+ * Return true if this is called when a WARN or if it returns 0. This
+ * means that it cannot call the proper error code to make sure the value is
+
+===== sample 2 (prompt 'static int __init foo_init(void)\n{\n\t', temp=0.8) =====
+static int __init foo_init(void)
+{
+	int ret;
+
+	if (!IS_ENABLED(CONFIG_CRASHMAP)) {
+		pr_warn("sanitize initializing for CPU %d.\n", cpu);
+		cpuhp_setup_state();
+	} else if (false) { /* Openable processor happened */
+		ret = platform_device_add(&flg->pdev);
+		if (ret < 0)
+			goto err0;
+	}
+
+	cfa_cache = alloc_performance();
+	if (!cfa_cache) {
+		pr_err
+
+===== sample 3 (prompt 'static void __exit foo_exit(void)\n{\n\t', temp=0.8) =====
+static void __exit foo_exit(void)
+{
+	kfree(fake_test_driver);
+}
+<|file|>// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (C) 2017 Collabora Ltd <chyas@csie.org>
+ */
+#include "dm-lib/bcache.h"
+#include "ssb-headers.h"
+#include "ssb-helper.h"
+#include <linux/kernel.h>
+#include <linux/moduleparam.h>
+#include <linux/types.h>
+#include <linux/spinlock.h>
+#include <linux/
+
+===== sample 4 (prompt 'struct foo {\n', temp=0.8) =====
+struct foo {
+	const struct auxiliary_driver *drv;
+};
+#define to_auxiliary_driver(d) container_of((di)->driver, __always_inline, uevent))
+#ifdef CONFIG_PM_SLEEP
+/**
+ * struct auxiliary_pm - Device driver private data.
+ */
+struct panelical_state {
+	int (*suspend)(struct device *, unsigned int);
+	void (*stop_callback)(struct psmouse *);
+	void (*resume)(struct acpi_device *);
+	struct pci_dev **pdevs; /* OFF device Parent */
+
+===== sample 5 (prompt 'static const struct file_operations foo_fops = {\n', temp=0.8) =====
+static const struct file_operations foo_fops = {
+	.owner		           = THIS_MODULE,
+	.open		        = simple_open,
+	.release           = single_release,     /* NULL */ ;
+};
+#define MAX_FAURS 1024  
+
+struct module *module_alloc(void)
+{
+	int i;
+	uint16_t buf[ZERO_FIRST];
+	struct pipebuffer bpp;
+	size_t buffer_sz;
+	struct cgroup_subsystem *cgrp_subsys;
+
+	if (!IS_ERR_OR_NULL(__LINE__))
+		return ERR_PTR
+
+===== sample 6 (prompt 'static int foo_open(struct inode *inode, struct file *file)\n{\n', temp=0.8) =====
+static int foo_open(struct inode *inode, struct file *file)
+{
+	struct fs_info *fs = container_of(inode->i_cdev.c, struct fs_info_f, cdev);
+	struct FD_INFO_FAILED *info;
+	int i;
+
+	if (strcmp(fp, "open") == 0 && fs->open == NULL) {
+		printk("open not found\n");
+		return -ENODEV;
+	} else if (!(opts->fd >= 0)) {
+		printk("%s: open %d\n",fp + FOUCHRONOUS_ERRNAME_LENGTH));
+		goto
+
+===== sample 7 (prompt '#define FOO_MAX_', temp=0.8) =====
+#define FOO_MAX_DEVS	32
+#else
+struct foo {
+        struct sli4		sf;      /* Segmentation Address */   // Short-I address space (default for kernel, dumping area)
+         *              to obtain the driver data pointer by this frame. We must be
+           *              a regular buffer and length is an arbitrary size of the stack
+           *             (e[0]=Buffer>>8).
+          */
+            return sli4_ptr(ptr);                             // Don't use it in "
+                                         "
+
+===== sample 8 (prompt 'if (ret < 0) {\n', temp=0.8) =====
+if (ret < 0) {
+		pr_err("Failing out %d, error: inconsistency.\n", ret);
+		goto err;
+	}
+
+	return 0;
+
+err:
+	devm_kfree(pdev->dev.parent, pdata->pctrl);
+err:
+	return ret;
+}
+
+static void ahci_platform_remove(struct platform_device *pdev)
+{
+	platform_device_unregister(&ahci_platform_driver);
+	/* Remove the LEDs to turn off on */
+	while (1) {
+		platform_lock_and(pdev
+
+===== sample 9 (prompt 'list_for_each_entry(pos, &foo->list, node) {\n', temp=0.8) =====
+list_for_each_entry(pos, &foo->list, node) {
+		if (pos == pos && pos - 1 > scan_begin_node(foo))
+			continue;
+
+		cur_end = master + skip_tos_performed();
+		/* first element has been added to next list */
+		if (!start || cur_is_trapped)
+				break; /* Enqueue on a subtree that will not reverse */
+	} else if (*foo != end)
+		*foo = start;
+
+	return partial;
+}
+
+static bool snbep_add_one(
+
+===== sample 10 (prompt 'static int foo_probe(struct platform_device *pdev)\n{\n\t', temp=0.8) =====
+static int foo_probe(struct platform_device *pdev)
+{
+	int ret;
+	int rc = -EINVAL;
+
+	if (IS_ENABLED(CONFIG_PM)) {
+		rc = pm_generic_suspend_noirq(false);
+	} else if (rc == 0 && ENABLED(CONFIG_PPCACILIB_SD))) {
+		dev_err(&pdev->dev, "System is suspended to this driver\n");
+		return rc ?: err;
+	}
+
+	pm_request_resume(&pdev->dev);
+
+	/* Power domain has the effective wakeup source */
+	ret = clk_prepare
+
+===== sample 11 (prompt 'MODULE_DESCRIPTION("', temp=0.8) =====
+MODULE_DESCRIPTION("GPIO device in use\n");
+	} else {
+		if (dev->gpiod && dev->gpio_set)
+			gpiod_print(dev);
+		else if (dev->gpiod && !IS_ERR(data)) {
+			dev_err(&pdev->dev, "failed to get gpiod configuration.\n", 0);
+			ret = -ENODEV;
+			goto error1;
+		}
+		/*
+		 * Set the GPIO pins as part of GPIO direction. We must enter
+		 * both directly without example:
+		 */
+		
+

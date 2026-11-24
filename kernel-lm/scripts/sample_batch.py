@@ -37,6 +37,7 @@ def main():
     ap.add_argument("--tokenizer", default=str(ROOT / "data/tokenizer.json"))
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--top-k", type=int, default=40)
+    ap.add_argument("--repetition-penalty", type=float, default=1.0)
     ap.add_argument("--max-new-tokens", type=int, default=140)
     ap.add_argument("--seed", type=int, default=1234)
     ap.add_argument("--real-prefixes", type=int, default=0,
@@ -75,7 +76,8 @@ def main():
         for i, p in enumerate(prompts):
             ids = tok.encode(p).ids
             x = torch.tensor([ids], dtype=torch.long, device=device)
-            y = model.generate(x, args.max_new_tokens, temperature=args.temperature, top_k=args.top_k)
+            y = model.generate(x, args.max_new_tokens, temperature=args.temperature, top_k=args.top_k,
+                               repetition_penalty=args.repetition_penalty)
             text = tok.decode(y[0, len(ids):].tolist(), skip_special_tokens=False)
             f.write(f"===== sample {i} (prompt {p!r}, temp={args.temperature}) =====\n")
             f.write(p + text + "\n\n")

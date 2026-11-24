@@ -56,3 +56,18 @@ generated functions is not yet achievable.
   busses... not supported in the LLD") while *syntactic* form stays perfect.
 - No global coherence: functions repeat with slight variations instead of
   building one coherent file; `<|file|>` can appear mid-sample.
+
+## Repetition penalty (HF-style logit division, penalty=1.3, temp 0.8)
+
+Batches: `batch_reppen13.txt` (12 short, seed 1234), `batch_long_reppen13.txt`
+(18 long × 768 tokens, seed 99) — same prompts/seeds as the unpenalized batches.
+
+Quantitative effect (repeated 5-grams / duplicate lines):
+- short batch: 2.3% / 9.9%  →  **0.0% / 1.3%**
+- long batch:  21.4% / 32.4% → **0.1% / 7.9%**
+
+Qualitatively: kills mechanical loops (`ret = foo_init(); if (ret)...` ×6,
+repeated `#include <linux/pci_hotplug.h>`), produces more structurally varied
+code (goto err paths, pr_warn, platform_device_add) — but the novelty is
+hallucinated identifiers and word-salad comments ("FastRam and BIOS on U16
+8bpp..."), not better semantics. Penalty trades repetition for invention.

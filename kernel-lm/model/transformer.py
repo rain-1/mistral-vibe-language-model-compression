@@ -191,13 +191,23 @@ class Transformer(nn.Module):
 
     @torch.no_grad()
     def generate(self, idx: torch.Tensor, max_new_tokens: int, temperature: float = 1.0,
-                 top_k: int | None = None):
-        """Greedy/sampled decoding. idx: (B, T) prompt."""
+                 top_k: int | None = None, repetition_penalty: float = 1.0):
+        """Greedy/sampled decoding. idx: (B, T) prompt.
+
+        repetition_penalty: HF-style — logits of tokens already present in the
+        sequence are divided by the penalty (>1 discourages repetition).
+        """
         self.eval()
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -self.cfg.context_length:]
             logits, _ = self(idx_cond)
-            logits = logits[:, -1, :] / max(temperature, 1e-5)
+            logits = logits[:, -1, :]
+            if repetition_penalty != 1.0:
+                for b in range(idx.shape[0]):
+                    seen = torch.unique(idx[b])
+                    lg = logits[b, seen]
+                    logits[b, seen] = torch.where(lg > 0, lg / repetition_penalty, lg * repetition_penalty)
+            logits = logits / max(temperature, 1e-5)
             if top_k is not None:
                 v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
                 logits[logits < v[:, [-1]]] = -float("inf")
