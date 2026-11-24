@@ -1,0 +1,19 @@
+{
+  "checkpoint": "checkpoints/tiny-bpe1024-4k/ckpt_004000.pt",
+  "step": 3999,
+  "results": {
+    "data/tokens-bpe1024": {
+      "val": {
+        "files": 699,
+        "tokens": 3819449,
+        "nll_nats": 5051741.533691406,
+        "bytes": 6944492,
+        "cross_entropy_nats": 1.3226362058222028,
+        "perplexity": 3.7533028255336305,
+        "bits_per_token": 1.9081606950398864,
+        "bits_per_byte": 1.0494824471695552,
+        "ideal_ratio": 7.622804956458232
+      }
+    }
+  }
+}

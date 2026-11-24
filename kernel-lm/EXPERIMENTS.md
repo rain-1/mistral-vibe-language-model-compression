@@ -239,7 +239,18 @@ equal FLOPs (loop2 trained on half the tokens) it would lose. **Verdict: recurre
 looping is not a per-FLOP win at this scale** (parameter-matched comparison still
 possible with 8-layer loop1 vs 4-layer loop2).
 
-- E11b: tiny model per tokenizer vocab (1024, 16384 token arrays ready), 4000 steps
+## E11b — Tokenizer vocab sweep with models (tiny, 4000 steps = 131M tokens, val BPB)
+
+| tokenizer | bytes/token (val) | val BPB |
+|---|---:|---:|
+| BPE-1024 | 1.833 | 1.0495 |
+| BPE-4096 | 2.261 | ~1.036 (tiny-8k @ step 3999) |
+| BPE-16384 | 2.505 | 1.0349 |
+
+At 4k steps the vocab choice is BPB-neutral — the embedding-parameter cost of
+large vocabs is offset by fewer tokens. (Longer runs may differ; queued.)
+
+- E11c: small ctx2048 (4×2048, 4000 steps = 262M tokens) vs ctx1024 — running
 - E12: tiny model per tokenizer vocab (1024, 16384 token arrays ready), equal steps
 - E13: cross-subsystem generalization matrix (train per subsystem)
 - E14: small ctx2048 (4×2048, 4000 steps = 262M tokens) vs ctx1024

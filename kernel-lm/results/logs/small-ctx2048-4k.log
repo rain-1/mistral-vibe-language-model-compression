@@ -1,0 +1,7 @@
+device=cuda  run=small-ctx2048-4k
+model params: 12.19M
+step     0 | loss 8.8816 | lr 6.00e-06 | gnorm 7.38 | 51361 tok/s | 1.61 GB | 1.28s
+step    10 | loss 7.4577 | lr 6.60e-05 | gnorm 4.36 | 64237 tok/s | 1.71 GB | 1.02s
+step    20 | loss 6.7184 | lr 1.26e-04 | gnorm 1.48 | 32813 tok/s | 1.71 GB | 2.00s
+step    30 | loss 6.0084 | lr 1.86e-04 | gnorm 1.08 | 32775 tok/s | 1.71 GB | 2.00s
+step    40 | loss 5.7517 | lr 2.46e-04 | gnorm 0.82 | 64139 tok/s | 1.71 GB | 1.02s

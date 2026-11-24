@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/snake/Code/linux-transformer/kernel-lm/evaluation/perplexity.py", line 169, in <module>
+    main()
+  File "/home/snake/Code/linux-transformer/kernel-lm/evaluation/perplexity.py", line 124, in main
+    model.load_state_dict(ck["model"])
+  File "/home/snake/Code/linux-transformer/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2647, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for Transformer:
+	size mismatch for tok_emb.weight: copying a param with shape torch.Size([1024, 256]) from checkpoint, the shape in current model is torch.Size([4096, 256]).
+	size mismatch for lm_head.weight: copying a param with shape torch.Size([1024, 256]) from checkpoint, the shape in current model is torch.Size([4096, 256]).
