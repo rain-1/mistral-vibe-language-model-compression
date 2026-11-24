@@ -1,0 +1,44 @@
+{
+  "val": {
+    "gzip-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1690065,
+      "bits_per_byte": 1.9462,
+      "ratio": 4.111,
+      "comp_s": 0.19,
+      "decomp_s": 0.02,
+      "comp_MBps": 35.7,
+      "decomp_MBps": 291.1
+    },
+    "xz-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1311712,
+      "bits_per_byte": 1.5105,
+      "ratio": 5.296,
+      "comp_s": 2.14,
+      "decomp_s": 0.05,
+      "comp_MBps": 3.3,
+      "decomp_MBps": 128.2
+    },
+    "bzip2-9": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1462934,
+      "bits_per_byte": 1.6846,
+      "ratio": 4.749,
+      "comp_s": 0.48,
+      "decomp_s": 0.16,
+      "comp_MBps": 14.4,
+      "decomp_MBps": 44.4
+    },
+    "zstd-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1565231,
+      "bits_per_byte": 1.8024,
+      "ratio": 4.439,
+      "comp_s": 0.1,
+      "decomp_s": 0.01,
+      "comp_MBps": 72.5,
+      "decomp_MBps": 594.3
+    }
+  }
+}

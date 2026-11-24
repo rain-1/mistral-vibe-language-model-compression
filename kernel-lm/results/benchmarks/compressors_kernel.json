@@ -1,0 +1,86 @@
+{
+  "holdout_subsystem": {
+    "gzip-6": {
+      "orig_bytes": 100000000,
+      "compressed_bytes": 22684019,
+      "bits_per_byte": 1.8147,
+      "ratio": 4.408,
+      "comp_s": 2.97,
+      "decomp_s": 0.3,
+      "comp_MBps": 33.6,
+      "decomp_MBps": 333.3
+    },
+    "xz-6": {
+      "orig_bytes": 100000000,
+      "compressed_bytes": 15771404,
+      "bits_per_byte": 1.2617,
+      "ratio": 6.341,
+      "comp_s": 34.09,
+      "decomp_s": 0.62,
+      "comp_MBps": 2.9,
+      "decomp_MBps": 162.5
+    },
+    "bzip2-9": {
+      "orig_bytes": 100000000,
+      "compressed_bytes": 17432883,
+      "bits_per_byte": 1.3946,
+      "ratio": 5.736,
+      "comp_s": 7.47,
+      "decomp_s": 2.07,
+      "comp_MBps": 13.4,
+      "decomp_MBps": 48.3
+    },
+    "zstd-6": {
+      "orig_bytes": 100000000,
+      "compressed_bytes": 19868971,
+      "bits_per_byte": 1.5895,
+      "ratio": 5.033,
+      "comp_s": 0.69,
+      "decomp_s": 0.11,
+      "comp_MBps": 144.2,
+      "decomp_MBps": 898.3
+    }
+  },
+  "val": {
+    "gzip-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1690065,
+      "bits_per_byte": 1.9462,
+      "ratio": 4.111,
+      "comp_s": 0.19,
+      "decomp_s": 0.02,
+      "comp_MBps": 36.1,
+      "decomp_MBps": 299.9
+    },
+    "xz-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1311712,
+      "bits_per_byte": 1.5105,
+      "ratio": 5.296,
+      "comp_s": 2.13,
+      "decomp_s": 0.05,
+      "comp_MBps": 3.3,
+      "decomp_MBps": 132.2
+    },
+    "bzip2-9": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1462934,
+      "bits_per_byte": 1.6846,
+      "ratio": 4.749,
+      "comp_s": 0.48,
+      "decomp_s": 0.16,
+      "comp_MBps": 14.4,
+      "decomp_MBps": 44.6
+    },
+    "zstd-6": {
+      "orig_bytes": 6947288,
+      "compressed_bytes": 1565231,
+      "bits_per_byte": 1.8024,
+      "ratio": 4.439,
+      "comp_s": 0.1,
+      "decomp_s": 0.01,
+      "comp_MBps": 71.1,
+      "decomp_MBps": 572.1
+    }
+  }
+}

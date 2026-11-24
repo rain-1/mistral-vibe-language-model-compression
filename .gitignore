@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+kernel-lm/data/
+kernel-lm/checkpoints/
+kernel-lm/results/*.png
+wandb/

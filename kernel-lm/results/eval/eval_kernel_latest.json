@@ -1,0 +1,41 @@
+{
+  "checkpoint": "checkpoints/tiny-pilot/latest.pt",
+  "step": 999,
+  "results": {
+    "data/tokens": {
+      "val": {
+        "files": 699,
+        "tokens": 3093267,
+        "nll_nats": 9681266.516601562,
+        "bytes": 6944492,
+        "cross_entropy_nats": 3.1297868941160147,
+        "perplexity": 22.869105482174064,
+        "bits_per_token": 4.515328031180446,
+        "bits_per_byte": 2.0112508147500843,
+        "ideal_ratio": 3.9776242432468925
+      },
+      "holdout_subsystem": {
+        "files": 2500,
+        "tokens": 24989508,
+        "nll_nats": 82997776.63769531,
+        "bytes": 53376993,
+        "cross_entropy_nats": 3.3213049507695516,
+        "perplexity": 27.69646951586918,
+        "bits_per_token": 4.791630181755195,
+        "bits_per_byte": 2.243297608765876,
+        "ideal_ratio": 3.56617863307094
+      },
+      "holdout_driver": {
+        "files": 2500,
+        "tokens": 158982821,
+        "nll_nats": 585064004.9125977,
+        "bytes": 446143176,
+        "cross_entropy_nats": 3.6800454365607065,
+        "perplexity": 39.648195509288904,
+        "bits_per_token": 5.309183301572192,
+        "bits_per_byte": 1.891923902227389,
+        "ideal_ratio": 4.228499883415758
+      }
+    }
+  }
+}
