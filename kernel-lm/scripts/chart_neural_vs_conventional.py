@@ -98,7 +98,12 @@ def main():
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=38, ha="right", fontsize=7)
     ax.set_yscale("log")
-    ax.set_ylim(0.1, 8 * 3)
+    max_total = max(max(c + o for c, o in zip(cond, ovh)),
+                    max(c + o for c, o in zip(cond_q, ovh_q)))
+    ax.set_ylim(0.1, max_total * 2.5)
+    for xi, c, o, cq, oq in zip(x, cond, ovh, cond_q, ovh_q):
+        ax.text(xi - 1.5 * w, c + o * 1.15, f"{c+o:.1f}", ha="center", fontsize=6.5, color="darkred")
+        ax.text(xi - 0.5 * w, cq + oq * 1.15, f"{cq+oq:.1f}", ha="center", fontsize=6.5, color="#b34700")
     ax.set_ylabel("bits per byte (log scale, lower = better)")
     ax.set_title("Neural vs conventional compression — neural bars STACKED with model size;\n"
                  "gray bar = original corpus size (8 BPB); corpus MB in x labels")
