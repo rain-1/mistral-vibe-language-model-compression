@@ -1,0 +1,204 @@
+===== sample 0 (prompt '// SPDX-License-Identifier: GPL-2.0\n', temp=0.0) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (C) 2015 Linaro Ltd.
+ */
+
+#ifndef __LINUX_MFD_MFD_H
+#define __LINUX_MFD_MFD_H
+
+#include <linux/types.h>
+#include <linux/mfd/core.h>
+#include <linux/mfd/mfd/mfd.h>
+#include <linux/mfd/mfd/mfd.h>
+#include <linux/mfd/mfd/mfd.h>
+#include <linux/mfd/mfd/mfd.h>
+#include
+
+===== sample 1 (prompt '/*\n * foo_bar - handle the foo thing\n *\n * @f: the foo\n */\n', temp=0.0) =====
+/*
+ * foo_bar - handle the foo thing
+ *
+ * @f: the foo
+ */
+static void foo_bar(struct foo_foo *f)
+{
+	struct foo_bar *bar;
+	struct foo_bar *bar;
+	struct foo_bar *bar;
+	int i;
+
+	bar = foo_bar_from_foo(f);
+	bar->f = f;
+	bar->f_flags = FD_FL_NO_F_FREE;
+	bar->f_flags = FD_FL_NO_F_UNLOCKED;
+	bar->f_flags = FD_FL_
+
+===== sample 2 (prompt 'static int __init foo_init(void)\n{\n\t', temp=0.0) =====
+static int __init foo_init(void)
+{
+	int ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret;
+
+	ret = foo_init();
+	if (ret)
+		return ret
+
+===== sample 3 (prompt 'static void __exit foo_exit(void)\n{\n\t', temp=0.0) =====
+static void __exit foo_exit(void)
+{
+	unregister_foo_handler(foo_handler);
+}
+
+module_init(foo_init);
+module_exit(foo_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Andreas Klinger <andreas@suse.de>");
+MODULE_DESCRIPTION("Freescale foo driver for Foo-Coods");
+<|file|>// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (C) 2015 Freescale Semiconductor, Inc.
+ * Copyright (C) 2015 Lin
+
+===== sample 4 (prompt 'struct foo {\n', temp=0.0) =====
+struct foo {
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *foo;
+	struct foo *fo
+
+===== sample 5 (prompt 'static const struct file_operations foo_fops = {\n', temp=0.0) =====
+static const struct file_operations foo_fops = {
+	.owner = THIS_MODULE,
+	.unlocked_ioctl = foo_ioctl,
+	.compat_ioctl = compat_ptr_ioctl,
+	.open = foo_open,
+	.release = foo_release,
+	.llseek = noop_llseek,
+};
+
+static int __init foo_init(void)
+{
+	int ret;
+
+	ret = register_chrdev(0, "foo");
+	if (ret < 0)
+		return ret;
+
+	ret = register_chrdev(0, "
+
+===== sample 6 (prompt 'static int foo_open(struct inode *inode, struct file *file)\n{\n', temp=0.0) =====
+static int foo_open(struct inode *inode, struct file *file)
+{
+	struct foo_data *data = file->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct foo_data *data = data->private_data;
+	struct fo
+
+===== sample 7 (prompt '#define FOO_MAX_', temp=0.0) =====
+#define FOO_MAX_RETRIES		2
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO_MAX_RETRIES		2
+
+#define FOO
+
+===== sample 8 (prompt 'if (ret < 0) {\n', temp=0.0) =====
+if (ret < 0) {
+		dev_err(dev, "failed to get device\n");
+		return ret;
+	}
+
+	ret = devm_mfd_add_devices(dev, -1, -1, NULL, 0, NULL);
+	if (ret < 0) {
+		dev_err(dev, "failed to add device\n");
+		return ret;
+	}
+
+	ret = devm_mfd_add_devices(dev, -1, -1, NULL, 0, NULL);
+	if (ret < 0) {
+		dev_err(dev, "failed to add device\
+
+===== sample 9 (prompt 'list_for_each_entry(pos, &foo->list, node) {\n', temp=0.0) =====
+list_for_each_entry(pos, &foo->list, node) {
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+		if (pos == pos)
+			continue;
+
+
+===== sample 10 (prompt 'static int foo_probe(struct platform_device *pdev)\n{\n\t', temp=0.0) =====
+static int foo_probe(struct platform_device *pdev)
+{
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->dev);
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->dev);
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->dev);
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->dev);
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->dev);
+	struct foo_platform_data *pdata = dev_get_platdata(&pdev->
+
+===== sample 11 (prompt 'MODULE_DESCRIPTION("', temp=0.0) =====
+MODULE_DESCRIPTION("Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qualcomm Qual
+

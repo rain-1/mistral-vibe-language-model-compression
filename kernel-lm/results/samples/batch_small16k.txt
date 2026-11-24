@@ -1,0 +1,229 @@
+===== sample 0 (prompt '// SPDX-License-Identifier: GPL-2.0\n', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Windows: Filesystem interface
+ *
+ * Copyright (C) 2015-2017 Intel Corporation
+ * Authors:
+ *   Daniel Grint <daniel.grint@intel.com>
+ *   Daniel Grint <daniel.grint@intel.com>
+ */
+
+#ifndef __UAPI_WINDOW_H__
+#define __UAPI_WINDOW_H__
+
+#include <linux/types.h>
+#include <linux/ftrace.h>
+#include
+
+===== sample 1 (prompt '/*\n * foo_bar - handle the foo thing\n *\n * @f: the foo\n */\n', temp=0.8) =====
+/*
+ * foo_bar - handle the foo thing
+ *
+ * @f: the foo
+ */
+static void foo_bar(struct foo_f *f)
+{
+	struct foo_bar(f)
+		;
+	if (f->type == FOO_TYPE_UNION)
+		printk(KERN_INFO
+		       "foo: Unknown FooBoo, foo bar: %s\n",
+		       foo_bar(f) == FOO_BAR_OP);
+
+	fflush(stdout);
+	fflush(stdout);
+}
+
+/*
+ * Free the foo array.
+
+===== sample 2 (prompt 'static int __init foo_init(void)\n{\n\t', temp=0.8) =====
+static int __init foo_init(void)
+{
+	int ret;
+
+	if (!IS_ENABLED(CONFIG_CRASH_KERNEL_MODE_CONSOLE))
+		return -ENODEV;
+
+	ret = platform_driver_register(&foo_driver);
+	if (ret)
+		return ret;
+
+	if (foo_driver.driver.attach)
+		foo_driver.driver.attach(&fsl_driver);
+
+	ret = foo_driver.driver.unregister(&fsl_driver);
+	if (ret)
+		platform_driver_unregister(&foo_driver);
+	return ret
+
+===== sample 3 (prompt 'static void __exit foo_exit(void)\n{\n\t', temp=0.8) =====
+static void __exit foo_exit(void)
+{
+	exit(0);
+}
+
+module_init(foo_init);
+module_exit(foo_exit);
+
+module_param(algo_reg, charp, 0644);
+MODULE_PARM_DESC(algo_reg, "Show I2C specification register (2)");
+
+MODULE_AUTHOR("Dougan Tau <d.t@naturally.com.tw>");
+MODULE_DESCRIPTION("Freescale foo algorithm.");
+MODULE_LICENSE("GPL");
+<|file|>// SPDX-License-Identifier: GPL-2.0
+
+===== sample 4 (prompt 'struct foo {\n', temp=0.8) =====
+struct foo {
+		struct foo {
+			__u64 addr;
+			__u64 end;
+		} key[];
+	};
+	struct {
+		__u64 addr;
+		__u64 end;
+		__u64 end;
+	} key[];
+	__u64 *data;
+};
+
+struct foo_state {
+	__u32 index;
+	__u32 flags;
+	__u64 data;
+};
+
+struct foo_state {
+	__u32 index;
+	__u32 flags;
+	__u32 data;
+
+
+===== sample 5 (prompt 'static const struct file_operations foo_fops = {\n', temp=0.8) =====
+static const struct file_operations foo_fops = {
+	.owner = THIS_MODULE,
+	.read = foo_read,
+	.write  = foo_write,
+};
+
+static struct class foo_class = {
+	.minor = FOO_MINOR,
+	.name = "foo",
+	.fops = &foo_fops,
+};
+
+static struct foo_class foo_class = {
+	.minor = FOO_MINOR,
+	.name = "foo",
+};
+
+static struct foo_class foo_class
+
+===== sample 6 (prompt 'static int foo_open(struct inode *inode, struct file *file)\n{\n', temp=0.8) =====
+static int foo_open(struct inode *inode, struct file *file)
+{
+	struct foo *foo = file->private_data;
+	struct foom *foo_fds = foo->private;
+
+	if ((foo->mode != FOO_MODE_WRITE && foo->mode != FOO_MODE_WRITE) ||
+	    foo->write != file->private_data)
+		return -ENODEV;
+
+	return 0;
+}
+
+static const struct file_operations foo_fops = {
+	.open		= foo_open,
+	.read		= foo_
+
+===== sample 7 (prompt '#define FOO_MAX_', temp=0.8) =====
+#define FOO_MAX_DEV_TABLES	256
+#define FOO_MAX_DEV_TABLES	3
+#define FOO_MAX_DEV_TABLES	4
+#define FOO_MAX_DEV_TABLES	7
+#define FOO_MAX_DEV_TABLES	8
+
+#define NUM_DEV_TABLES		(MAX_DEV_TABLES + 1)
+
+#define FOO_FCS_NAME	0
+#define FOO_FCS_NAME_MAX	10
+#define FOO_FCS_NAME_MAX		1
+
+struct fcoe_
+
+===== sample 8 (prompt 'if (ret < 0) {\n', temp=0.8) =====
+if (ret < 0) {
+		pr_err("Failing out %d, error %d\n", ret, err);
+		return ret;
+	}
+
+	if (err > 2) {
+		pr_err("Unexpected error detected, error %d\n", err);
+		return -EINVAL;
+	}
+
+	ret = xa_load_vm(xchg2, &vm);
+	if (ret) {
+		pr_err("Can't load vm failed: %d\n", ret);
+		return ret;
+	}
+
+	return 0;
+}
+
+
+
+===== sample 9 (prompt 'list_for_each_entry(pos, &foo->list, node) {\n', temp=0.8) =====
+list_for_each_entry(pos, &foo->list, node) {
+		if (pos->nport == pos->port &&
+				pos->target == pos->target &&
+				(pos->target + 1) == pos->target &&
+				pos->target &&
+				(pos->target + 1 > pos->target)
+				break;
+		if (pos->target)
+			list_add_tail(&pos->node, &pos->list);
+	}
+
+	return pos;
+}
+
+static void update_list_node(struct list_head *pos)
+{
+	struct list_head *pos = NULL;
+	struct list_head *
+
+===== sample 10 (prompt 'static int foo_probe(struct platform_device *pdev)\n{\n\t', temp=0.8) =====
+static int foo_probe(struct platform_device *pdev)
+{
+	struct device_node *np = pdev->dev.of_node;
+	struct device *dev = &pdev->dev;
+	struct foo_priv *priv;
+	int ret;
+
+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+	if (!priv)
+		return -ENOMEM;
+
+	priv->dev = &pdev->dev;
+	platform_set_drvdata(pdev, priv);
+
+	if (of_device_is_compatible(np, "fsl,fp-foo"))
+		priv->ftb_base = fo
+
+===== sample 11 (prompt 'MODULE_DESCRIPTION("', temp=0.8) =====
+MODULE_DESCRIPTION("GPIO device in use\n");
+MODULE_AUTHOR("Renesas Solutions Corp.");
+MODULE_LICENSE("GPL");
+<|file|>// SPDX-License-Identifier: GPL-2.0-or-later
+/*
+ * Everything that represents the early boot line and family rules
+ * and at the SerDes/RunOS/Configuration for the family boot line
+ *
+ *
+ * Copyright (C) 2007-2009 Technologies Co., Ltd.
+ * Author: Andrew Nagar <a.
+

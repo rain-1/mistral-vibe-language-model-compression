@@ -1,0 +1,13 @@
+--- sample 0: '// SPDX-License-Identifier: GPL-2.0\n'
+--- sample 1: '/*\n * foo_bar - handle the foo thing\n *\n * @f: the'
+--- sample 2: 'static int __init foo_init(void)\n{\n\t'
+--- sample 3: 'static void __exit foo_exit(void)\n{\n\t'
+--- sample 4: 'struct foo {\n'
+--- sample 5: 'static const struct file_operations foo_fops = {\n'
+--- sample 6: 'static int foo_open(struct inode *inode, struct fi'
+--- sample 7: '#define FOO_MAX_'
+--- sample 8: 'if (ret < 0) {\n'
+--- sample 9: 'list_for_each_entry(pos, &foo->list, node) {\n'
+--- sample 10: 'static int foo_probe(struct platform_device *pdev)'
+--- sample 11: 'MODULE_DESCRIPTION("'
+saved -> /home/snake/Code/linux-transformer/kernel-lm/results/samples/batch_small16k.txt
