@@ -174,7 +174,11 @@ HTML = """<!DOCTYPE html>
   total BPB(N) = @@VAL_BPB@@ + 8&middot;49 MB / N. Crossover vs xz-6 on in-domain code at
   <b>N &asymp; 250 MB</b> — at 1 GB total &asymp; 0.91 BPB vs xz 1.51; at 10 GB &asymp; 0.73.
   On small corpora (&lt;50 MB) the model cost dominates and xz wins. The stacked bar in the chart
-  above shows exactly this.</p>
+  above shows exactly this (gray bar = original corpus size, 8 BPB).</p>
+  <p><b>Pruned + INT8-quantized model</b> (30% magnitude pruning + per-channel INT8):
+  48.8 MB &rarr; <b>13.9 MB</b> artifact, val BPB 0.7075 &rarr; 0.7438 (+0.037), range coder still
+  byte-exact. The xz crossover drops to <b>~70 MB</b> of corpus — the quantized model pays for
+  itself much sooner.</p>
 </div></section>
 
 <section id="experiments"><div class="wrap">

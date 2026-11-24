@@ -1,0 +1,41 @@
+{
+  "checkpoint": "checkpoints/small-16k-s30-dequant.pt",
+  "step": 15999,
+  "results": {
+    "data/tokens": {
+      "val": {
+        "files": 600,
+        "tokens": 2779824,
+        "nll_nats": 3219440.5532226562,
+        "bytes": 6244152,
+        "cross_entropy_nats": 1.1581454628863757,
+        "perplexity": 3.18402290865751,
+        "bits_per_token": 1.6708507159342272,
+        "bits_per_byte": 0.743843346633962,
+        "ideal_ratio": 10.754952687553876
+      },
+      "holdout_subsystem": {
+        "files": 600,
+        "tokens": 5969941,
+        "nll_nats": 9344327.392578125,
+        "bytes": 12498006,
+        "cross_entropy_nats": 1.5652294373726852,
+        "perplexity": 4.783772386160206,
+        "bits_per_token": 2.258148747150995,
+        "bits_per_byte": 1.0786532499436599,
+        "ideal_ratio": 7.416655909040144
+      },
+      "holdout_driver": {
+        "files": 600,
+        "tokens": 5835533,
+        "nll_nats": 6826726.412109375,
+        "bytes": 12207101,
+        "cross_entropy_nats": 1.1698548208208872,
+        "perplexity": 3.2215249062354476,
+        "bits_per_token": 1.6877437485583409,
+        "bits_per_byte": 0.8068159950717129,
+        "ideal_ratio": 9.915519832113553
+      }
+    }
+  }
+}

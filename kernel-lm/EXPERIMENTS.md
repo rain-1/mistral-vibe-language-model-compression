@@ -265,6 +265,25 @@ but references real kernel symbols the stub harness lacks. Treat the balanced-
 delimiter rate (81.8%) and exact-line match (30.4%) as the generation metrics;
 full kernel-tree compilation of generations is future work.
 
+## E13 — Pruned + INT8-quantized model (scripts/quantize_prune.py)
+
+small-16k → global magnitude pruning of Linear weights + per-channel INT8
+quantization (embedding per-row int8, LN fp16). Artifact sizes: dense fp32
+48.8 MB → fp16 24.4 MB → **pruned+INT8 13.9 MB** (3.5x smaller).
+
+| model | artifact | val BPB | holdout_subsys | holdout_driver |
+|---|---:|---:|---:|---:|
+| dense fp32 | 48.8 MB | 0.7075 | 1.0368 | 0.7726 |
+| 30% pruned + INT8 | 13.9 MB | **0.7438** | 1.0787 | 0.8068 |
+| 50% pruned + INT8 | 13.9 MB | 1.1282 | 1.4650 | 1.1686 |
+
+30% sparsity + INT8 costs only +0.037 val BPB (+0.04–0.05 on external repos) for a
+3.5x smaller model — clearly worth it; 50% sparsity destroys quality. Range coder
+re-verified byte-exact with the quantized model (actual 279B vs ideal 272B on two
+files). Effect on total compression: xz crossover moves from ~250 MB (dense) to
+**~70 MB** (quantized) corpus size. Chart updated with both stacked model sizes
+and an "original" bar (8 BPB) per corpus.
+
 ## Conditional vs total compression (model/tokenizer overhead)
 
 All BPB numbers above are **conditional** (decoder has the model). Deployable
