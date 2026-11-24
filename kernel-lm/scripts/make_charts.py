@@ -50,6 +50,8 @@ def plot_run_log(log_path: Path, out_dir: Path):
 def plot_bpb(eval_json: Path, out_dir: Path):
     with open(eval_json) as f:
         payload = json.load(f)
+    if "results" not in payload:
+        return
     res = payload["results"]
     out_dir.mkdir(parents=True, exist_ok=True)
     for corpus, corpora in res.items():
