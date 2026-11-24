@@ -1,0 +1,41 @@
+{
+  "checkpoint": "checkpoints/small-8k/ckpt_008000.pt",
+  "step": 7999,
+  "results": {
+    "data/tokens": {
+      "val": {
+        "files": 600,
+        "tokens": 2779824,
+        "nll_nats": 3355748.083129883,
+        "bytes": 6244152,
+        "cross_entropy_nats": 1.207180052812654,
+        "perplexity": 3.344041324036957,
+        "bits_per_token": 1.7415926756528928,
+        "bits_per_byte": 0.7753368460607825,
+        "ideal_ratio": 10.318095987112214
+      },
+      "holdout_subsystem": {
+        "files": 600,
+        "tokens": 5969941,
+        "nll_nats": 9501601.024902344,
+        "bytes": 12498006,
+        "cross_entropy_nats": 1.591573689740375,
+        "perplexity": 4.911471982956577,
+        "bits_per_token": 2.296155469397789,
+        "bits_per_byte": 1.0968079771390815,
+        "ideal_ratio": 7.293892975566456
+      },
+      "holdout_driver": {
+        "files": 600,
+        "tokens": 5835533,
+        "nll_nats": 6893855.163330078,
+        "bytes": 12207101,
+        "cross_entropy_nats": 1.1813582689584787,
+        "perplexity": 3.258797521696998,
+        "bits_per_token": 1.7043397161395675,
+        "bits_per_byte": 0.8147495999863587,
+        "ideal_ratio": 9.818967692814999
+      }
+    }
+  }
+}

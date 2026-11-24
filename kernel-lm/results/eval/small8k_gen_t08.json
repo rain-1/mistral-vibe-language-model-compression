@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/small-8k/ckpt_008000.pt",
+  "temperature": 0.8,
+  "n": 148,
+  "exact_line_match": 0.25675675675675674,
+  "token_accuracy": 0.47635810667841166,
+  "norm_edit_distance": 0.8237011029991838,
+  "balanced_ratio": 0.7567567567567568
+}

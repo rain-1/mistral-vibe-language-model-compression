@@ -1,0 +1,195 @@
+{
+  "checkpoint": "checkpoints/small-8k/ckpt_008000.pt",
+  "step": 7999,
+  "results": {
+    "data/domain_tokens": {
+      "arch": {
+        "files": 193,
+        "tokens": 613275,
+        "nll_nats": 837043.2795410156,
+        "bytes": 1376484,
+        "cross_entropy_nats": 1.3648742889258745,
+        "perplexity": 3.915230833181204,
+        "bits_per_token": 1.9690973680702093,
+        "bits_per_byte": 0.8773063750855497,
+        "ideal_ratio": 9.118821231887079
+      },
+      "block": {
+        "files": 3,
+        "tokens": 26831,
+        "nll_nats": 42338.046875,
+        "bytes": 63716,
+        "cross_entropy_nats": 1.5779526247624016,
+        "perplexity": 4.845026063358414,
+        "bits_per_token": 2.27650442650244,
+        "bits_per_byte": 0.958642888246076,
+        "ideal_ratio": 8.34513049446048
+      },
+      "crypto": {
+        "files": 169,
+        "tokens": 2116969,
+        "nll_nats": 3453758.483276367,
+        "bytes": 3547501,
+        "cross_entropy_nats": 1.631463891666041,
+        "perplexity": 5.111351709618923,
+        "bits_per_token": 2.3537048658960065,
+        "bits_per_byte": 1.4045719046311764,
+        "ideal_ratio": 5.695685620381751
+      },
+      "drivers": {
+        "files": 268,
+        "tokens": 1737077,
+        "nll_nats": 1912940.3856201172,
+        "bytes": 3858542,
+        "cross_entropy_nats": 1.101240984492983,
+        "perplexity": 3.0078964616254,
+        "bits_per_token": 1.5887549071517064,
+        "bits_per_byte": 0.7152415621886102,
+        "ideal_ratio": 11.18503233441905
+      },
+      "fs": {
+        "files": 400,
+        "tokens": 3781014,
+        "nll_nats": 5966783.990478516,
+        "bytes": 8373792,
+        "cross_entropy_nats": 1.578090954034689,
+        "perplexity": 4.845696318644866,
+        "bits_per_token": 2.2767039934575792,
+        "bits_per_byte": 1.0279989845841664,
+        "ideal_ratio": 7.782108854160067
+      },
+      "include": {
+        "files": 128,
+        "tokens": 294969,
+        "nll_nats": 383041.1804199219,
+        "bytes": 687253,
+        "cross_entropy_nats": 1.298581140458563,
+        "perplexity": 3.664094142730862,
+        "bits_per_token": 1.8734565715315032,
+        "bits_per_byte": 0.8040875943038096,
+        "ideal_ratio": 9.949164813227236
+      },
+      "io_uring": {
+        "files": 1,
+        "tokens": 122,
+        "nll_nats": 110.63760375976562,
+        "bytes": 306,
+        "cross_entropy_nats": 0.9068656045882428,
+        "perplexity": 2.476547875026727,
+        "bits_per_token": 1.3083305104922296,
+        "bits_per_byte": 0.521621968235464,
+        "ideal_ratio": 15.336777373587802
+      },
+      "kernel": {
+        "files": 9,
+        "tokens": 114812,
+        "nll_nats": 190701.76806640625,
+        "bytes": 275680,
+        "cross_entropy_nats": 1.6609916042435133,
+        "perplexity": 5.264528585937969,
+        "bits_per_token": 2.3963043504003205,
+        "bits_per_byte": 0.9979849647350609,
+        "ideal_ratio": 8.016152830642886
+      },
+      "lib": {
+        "files": 12,
+        "tokens": 44638,
+        "nll_nats": 66389.96276855469,
+        "bytes": 102145,
+        "cross_entropy_nats": 1.4872969839274763,
+        "perplexity": 4.425118173271986,
+        "bits_per_token": 2.1457159830412826,
+        "bits_per_byte": 0.937691223760309,
+        "ideal_ratio": 8.531593127126191
+      },
+      "mm": {
+        "files": 174,
+        "tokens": 2125224,
+        "nll_nats": 3434161.2944335938,
+        "bytes": 5106310,
+        "cross_entropy_nats": 1.6159055678053673,
+        "perplexity": 5.032443079091089,
+        "bits_per_token": 2.331258949217668,
+        "bits_per_byte": 0.9702598293272773,
+        "ideal_ratio": 8.245214073787578
+      },
+      "net": {
+        "files": 400,
+        "tokens": 3495719,
+        "nll_nats": 4958873.859619141,
+        "bytes": 7738466,
+        "cross_entropy_nats": 1.4185561996313607,
+        "perplexity": 4.131151574197029,
+        "bits_per_token": 2.0465439944304586,
+        "bits_per_byte": 0.924491071701607,
+        "ideal_ratio": 8.653409691967385
+      },
+      "samples": {
+        "files": 4,
+        "tokens": 4175,
+        "nll_nats": 4948.4677734375,
+        "bytes": 9069,
+        "cross_entropy_nats": 1.1852617421407186,
+        "perplexity": 3.271543010081655,
+        "bits_per_token": 1.7099712375418281,
+        "bits_per_byte": 0.787201446326732,
+        "ideal_ratio": 10.16258295424874
+      },
+      "scripts": {
+        "files": 1,
+        "tokens": 17280,
+        "nll_nats": 26552.705444335938,
+        "bytes": 36169,
+        "cross_entropy_nats": 1.5366148983990704,
+        "perplexity": 4.648826854430069,
+        "bits_per_token": 2.216866693676437,
+        "bits_per_byte": 1.0591240141206237,
+        "ideal_ratio": 7.553411964360275
+      },
+      "security": {
+        "files": 214,
+        "tokens": 1224207,
+        "nll_nats": 1839703.7329101562,
+        "bytes": 2859390,
+        "cross_entropy_nats": 1.5027717803526335,
+        "perplexity": 4.494128559852016,
+        "bits_per_token": 2.168041395102623,
+        "bits_per_byte": 0.9282159664034625,
+        "ideal_ratio": 8.618683894220673
+      },
+      "sound": {
+        "files": 400,
+        "tokens": 3572184,
+        "nll_nats": 3938394.5100097656,
+        "bytes": 7451733,
+        "cross_entropy_nats": 1.1025172583522478,
+        "perplexity": 3.011737812036882,
+        "bits_per_token": 1.590596181119284,
+        "bits_per_byte": 0.7624940706618726,
+        "ideal_ratio": 10.49188486548585
+      },
+      "tools": {
+        "files": 80,
+        "tokens": 240088,
+        "nll_nats": 309819.87890625,
+        "bytes": 535128,
+        "cross_entropy_nats": 1.2904429996761604,
+        "perplexity": 3.6343962355380546,
+        "bits_per_token": 1.861715716182675,
+        "bits_per_byte": 0.8352685766150642,
+        "ideal_ratio": 9.577757650623102
+      },
+      "virt": {
+        "files": 14,
+        "tokens": 98764,
+        "nll_nats": 132466.58953857422,
+        "bytes": 237894,
+        "cross_entropy_nats": 1.341243667111237,
+        "perplexity": 3.823796078867452,
+        "bits_per_token": 1.9350055871651095,
+        "bits_per_byte": 0.8033363254675396,
+        "ideal_ratio": 9.958469132270373
+      }
+    }
+  }
+}

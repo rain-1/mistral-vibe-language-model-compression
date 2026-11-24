@@ -108,9 +108,8 @@ def analyze(model, tok: Tokenizer, bin_path: Path, offsets: list, ctx: int,
                     bucket = "0" if dist == 0 else ("1-8" if 0 < dist <= 8 else
                               "9-64" if dist <= 64 else "65-512" if dist <= 512 else "512+" if dist > 0 else "novel")
                     id_dist_nll[bucket].append(nll)
-        for st in strs:
-            if IDENT.match(st):
-                seen.add(st)
+                if IDENT.match(strs[i + wstart + 1]):
+                    seen.add(strs[i + wstart + 1])
     out = {"categories": {}, "identifier_distance": {}}
     for c in cat_nll:
         out["categories"][c] = {"count": cat_cnt[c], "nll_nats": cat_nll[c],
