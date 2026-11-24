@@ -97,7 +97,7 @@ def main():
             body = sig + "\n" + "\n".join(body_lines)
             n_tot += 1
             with tempfile.NamedTemporaryFile("w", suffix=".c", delete=False) as tf:
-                tf.write(HARNESS.format(body=body))
+                tf.write(HARNESS.replace("{body}", body))
                 path = tf.name
             res = subprocess.run(["gcc", "-fsyntax-only", "-w", path],
                                  capture_output=True, timeout=20)

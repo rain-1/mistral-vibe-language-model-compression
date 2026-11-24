@@ -241,6 +241,24 @@ equal FLOPs (loop2 trained on half the tokens) it would lose. **Verdict: recurre
 looping is not a per-FLOP win at this scale** (parameter-matched comparison still
 possible with 8-layer loop1 vs 4-layer loop2).
 
+## E12 — small-16k: 12.2M params, 524M tokens (16000 steps), ~2.3h, 1.71 GB
+
+Best model so far. val BPB **0.7075 (11.31x, ppl 3.01)**, holdout_subsystem
+1.0368, holdout_driver 0.7726. External (600 files each): linux-v6.12 0.755,
+nginx 0.867, freebsd 0.964, cpython 1.083, redis 1.102, git 1.102, openbsd
+1.106, xv6 1.110, lua 1.415, sqlite 1.425, doom 1.513, busybox 1.547, musl 1.624.
+Generation (next-line, greedy, 148 samples): exact-line 30.4%, token-acc 51.3%,
+balanced 81.8%.
+
+**Scaling summary (val BPB):** tiny-8k 4.2M/262M → 0.907; small-8k 12.2M/262M →
+0.775; medium-8k 27.3M/262M → 0.713; small-16k 12.2M/524M → **0.708**. Small at
+2× tokens ≈ medium at 1× tokens; beyond that, diminishing.
+
+Lexical breakdown (small-16k, val): identifier_seen 0.90 nats vs identifier_novel
+2.90 — strong local copy signal; identifier NLL vs distance: 1–8 tok → 0.35,
+9–64 → 1.09, 65–512 → 1.64, 512+ → 3.13. Cheapest: whitespace 0.41, preprocessor
+0.59, string 0.61. Hardest: novel identifiers, operators 1.55, types 1.54.
+
 ## E11b — Tokenizer vocab sweep with models (tiny, 4000 steps = 131M tokens, val BPB)
 
 | tokenizer | bytes/token (val) | val BPB |

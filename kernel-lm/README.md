@@ -72,7 +72,15 @@ Turing it falls back to the math/efficient path — benchmarked, still OK).
 | model | params | tokens | wall | val BPB | vs xz-6 (1.51) |
 |---|---:|---:|---:|---:|---|
 | tiny-pilot | 4.2M | 33M | 7.5 min | 2.011 | 1.3x worse |
-| **small-8k** | 12.2M | 262M | 70 min | **0.775 (10.3x)** | **1.9x better** |
+| tiny-8k | 4.2M | 262M | 45 min | 0.907 | 1.7x better |
+| small-8k | 12.2M | 262M | 70 min | 0.775 | 1.9x better |
+| medium-8k | 27.3M | 262M | 2 h | 0.713 | 2.1x better |
+| **small-16k** | 12.2M | 524M | 2.3 h | **0.708 (11.3x)** | **2.1x better** |
+
+Controlled findings: at equal tokens, more params wins (E7); ctx 1024 beats 512
+and 2048 (E8); looped blocks (n_loop=2) give only ~1.5% at 2× compute — not a
+per-FLOP win (E11); tokenizer vocab 1024–16384 is BPB-neutral at 4k steps (E11b);
+range coder achieves actual ≈ ideal compression, byte-exact (E4).
 
 small-8k also beats xz on held-out subsystems (1.10 vs 1.26) and reaches
 BPB 0.85–1.60 on 13 external codebases (nginx/freebsd/openbsd/linux-v6.12
