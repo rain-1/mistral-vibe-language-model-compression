@@ -81,7 +81,7 @@ def main():
     xz = [comp[n].get("xz-6", np.nan) for n in names]
     labels = [f"{n}\n({neural[n]['bytes']/1e6:.1f} MB)" for n in names]
 
-    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(max(15, len(names) * 1.0), 6.5),
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(13, 6.2),
                                   gridspec_kw={"width_ratios": [2.4, 1]})
     x = np.arange(len(names))
     w = 0.13
@@ -96,7 +96,7 @@ def main():
     ax.bar(x + 1.5 * w, zs, w, color="steelblue", label="zstd-6")
     ax.bar(x + 2.5 * w, xz, w, color="seagreen", label="xz-6")
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=7.5)
+    ax.set_xticklabels(labels, rotation=38, ha="right", fontsize=7)
     ax.set_yscale("log")
     ax.set_ylim(0.1, 8 * 3)
     ax.set_ylabel("bits per byte (log scale, lower = better)")
@@ -124,7 +124,7 @@ def main():
     ax2.legend(fontsize=7.5)
     fig.tight_layout()
     out = Path(args.out)
-    fig.savefig(out, dpi=120)
+    fig.savefig(out, dpi=110, bbox_inches="tight")
     print(f"saved {out}")
 
 

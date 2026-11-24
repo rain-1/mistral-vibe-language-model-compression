@@ -89,7 +89,8 @@ HTML = """<!DOCTYPE html>
   .grid.cols2 {{ grid-template-columns: 1fr 1fr; }}
   @media (max-width: 800px) {{ .grid.cols2 {{ grid-template-columns: 1fr; }} }}
   .card {{ background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }}
-  .card img {{ width: 100%; border-radius: 8px; }}
+  .card img {{ display: block; max-width: 100%; width: 100%; height: auto; border-radius: 8px; }}
+  .wide {{ grid-column: 1 / -1; }}
   table {{ border-collapse: collapse; width: 100%; font-size: 14px; }}
   th, td {{ text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }}
   th {{ color: var(--yellow); font-weight: 700; }}
@@ -156,7 +157,7 @@ HTML = """<!DOCTYPE html>
 <section id="charts"><div class="wrap">
   <h2>Charts</h2>
   <div class="grid cols2">
-    <div class="card"><h3>Neural vs conventional — stacked with model size</h3><img src="data:image/png;base64,@@CH_NEURAL@@"></div>
+    <div class="card wide"><h3>Neural vs conventional — stacked with model size; gray bar = original corpus size</h3><img src="data:image/png;base64,@@CH_NEURAL@@"></div>
     <div class="card"><h3>Best val BPB over successive experiments</h3><img src="data:image/png;base64,@@CH_PROGRESS@@"></div>
     <div class="card"><h3>BPB by external codebase (small-16k)</h3><img src="data:image/png;base64,@@CH_EXT@@"></div>
     <div class="card"><h3>Training curves, small-16k (524M tokens)</h3><img src="data:image/png;base64,@@CH_CURVES@@"></div>
