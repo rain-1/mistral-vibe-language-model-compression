@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -38,6 +39,8 @@ def main():
     ap.add_argument("--top-k", type=int, default=40)
     ap.add_argument("--max-new-tokens", type=int, default=140)
     ap.add_argument("--seed", type=int, default=1234)
+    ap.add_argument("--real-prefixes", type=int, default=0,
+                    help="add N prompts = first 256 tokens of random val files")
     ap.add_argument("--out", default=str(ROOT / "results/samples/batch_small16k.txt"))
     args = ap.parse_args()
 
@@ -50,10 +53,26 @@ def main():
     model.eval()
     tok = Tokenizer.from_file(args.tokenizer)
 
+    prompts = list(PROMPTS)
+    if args.real_prefixes:
+        import random
+        import numpy as np
+        with open(ROOT / "data/manifest.jsonl") as f:
+            val_recs = [json.loads(l) for l in f if json.loads(l)["split"] == "val"]
+        rng = random.Random(args.seed)
+        rng.shuffle(val_recs)
+        data = np.memmap(ROOT / "data/tokens/val.bin", dtype=np.uint16, mode="r")
+        with open(ROOT / "data/tokens/val.offsets.json") as f:
+            offsets = json.load(f)["offsets"]
+        for r in val_recs[: args.real_prefixes]:
+            s, e = offsets[val_recs.index(r)]
+            ids = [int(t) for t in data[s:min(s + 256, e)]]
+            prompts.append(tok.decode(ids, skip_special_tokens=False))
+
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "w") as f:
-        for i, p in enumerate(PROMPTS):
+        for i, p in enumerate(prompts):
             ids = tok.encode(p).ids
             x = torch.tensor([ids], dtype=torch.long, device=device)
             y = model.generate(x, args.max_new_tokens, temperature=args.temperature, top_k=args.top_k)

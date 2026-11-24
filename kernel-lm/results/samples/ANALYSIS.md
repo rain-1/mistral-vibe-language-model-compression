@@ -43,3 +43,16 @@ model — boilerplate, formatting, error paths, API usage — and completes line
 well (30% exact next-line, 52% token accuracy). It is not a semantic reasoner:
 free samples need sampling (not greedy) and human review; compilation of novel
 generated functions is not yet achievable.
+
+## Long samples (batch_long_sampled.txt: 18 prompts × 768 tokens, temp 0.8, incl. 6 real val-file prefixes)
+
+- Real prefixes are reproduced **verbatim** (memorization), then continued
+  with plausible field/include-level content (sample 13: `struct pci_controller`
+  with real-looking members; sample 16: correct alpha pci.c include list).
+- After ~30–60 tokens of novel continuation, **local repetition drift** sets in
+  (duplicate struct members, `#include <linux/pci_hotplug.h>` repeated 8×,
+  `ret = foo_init(); if (ret) return ret;` loops in greedy mode).
+- Comments become semantically empty filler ("The bridge is a bridge of the
+  busses... not supported in the LLD") while *syntactic* form stays perfect.
+- No global coherence: functions repeat with slight variations instead of
+  building one coherent file; `<|file|>` can appear mid-sample.

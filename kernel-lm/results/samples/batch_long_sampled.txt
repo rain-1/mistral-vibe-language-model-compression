@@ -1,0 +1,1412 @@
+===== sample 0 (prompt '// SPDX-License-Identifier: GPL-2.0\n', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * RISC IC host controller for the Portega SoC.
+ *
+ * Copyright 2013-2014, Maxime Ripard. All Rights Reserved.
+ * Copyright 2014 Sascha Hauer, i.e. glibc-i8031,
+ * Copyright 2015-2015 Herlas AB. Hinger <hr@s.vnet.ibm.com>
+ */
+
+#include <linux/dma-mapping.h>
+#include <linux/delay.h>
+#include <linux/io.h>
+#include <linux/of.h>
+#include <linux/of_address.h>
+#include <linux/of_irq.h>
+#include <linux/clk.h>
+#include <linux/delay.h>
+#include <linux/dmaengine.h>
+#include <linux/slab.h>
+#include <linux/spinlock.h>
+#include <linux/sched.h>
+#include <linux/sched/signal.h>
+#include <linux/types.h>
+#include <linux/interrupt.h>
+#include <linux/of_platform.h>
+#include <linux/irq.h>
+#include <linux/irqdomain.h>
+#include <linux/delay.h>
+#include <linux/irqchip/chained_irq.h>
+#include <linux/irqdomain.h>
+#include <asm/irq.h>
+#include <asm/irq_regs.h>
+#include <asm/irq_was_tsc.h>
+#include <asm/irq_hw_regs.h>
+#include <asm/irq_regs.h>
+#include <asm/irq_was_tsc.h>
+#include <asm/irq_regs.h>
+#include <asm/irq_trace.h>
+#include <asm/irq_user_handlers.h>
+#include <asm/irq_cpu.h>
+#include <asm/irq_io.h>
+#include <asm/irq_regs.h>
+#include <asm/irq_regs.h>
+#include <asm/irq_was_tsc_sci.h>
+#include <asm/irq_was.h>
+#include <asm/irq_i2c.h>
+#include <asm/irq_remapping.h>
+#include <asm/irq_regs.h>
+
+#include "common.h"
+
+#include "irq_common.h"
+#include "irqs.h"
+
+
+static DEFINE_PER_CPU(unsigned long, riscv_irq_entry);
+static DECLARE_PER_CPU(unsigned long, riscv_irq_entry);
+
+static void __iomem *ioremap_base;
+
+/*
+ * Memory mapping (base, base & MMIO mapping)
+ *
+ * This is to be at the boot time, which is called by the MMC
+ * assignment.
+ */
+static int riscv_set_base(unsigned long addr, unsigned long size)
+{
+	unsigned long addr = addr;
+	int ret;
+
+	if (addr >= size)
+		return 0;
+
+	if (size < riscv_irq_entry->
+
+===== sample 1 (prompt '/*\n * foo_bar - handle the foo thing\n *\n * @f: the foo\n */\n', temp=0.8) =====
+/*
+ * foo_bar - handle the foo thing
+ *
+ * @f: the foo
+ */
+void foo_bar_init(struct foo_region *f)
+{
+	unsigned long addr;
+	struct foo_bar *bar;
+
+	addr = (struct foo_bar *)f->f.f.w.addr;
+
+	/* Add due to the doc path */
+	addr = 0;
+	while (addr < f->f.f.w.addr) {
+		addr++;
+		addr++;
+	}
+
+	addr += f->f.f.w.addr;
+	addr += f->f.f.w.addr;
+
+	/* add due to due to the doc path */
+	addr += f->f.f.w.addr;
+
+	/* Update a bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = 0;
+	while (addr < f->f.f.w.addr) {
+		addr++;
+	}
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Add due to bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the break */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Mask the bar */
+	addr = ((struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Clear the foo bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the break */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the break */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the bar */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the break */
+	addr = (struct foo_bar *)(addr + f->f.f.bar);
+
+	/* Set the break */
+	addr = (struct foo_bar *)(addr + f->f.f.f.bar);
+
+	/* Set the break */
+	addr = ((struct foo_bar *)(addr + f->f.f.f.f.f.f.f.f.bar);
+
+	/* Set the break */
+	addr = (struct
+
+===== sample 2 (prompt 'static int __init foo_init(void)\n{\n\t', temp=0.8) =====
+static int __init foo_init(void)
+{
+	int ret;
+
+	/*
+	 * Check if userspace supports memory mapping.
+	 * Usually the kernel is done by the kernel.
+	 * We only support memory mappings for kernel and memory mapping.
+	 */
+	if (!memblock_page_is_noncached(&init_mm))
+		return -EINVAL;
+
+	/*
+	 * We support the kernel as an entry in userspace, so we
+	 * should never ensure this is not done by kernel.
+	 */
+	if (!no_page_table || !virt_addr_valid(init_mm.addr))
+		return -EINVAL;
+
+	/*
+	 * First check for the kernel.
+	 */
+
+	ret = __init_mm_pages(init_mm.pages, nr_pages, vmaddr_size);
+	if (ret)
+		__init_mm_pages();
+
+	/*
+	 * Check if we are using page tables.
+	 * This is only called when the kernel is called, if the
+	 * kernel is successful.
+	 */
+	for_each_present_page(page)
+		__setup_page_table(page, 0, 0);
+
+	return ret;
+}
+
+static int __init foo_init(void)
+{
+	int ret;
+
+	/*
+	 * Map the address from the kernel memory mapped memory.
+	 * This would cause a newly allocated memory mapped for use by
+	 * kernel.
+	 */
+	memblock_add_from_page(page_address(page), &init_mm, 1);
+	ret = -EBUSY;
+	if (memblock_page_is_noncached(&init_mm))
+		ret = ret;
+	else if (memblock_page_is_noncached(&init_mm))
+		ret = ret | init_mm_pages(&init_mm, page);
+
+	return ret;
+}
+
+/*
+ * Set up memory mapping if any pages are allocated.
+ */
+static int __init init_user_pages(char *p)
+{
+	u64 start_pfn = (u64) p + (u64) (unsigned long) p + sizeof(p));
+	u32 *addr = (u32 *) p + 1;
+
+	/*
+	 * The first page is passed in an entry, so we don't care
+	 * on page tables. We do not do anything if the memory mapped
+	 * address is a valid page, so let's use it here.
+	 */
+	start_pfn = __start_pfn_to_pfn(address);
+
+	/*
+	 * Other page tables are really aligned and used by the kernel.
+	 * This will make sure the mapping was already allocated with
+	 * the page table list.
+	 */
+	start_pfn = start_pfn + start_pfn;
+	start_pfn *= 1;
+
+	return 0;
+}
+
+static void __init foo_init(void)
+{
+	for_each_present_page(page)
+		__setup_page_table(page) = page;
+}
+
+static int __init __init foo_init(void)
+{
+	/*
+	 * If the kernel uses
+
+===== sample 3 (prompt 'static void __exit foo_exit(void)\n{\n\t', temp=0.8) =====
+static void __exit foo_exit(void)
+{
+	dprintk("Failed to resume for %s\n", __func__);
+}
+
+module_init(fsl_init_module);
+module_exit(fsl_exit_module);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Eric Ross <eric@ross.alucanama-us>");
+MODULE_DESCRIPTION("Freescale Foo-Table Freescale Foo");
+<|file|>// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Freescale Foo-Table Foo-Table Freescale Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table Foo-Table */
+
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/mm.h>
+#include <linux/slab.h>
+#include <linux/init.h>
+#include <linux/types.h
+
+===== sample 4 (prompt 'struct foo {\n', temp=0.8) =====
+struct foo {
+	struct foo {
+		struct foo_desc *desc;
+		struct nftable *ndl;	/* NFC-FC-TLV table */
+		struct mddev *mddev;		/* nfc-FLA context */
+		struct foo_desc *next;	/* next nfc-FLA */
+	} __packed * name_out;
+
+	int proc_fd;
+	int proc_name_len;
+
+	struct foo_buf buf;
+	struct foo_desc_header *buf_hdr;	/* foo descriptor header */
+	struct nftable *nd_nf_nf_hdr; /* nfc-FLA */
+	struct foo_desc *nd_nf_desc; /* nfc-FLA */
+	struct md_namespace_desc *nd_nf_desc; /* nfc-FLA */
+	struct md_namespace_desc *nd_ns_desc; /* nfc/FLA */
+
+	int nfl_nf;
+	int nn;
+
+	int foo_fd;
+	struct module *owner;
+};
+
+/*
+ * The driver managing the nftable. It can be used to allocate a nftable and
+ * free a foo.
+ */
+struct foo_table {
+	struct nftable *nd_nf_nf_hdr;	/* nf table */
+	u32 nf_ndctl;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+	u32 nf_ndctls;		/* nfc/FLA stats */
+};
+
+/* Foo-function data. See nfc_fabrics.h */
+struct nfc_fabrics {
+	struct foo *foo;	/* Foo descriptor header */
+	struct nfc_fam *foo;	/* NFC instance */
+	u32 nfc_fa
+
+===== sample 5 (prompt 'static const struct file_operations foo_fops = {\n', temp=0.8) =====
+static const struct file_operations foo_fops = {
+	.owner = THIS_MODULE,
+	.read = foo_read,
+	.write = foo_write,
+	.llseek = foo_llseek,
+};
+
+static int __init foo_init_module(void)
+{
+	debugfs_create_file("foo", 0444, foo_fops, NULL,
+			    &foo_fops);
+	return 0;
+}
+late_initcall(foo_init_module);
+
+#ifdef CONFIG_MFD_FS
+static void __init foo_init_module_fake(const struct firmware *fw,
+					struct foo *foo)
+{
+	int rc = 0;
+	if (fw->func)
+		foo->func(&foo->func);
+	else
+		rc = foo->func(&foo->func);
+	if (rc)
+		return;
+
+	if (!foo->data->func.root_fd) {
+		if (!foo->data->func.root_fd) {
+			rc = foo->data->func.root_fd(foo);
+			if (rc)
+				return;
+		}
+	}
+
+	/*
+	 * Check if the foo is allocated but we do not need to
+	 * be called with dev->foo_lock held. Parently we can
+	 * allocate and update this before we can obtain the foo to
+	 * be NULL. This is the case where we can't find a direct
+	 * reference here.
+	 */
+	if (foo->ops->free_fake_fake(fw, 0))
+		rc = foo->data->func.root_fd(foo);
+	else if (foo->ops->delete_fake(FW_DENY_FREE) ||
+		   foo->ops->free_fake(FW_DENY_FREE))
+		rc = foo->data->func.root_fd(fw, 0);
+	else
+		rc = foo->data->func.root_fd(foo);
+
+	fw->func = strdup(fw->func);
+	if (!fw->func)
+		return;
+
+	if (foo->ops->free_fake(fw, 0))
+		foo->ops->free_fake(FW_DENY_FREE);
+}
+
+/**
+ * foo_init_module() - initialize a foo
+ * @name: Foo name of the module to initialize
+ * @foo: Foo parameter
+ *
+ * Initialize a foo instance and the module's foo. Since we use
+ * it to initialize the foo instance and the module's foo is
+ * to removing the module's foo array.
+ *
+ * Return: 0 on success or -errno on failure
+ */
+int foo_init_module(const struct firmware *name, const char *foo)
+{
+	int rc = 0;
+	int rc;
+
+	rc = fo
+
+===== sample 6 (prompt 'static int foo_open(struct inode *inode, struct file *file)\n{\n', temp=0.8) =====
+static int foo_open(struct inode *inode, struct file *file)
+{
+	return -EINVAL;
+}
+
+static const struct file_operations foo_fops = {
+	.open = simple_open,
+	.read = foo_read,
+	.release = foo_close,
+};
+
+static const struct file_operations foo_fops = {
+	.open = simple_open,
+	.read = foo_read,
+	.write = foo_write,
+};
+
+static int foo_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+{
+	struct foo_config *config;
+	struct foo *f;
+	struct foo_dev *dev;
+	int ret;
+
+	f = kzalloc(sizeof(struct foo_dev), GFP_KERNEL);
+	if (f == NULL)
+		return -ENOMEM;
+
+	dev = &f->dev;
+	mutex_init(&dev->mutex);
+	dev->dev = &pdev->dev;
+	dev->dma_ops = &foo_dma_ops;
+
+	if (id->driver_data) {
+		f->dev.parent = &pdev->dev;
+		if (f->dev_type == FD_DEV_TYPE_FS) {
+			f->f_flags = FTF_DEV_ENABLED;
+			dev->dev_type = FTF_DEV_TYPE_FS;
+		} else {
+			dev->dev_type = FTF_DEV_TYPE_FS;
+			dev->dev_type = FTF_DEV_TYPE_FS;
+		}
+		f->f_flags |= FTF_DMA_DISABLE;
+		ret = foo_dev_init(f);
+		if (ret < 0) {
+			dev_err(dev, "Failed to initialize device %d\n",
+				f->dev_type);
+			return ret;
+		}
+	}
+
+	mutex_init(&dev->mutex);
+	dev->dev_type = foo_probe;
+	dev->dev_ops = &foo_dev_ops;
+	dev->dev.parent = &pdev->dev;
+	dev->dev_id = id->driver_data;
+	dev->dev_flags = dev->dev_flags;
+	dev->dev_groups = foo_groups;
+	dev->dev_groups = foo_groups;
+	dev->dev_groups = foo_groups;
+
+	ret = foo_register(&foo_fops);
+	if (ret)
+		goto error_put;
+
+	mutex_lock(&dev->mutex);
+
+	return 0;
+
+error_put:
+	foo_cdev_put(f);
+	mutex_unlock(&dev->mutex);
+	return ret;
+}
+
+static void foo_remove(struct pci_dev *pdev)
+{
+	struct foo_dev *dev = pci_get_drvdata(pdev);
+
+	struct foo_dev *dev = &dev->dev;
+
+	if (dev->dev_type == FD_DEV_TYPE_FS) {
+		dev->f_flags &= ~F
+
+===== sample 7 (prompt '#define FOO_MAX_', temp=0.8) =====
+#define FOO_MAX_OFFSET		0x40000000
+#define FOO_HOUR_OFFSET		0x2000000
+#define FOO_HOUR_SIZE		0x0
+
+#define FILT_OFFSET_OFFSET		0x10000000
+#define FOO_HOUR_SIZE		0x80000000
+#define FOO_HOUR_SIZE_OFFSET	0x40000000
+#define FOO_SMART_SIZE_OFFSET		0x80000000
+#define FOO_SMART_SIZE_OFFSET	0x20000000
+#define FOO_SOUR_SIZE_MASK		0x10000000
+
+#define FILT_OFFSET_OFFSET		0x10000000
+#define FILT_SIZE_OFFSET		0x10000000
+#define FILT_SHARE_OFFSET		0x20000000
+#define FILT_SHARE_OFFSET		0x40000000
+#define FILT_SHARE_OFFSET		0x80000000
+#define TYPE_OFFSET		0x40000000
+#define TYPE_HOUR_OFFSET		0x1F000000
+#define FOO_HOUR_OFFSET		0x1E000000
+#define FOO_DDR_OFFSET		0x1E000000
+#define FOO_DDR_OFFSET		0x1E000000
+#define FOO_DSP_OFFSET(x)		(x)
+
+#define FILT_OFFSET_OFFSET		0x10000
+#define FOO_DDR_OFFSET		0x20000
+#define FOO_DDR_OFFSET		0x30000
+#define FOO_DDR_OFFSET		0x10010000
+
+#define DDR_OFFSET_OFFSET		0x10000
+#define FOO_DDR_OFFSET		0x2040000
+#define FOO_DDR_OFFSET		0x2080000
+#define FOO_DDR_OFFSET		0x2f000000
+#define FOO_DDR_OFFSET		0x30c00000
+
+#define FOO_DDR_OFFSET		0x30c0000
+#define FOO_DDR_OFFSET		0x30c0000
+#define FOO_DDR_OFFSET		0x4001000
+#define FOO_DDR_OFFSET		0x4001000
+#define FOO_DDR_OFFSET		0x4001000
+#define FOO_DDR_OFFSET		0x4002000
+#define FOO_DDR_OFFSET		0x4001000
+#define FOO_DDR_OFFSET		0x4004000
+
+#define FOO_DDR_OFFSET		0x30000
+#define FOO_DDR_OFFSET		0x4002000
+#define FOO_DDR_OFFSET		0x4004000
+#define FOO_DDR_OFFSET		0x400c000
+
+#define FOO_DR_OFFSET_OFFSET	0x4003004
+#define FOO_DDR_OFFSET_OFFSET	0x4003008
+#define FOO_DDR_OFFSET
+
+===== sample 8 (prompt 'if (ret < 0) {\n', temp=0.8) =====
+if (ret < 0) {
+		dev_err(&pdev->dev, "failed to reset device\n");
+		return ret;
+	}
+
+	ret = devm_regmap_init_i2c(pdev, &bcm63xx_i2c_regmap_config,
+				      &bcm63xx_g1_regmap_config);
+	if (ret < 0) {
+		dev_err(&pdev->dev, "regmap init failed\n");
+		return ret;
+	}
+
+	ret = devm_regmap_irq_chip_set_dead(pdev, &bcm63xx_i2c_regmap_irq_chip,
+					 &bcm63xx_mipi_irq_chip);
+	if (ret < 0) {
+		dev_err(&pdev->dev, "failed to set irq irq\n");
+		return ret;
+	}
+
+	ret = devm_gpiochip_add_data(&pdev->dev, &bcm63xx_gpio_chip,
+			       &bcm63xx_gpio_chip);
+	if (ret < 0) {
+		dev_err(&pdev->dev, "failed to register gpio chip\n");
+		return ret;
+	}
+
+	ret = devm_request_threaded_irq(&pdev->dev, ret, NULL,
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					pdev->dev.of_node,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+					"bcm63xx-mipi-irq",
+					bcm63xx_mipi_irq_handler,
+					IRQF_TRIGGER_RISING | IRQF_ONE
+
+===== sample 9 (prompt 'list_for_each_entry(pos, &foo->list, node) {\n', temp=0.8) =====
+list_for_each_entry(pos, &foo->list, node) {
+		if (pos->parent != pos->parent)
+			continue;
+
+		/*
+		 * We only have the potential potential binding.
+		 * The caller is responsible for handling a matter what
+		 * forever in the new stub.
+		 */
+		if (pos->parent == pos->parent)
+			continue;
+
+		/*
+		 * We can't use sorting the fake stubs on the first position
+		 * after we know about it. Just take the new list.
+		 */
+		if (pos->parent == pos->parent)
+			continue;
+
+		/*
+		 * We did not find it and let the loop for the next
+		 * position we were looking down.
+		 */
+		if (pos->parent == pos->parent)
+			continue;
+
+		/*
+		 * We could be wrongly the last position we already have
+		 * been sent.
+		 */
+		if (pos->parent->cur_position)
+			continue;
+
+		/*
+		 * This way we are the next position to be able to make sure
+		 * that we have just an entry.
+		 */
+		pos->newposition = pos->parent ? pos->newposition : pos->parent->position;
+		return pos;
+	}
+
+	/*
+	 * We shouldn't have a dummy position, so we can't just find it
+	 * and get the previous position into the list.
+	 */
+	pos->next = pos->parent;
+
+	/*
+	 * Since we're able to find any of the sorted
+	 * position we did a shorter, not all positions are
+	 * fully-empty.
+	 */
+	for (; pos; pos) {
+
+		pos->parent = pos->parent;
+		pos->child = pos->parent;
+		pos->cur = pos->parent;
+		pos->parent = pos;
+		pos->parent->position = pos->parent->position;
+		pos->prev = pos->cur;
+		return pos;
+	}
+
+	/*
+	 * If we already have a position we're the last position, we will
+	 * want to add position that we are currently being looking for
+	 * the list.
+	 */
+	pos->prev = pos->next;
+	pos->next = pos->next;
+
+	pos->cur = pos->parent;
+	pos->parent = pos->cur;
+	pos->next = pos->parent;
+
+	return 0;
+}
+
+void sym_to_pos(struct sym_pos *pos)
+{
+	unsigned long end = start - pos->cur;
+
+	if (pos->newposition)
+		pos->next = pos->next;
+	else
+		pos->next = pos->next;
+
+	if (pos->parent == NULL)
+		pos->parent = pos->parent;
+	else
+		pos->parent = pos->parent;
+
+	if (pos->next)
+		pos->next = pos->next;
+
+===== sample 10 (prompt 'static int foo_probe(struct platform_device *pdev)\n{\n\t', temp=0.8) =====
+static int foo_probe(struct platform_device *pdev)
+{
+	struct foo_private *priv;
+	struct foo_data *data;
+	struct clk *clk;
+	const struct foo_data *foo;
+	int irq, err, ret;
+
+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+	if (!priv)
+		return -ENOMEM;
+
+	priv->dev = &pdev->dev;
+	priv->pdev = pdev;
+	dev_set_drvdata(&pdev->dev, priv);
+
+	priv->clk = devm_clk_get(&pdev->dev, "foo");
+	if (IS_ERR(priv->clk)) {
+		dev_err(&pdev->dev, "reg %ld is not NULL\n", "could not get clk\n",
+			pdev->id);
+		return PTR_ERR(priv->clk);
+	}
+
+	clk = devm_clk_get(&pdev->dev, "usb_fs_foo");
+	if (IS_ERR(clk))
+		return PTR_ERR(clk);
+
+	priv->data = data;
+
+	mutex_init(&priv->lock);
+	priv->clk = __clk_get_by_name(priv->clk);
+	priv->dev = &pdev->dev;
+	priv->clk = clk;
+	priv->clk_rate = clk_get_rate(priv->clk);
+
+	/* Foo chips */
+	if (foo_data_ready)
+		foo = foo_data_ready();
+	else
+		foo = foo_data_ready();
+	mutex_init(&priv->lock);
+
+	priv->clk = clk_get_rate(priv->clk);
+	priv->dev = &pdev->dev;
+	priv->foo = foo;
+	priv->clk_rate = clk_get_rate(priv->clk);
+
+	if (!priv->clk)
+		dev_info(&pdev->dev, "Enabled clock to get the clock\n");
+
+	priv->clk_rate = clk_get_rate(priv->clk);
+	priv->clk_rate = clk_get_rate(priv->clk);
+
+	clk = devm_clk_get(&pdev->dev, NULL);
+	if (IS_ERR(clk))
+		return PTR_ERR(clk);
+
+	priv->clk_rate = foo_data_ready();
+	priv->clk_rate = clk_get_rate(priv->clk);
+
+	clk = devm_clk_get_optional(&pdev->dev, NULL);
+	if (IS_ERR(clk)) {
+		dev_err(&pdev->dev, "Missing clock\n");
+		return PTR_ERR(clk);
+	}
+
+	ret = clk_prepare_enable(clk);
+	if (ret)
+		return ret;
+
+	clk_prepare_enable(clk);
+
+	/*
+	 * Make sure the clock is running in assigning the clock
+	 * is enabled, then we are not allowing a clock to avoid
+	 * a rising edge if it fails in a clock source
+	 * mode.
+	 */
+	ret = clk_prepare_enable(clk);
+	if
+
+===== sample 11 (prompt 'MODULE_DESCRIPTION("', temp=0.8) =====
+MODULE_DESCRIPTION("Linux X-----------------------------------------",-only */
+
+#define _X86_SYS_CPU_CONSTRAINT_COMMON_CONSTRAINT_GROUPS_PER_DYN(x)	\
+static const char *__cpu_logical_name(void)			\
+{						\
+	int cpuid = x86_cpu_id;			\
+	int smp_num;					\
+									\
+	memset(cpuid, 0, sizeof(*cpuid));			\
+									\
+	cpuid->magic = smp_num;				\
+	return cpuid->magic;				\
+}
+
+#define __cpu_logical_name(x)			\
+{						\
+	int smpid = xchg(x);		\
+									\
+	memcpy(&cpuid[smpid], &cpuid[smpid], sizeof(cpuid[smpid])];	\
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = smpid + sizeof(cpuid[smpid]);		\
+									\
+	memcpy(cpuid, &cpuid[smpid], sizeof(cpuid[smpid]) + sizeof(cpuid[smpid])]; \
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = xchg(x);		\
+									\
+	memcpy(cpuid, &cpuid[smpid], sizeof(cpuid[smpid]));	\
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = 0;					\
+									\
+	memcpy(cpuid, &cpuid[smpid], sizeof(cpuid[smpid]) + sizeof(cpuid[smpid]);	\
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = xchg(x);		\
+									\
+	memcpy(cpuid, &cpuid[smpid], sizeof(cpuid[smpid]) + sizeof(cpuid[smpid])]; \
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = xchg(x);		\
+	memcpy(&cpuid[smpid], &cpuid[smpid], sizeof(cpuid[smpid]));	\
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = xchg(x);		\
+									\
+	memcpy(cpuid, &cpuid[smpid], sizeof(cpuid[smpid]) + sizeof(cpuid[smpid])); \
+}
+
+#define __cpu_logical_name(x)		\
+{						\
+	int smpid = xchg(x);	\
+									\
+	
+
+===== sample 12 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef __ASM_ALPHA_ELF_H\n#define __ASM_ALPHA_ELF_H\n\n#include <asm/auxvec.h>\n#include <asm/special_insns.h>\n\n/* Special values for the st_other field in the symbol table.  */\n\n#define STO_ALPHA_NOPV\t\t0x80\n#define STO_ALPHA_STD_GPLOAD\t0x88\n\n/*\n * Alpha ELF relocation types\n */\n#define R_ALPHA_NONE            0       /* No reloc */\n#define R_ALPHA_REFLONG         1       /* Direct 32 bit */\n#define R_ALPHA_REFQUAD         2       /* Direct 64 bit */\n#define R_ALPHA_GPREL32         3       /* GP relative 32 bit */\n#define R_ALPHA_LITERAL         4       /* GP relative 16 bit w/opt', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef __ASM_ALPHA_ELF_H
+#define __ASM_ALPHA_ELF_H
+
+#include <asm/auxvec.h>
+#include <asm/special_insns.h>
+
+/* Special values for the st_other field in the symbol table.  */
+
+#define STO_ALPHA_NOPV		0x80
+#define STO_ALPHA_STD_GPLOAD	0x88
+
+/*
+ * Alpha ELF relocation types
+ */
+#define R_ALPHA_NONE            0       /* No reloc */
+#define R_ALPHA_REFLONG         1       /* Direct 32 bit */
+#define R_ALPHA_REFQUAD         2       /* Direct 64 bit */
+#define R_ALPHA_GPREL32         3       /* GP relative 32 bit */
+#define R_ALPHA_LITERAL         4       /* GP relative 16 bit w/opt */
+
+#define R_ALPHA_SA_EXCEPTIONS       0       /* Direct 4-byte accesses */
+#define R_ALPHA_SA_SHA     1       /* Direct 4-byte accesses */
+
+/*
+ * The following layout seems to be undefined (see x86_64/64-bit) and the
+ * "XOR" is not affected by the exception.
+ */
+#define SEE_MASK		0x0ffffe0000
+#define SEE_MASK		0x00000000
+#define SEE_SHARED	0x00000000
+#define SEE_SHARED_32	0x00000000
+#define SEE_MASK		0x00000000
+
+#define SEE_UNBITSED_EXCEPTIONS	0x00000000
+#define SEE_MASK		0x00000000
+#define SEE_MASK		0x0000003f
+#define SEE_MASK		0x0000001f
+#define SEE_SHARED	0x0000001f
+#define SEE_SHARED_32	0x00000010
+
+#define SEE_MASK		0x0000000f
+#define SEE_MASK		0x00000006
+#define SEE_SHARED_32	0x00000000
+#define SEE_SHARED_32	0x00000000
+#define SEE_SHARED_64	0x00000000
+#define SEE_SHARED_128	0x00000000
+#define SEE_SHARED_256	0x00000000
+
+#define SEE_EXCEPTIONS_EXCEPTIONS	0x00000000
+
+#define SIGN_EXCEPTIONS	0x00000001
+
+/*
+ * User space of SEE_EXCEPTIONS_EXCEPTIONS_EXT and
+ * SEE_EXCEPTIONS_EXCEPTIONS_SP,
+ *  0x00000001
+ *  0x00000002
+ *  0x00000003
+ *  0x00000004
+ *  0x00000005
+ *  0x00000006
+ *  0x00000008
+ *  0x00000009
+ *  0x0000000a
+ *  0x0000000b
+ *  0x0000000c
+ *  0x0000000d
+ *  0x00000010
+ *  0x0000000e
+ *  0x00000011
+ *  0x0000000d
+ *  0x00000012
+ *  0x00000013
+ *  0x0000000c
+ *  0x00000014
+ *  0x00000016
+ *  0x00000017
+ *  0x00000018
+ *  0x0000001a
+ *  0x0000001b
+ *  0x0000001c
+ *  0x0000001d
+ *  0x0000001e
+ *  0x0000001f
+ *  0x0000001f
+ *  0x000000210
+ *  0x00000021
+ *  0x00000022
+ *  0x00000022
+ *  0x00000023
+ *  0x00000023
+ *  0x00000024
+ *  0x00000025
+ *  0x00000026
+ *  0x00000025
+ *  0x00000027
+ * 
+
+===== sample 13 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef __ALPHA_PCI_H\n#define __ALPHA_PCI_H\n\n#ifdef __KERNEL__\n\n#include <linux/spinlock.h>\n#include <linux/dma-mapping.h>\n#include <linux/scatterlist.h>\n#include <asm/machvec.h>\n\n/*\n * The following structure is used to manage multiple PCI busses.\n */\n\nstruct pci_iommu_arena;\nstruct page;\n\n/* A controller.  Used to manage multiple PCI busses.  */\n\nstruct pci_controller {\n\tstruct pci_controller *next;\n        struct pci_bus *bus;\n\tstruct resource *io_space;\n\tstruct resource *mem_space;\n\n\t/* The following are for reporting to userland.  The invariant is\n\t   that if we report a BWX-capable dense memory, we do not report\n\t   a sparse memory at all, even if it exists.  */\n\tunsigned long sparse', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef __ALPHA_PCI_H
+#define __ALPHA_PCI_H
+
+#ifdef __KERNEL__
+
+#include <linux/spinlock.h>
+#include <linux/dma-mapping.h>
+#include <linux/scatterlist.h>
+#include <asm/machvec.h>
+
+/*
+ * The following structure is used to manage multiple PCI busses.
+ */
+
+struct pci_iommu_arena;
+struct page;
+
+/* A controller.  Used to manage multiple PCI busses.  */
+
+struct pci_controller {
+	struct pci_controller *next;
+        struct pci_bus *bus;
+	struct resource *io_space;
+	struct resource *mem_space;
+
+	/* The following are for reporting to userland.  The invariant is
+	   that if we report a BWX-capable dense memory, we do not report
+	   a sparse memory at all, even if it exists.  */
+	unsigned long sparse;
+
+	struct resource *mem_space;
+	struct pci_bus *root;
+	struct resource *mem_space;
+	struct resource *mem_space;
+	struct list_head resources;
+
+	struct device *dev;
+
+	int irq_count;
+	struct irq_domain *isr;
+	struct resource *io_global_res;
+
+	struct pci_controller *next;
+
+	/*
+	 * The bridge is a bridge of the busses.  It cannot be
+	 * bridge, and it will not be the case where we have to
+	 * add to the bridge to the driver.  This is not
+	 * supported in the LLD.
+	 */
+	struct pci_controller *next;
+
+	/*
+	 * The busses that have their own busses and its
+	 * property.  This only allows us to be able to use
+	 * the generic list of busses and the busses.  This
+	 * will remain in the last list of busses when the bus
+	 * has been added and all busses have been changed.
+	 */
+	struct list_head bus_list;
+
+	struct list_head sparse_bus;
+	struct pci_dn *sparse_bus;	/* for device-idr of bus */
+};
+
+/*
+ * The busses happens in the first entry of a PCI device.  The
+ * busses are the same as a busses that don't have the bus
+ * bridge.  The busses are the same as the busses list of
+ * busses that may have their own busses.  This is the
+ * busses that don't have their own busses.  Therefore,
+ * so it's an array of the busses associated with the busses.
+ */
+#define PCI_BUS_MAX ((1UL << 3) - 1)
+#define PCI_BUS_MAX ((1U << 2) - 1)
+
+/*
+ * Deallocions for the bridge of the busses
+ */
+#define PCI_BUS_MAX_BUS_NUM 16
+
+#define PCI_SB_MAX_BUS_NUM 8
+
+/*
+ * I/O space for the bridge.
+ */
+#define PCI_SB_REG_SB_CFG(busno, offset) \
+	((busno) << ((busno) - 1))
+
+/*
+ * The busses bridges and are all the device's busses.
+ */
+#define PCI_SB_NUM_SYS_ADDR		0x7
+#define PCI_SB_NUM_BUS_ADDR		0x7
+
+/*
+ * The busses of the busses are the same as the busses list of
+ * busses.  If the busses are the same as the busses is the
+ * busses given by @bus_number and the busses are
+ * the same as the busses list of busses on the busses
+ * node.
+ */
+#define PCI_SB_NUM_BUS_NUM		0x7
+#define PCI_SB_NUM_BUS_BAR		0x7
+#define PCI_SB_NUM_BUS_ID		0x7
+
+/*
+ * The busses is the same as the busses list of busses
+ *
+
+===== sample 14 (prompt '/* SPDX-License-Identifier: GPL-2.0 */\n#ifndef _ALPHA_TYPES_H\n#define _ALPHA_TYPES_H\n\n#include <uapi/asm/types.h>\n\n#endif /* _ALPHA_TYPES_H */\n', temp=0.8) =====
+/* SPDX-License-Identifier: GPL-2.0 */
+#ifndef _ALPHA_TYPES_H
+#define _ALPHA_TYPES_H
+
+#include <uapi/asm/types.h>
+
+#endif /* _ALPHA_TYPES_H */
+<|file|>/* SPDX-License-Identifier: GPL-2.0-or-later */
+/*
+ * AMD Test Measurement Macintosh Accessory Logic Interface (AMBA)
+ *
+ * Copyright (C) 2008 Imagination Technologies
+ * Author: Paul Burton <paul.burton@mips.com>
+ */
+
+#ifndef _ASM_ALPHA_H
+#define _ASM_ALPHA_H
+
+#include <linux/compiler.h>
+#include <linux/types.h>
+#include <linux/types.h>
+#include <linux/compiler.h>
+#include <linux/types.h>
+#include <linux/mm.h>
+#include <linux/sched.h>
+#include <linux/sched/task_stack.h>
+#include <linux/sched/task.h>
+#include <linux/sched/task_stack.h>
+#include <linux/stringify.h>
+#include <linux/compiler.h>
+#include <asm/inst.h>
+#include <linux/compiler.h>
+#include <linux/kernel.h>
+
+#include <asm/cpu_device_id.h>
+#include <asm/hw_breakpoint.h>
+
+static DEFINE_PER_CPU(struct cpu_cpu_data, cpu_data);
+
+static struct notifier_block amd_notifier = {
+	.notifier_call = amd_notifier_call,
+};
+
+static atomic_t amd_retry_count, remainder:1;
+static atomic_t amd_retry_count, bad_retry_insert_count;
+static atomic_t amd_retry_count, remainder:1;
+static atomic_t amd_retry_count, remainder:1;
+static atomic_t amd_retry_count, remainder:1;
+
+static int amd_call_nop(struct task_struct *tsk)
+{
+	struct amd_cpu_data *data = task_for_each_cpu(tsk, tsk);
+
+	/*
+	 * Callback_thread() and remaining once a new thread can
+	 * have called crashed or return;
+	 * remainder:
+	 *  - (0)  - Exclusive remainder of a new thread for this thread.
+	 *  - (-1)  - Exclusive remainder of the current thread for this thread.
+	 */
+	if (task_thread(tsk) != NULL) {
+		amd_call_nop(tsk);
+		return NOTIFY_DONE;
+	}
+
+	/*
+	 * Copies a new thread for this thread.
+	 */
+	if (amd_call_nop())
+		goto out;
+	else if (task_is_thread(tsk))
+		amd_call_nop();
+	else
+		amd_call_nop();
+
+	/*
+	 * If the current thread has a remainder of a new thread, make
+	 * bad thread if we want to remain.
+
+===== sample 15 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/err_common.c\n *\n *\tCopyright (C) 2000 Jeff Wiedemeier (Compaq Computer Corporation)\n *\n *\tError handling code supporting Alpha systems\n */\n\n#include <linux/init.h>\n#include <linux/sched.h>\n\n#include <asm/io.h>\n#include <asm/hwrpb.h>\n#include <asm/smp.h>\n#include <asm/err_common.h>\n\n#include "err_impl.h"\n#include "proto.h"\n\n/*\n * err_print_prefix -- error handling print routines should prefix\n * all prints with this\n */\nchar *err_print_prefix = KERN_NOTICE;\n\n\x0c\n/*\n * Generic\n */\nvoid\nmchk_dump_mem(void *data, size_t length, char **annot', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/err_common.c
+ *
+ *	Copyright (C) 2000 Jeff Wiedemeier (Compaq Computer Corporation)
+ *
+ *	Error handling code supporting Alpha systems
+ */
+
+#include <linux/init.h>
+#include <linux/sched.h>
+
+#include <asm/io.h>
+#include <asm/hwrpb.h>
+#include <asm/smp.h>
+#include <asm/err_common.h>
+
+#include "err_impl.h"
+#include "proto.h"
+
+/*
+ * err_print_prefix -- error handling print routines should prefix
+ * all prints with this
+ */
+char *err_print_prefix = KERN_NOTICE;
+
+
+/*
+ * Generic
+ */
+void
+mchk_dump_mem(void *data, size_t length, char **annotation)
+{
+	struct mchk_dump_data *p = (void *)data;
+
+	if (length == 0)
+		pr_alert("Process memory not available\n");
+	if (length < 0)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_PMEM)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_PMEM)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_PMEM)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_PMEM)
+		pr_alert("Computing memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM)
+		pr_alert("Computing memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_PMEM)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM)
+		pr_alert("Process memory not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM)
+		pr_alert("mem mem access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_IO)
+		pr_alert("resource access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM)
+		pr_alert("resource access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_IO)
+		pr_alert("resource access not available\n");
+
+	/* Make sure mem_type == MCHK_MEM_TYPE_MEM_TYPE */
+	p->mem_type = mem_type;
+	p->mem_type = MCHK_MEM_TYPE_MEM_TYPE;
+	p->mem_type = MCHK_MEM_TYPE_MEM_MEM_MEM;
+
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM)
+		pr_alert("mem mem access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM_MEM)
+		pr_alert("resource access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM_MEM)
+		pr_alert("resource access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM_MEM_MEM)
+		pr_alert("resource access not available\n");
+	if (p->mem_type == MCHK_MEM_TYPE_MEM_MEM_MEM)
+		pr_alert("resource access not available\n");
+	
+
+===== sample 16 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/pci.c\n *\n * Extruded from code written by\n *\tDave Rusling (david.rusling@reo.mts.dec.com)\n *\tDavid Mosberger (davidm@cs.arizona.edu)\n */\n\n/* 2.3.x PCI/resources, 1999 Andrea Arcangeli <andrea@suse.de> */\n\n/*\n * Nov 2000, Ivan Kokshaysky <ink@jurassic.park.msu.ru>\n *\t     PCI-PCI bridges cleanup\n */\n#include <linux/string.h>\n#include <linux/pci.h>\n#include <linux/init.h>\n#include <linux/ioport.h>\n#include <linux/kernel.h>\n#include <linux/memblock.h>\n#include <linux/module.h>\n#', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/pci.c
+ *
+ * Extruded from code written by
+ *	Dave Rusling (david.rusling@reo.mts.dec.com)
+ *	David Mosberger (davidm@cs.arizona.edu)
+ */
+
+/* 2.3.x PCI/resources, 1999 Andrea Arcangeli <andrea@suse.de> */
+
+/*
+ * Nov 2000, Ivan Kokshaysky <ink@jurassic.park.msu.ru>
+ *	     PCI-PCI bridges cleanup
+ */
+#include <linux/string.h>
+#include <linux/pci.h>
+#include <linux/init.h>
+#include <linux/ioport.h>
+#include <linux/kernel.h>
+#include <linux/memblock.h>
+#include <linux/module.h>
+#include <linux/pci.h>
+#include <linux/pci_hotplug.h>
+#include <linux/delay.h>
+#include <linux/uaccess.h>
+#include <linux/pci_hotplug.h>
+#include <pci/pci_pas.h>
+#include <pci/pci_dac.h>
+#include <linux/pci-acpi.h>
+#include <linux/pci_regs.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci.h>
+#include <linux/pci_regs.h>
+#include <linux/pci_hotplug.h>
+#include <linux/gfp.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_hotplug.h>
+#include <linux/irqchip/x86_irq.h>
+#include <linux/mfd/pci_bus.h>
+#include <linux/mfd/pci_bus.h>
+#include <linux/mfd/pci_pc.h>
+#include <linux/moduleparam.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_regs.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_regs.h>
+#include <linux/pci_hotplug.h>
+#include <linux/pci_impl.h>
+#include <linux/pci_hotplug.h>
+#include <linux/init.h>
+#include <linux/dmi.h>
+#include <linux/uaccess.h>
+#include <linux/pci_regs.h>
+#include <linux/pci_regs.h>
+
+#include <asm/pcibios.h>
+#include <asm/pci_irq.h>
+#include <asm/pci-bridge.h>
+#include <asm/pci_x86.h>
+#include <asm/pci.h>
+#include <asm/pci_pc.h>
+
+#include "pci.h"
+
+#define BIOS_DEBUG_INFO		"PCI BIOS_DEBUG"
+
+struct pci_ops pci_ops_table[PCI_MAX_REGIONS];
+
+struct pci_ops pci_ops_table_dev;
+struct pci_ops pci_ops_table_dev_ops;
+
+/*
+ * Timer interface:
+ *	the PCI Interrupts and Ship Support
+ *	Inat bus interrupts handling on the IRQ controller
+ */
+struct pci_ops pci_ops_table_controller_ops;
+/*
+ * The PCI Interrupts are not supported
+ */
+struct pci_ops *pci_ops_table_get(struct pci_ops *ops);
+void pci_ops_table_put(struct pci_ops *ops);
+
+struct pci_ops *pci_ops_table_init(struct pci_ops *ops,
+					struct resource *res);
+void pci_ops_table_put(struct pci_ops *ops, struct resource *res);
+
+/*
+ * This is the PCI PC, so we
+
+===== sample 17 (prompt '// SPDX-License-Identifier: GPL-2.0\n/*\n *\tlinux/arch/alpha/kernel/sys_nautilus.c\n *\n *\tCopyright (C) 1995 David A Rusling\n *\tCopyright (C) 1998 Richard Henderson\n *\tCopyright (C) 1999 Alpha Processor, Inc.,\n *\t\t(David Daniel, Stig Telfer, Soohoon Lee)\n *\n * Code supporting NAUTILUS systems.\n *\n *\n * NAUTILUS has the following I/O features:\n *\n * a) Driven by AMD 751 aka IRONGATE (northbridge):\n *     4 PCI slots\n *     1 AGP slot\n *\n * b) Driven by ALI M1543C (southbridge)\n *     2 ISA slots\n *     2 IDE connectors\n *     1 dual drive capable FDD controller\n *    ', temp=0.8) =====
+// SPDX-License-Identifier: GPL-2.0
+/*
+ *	linux/arch/alpha/kernel/sys_nautilus.c
+ *
+ *	Copyright (C) 1995 David A Rusling
+ *	Copyright (C) 1998 Richard Henderson
+ *	Copyright (C) 1999 Alpha Processor, Inc.,
+ *		(David Daniel, Stig Telfer, Soohoon Lee)
+ *
+ * Code supporting NAUTILUS systems.
+ *
+ *
+ * NAUTILUS has the following I/O features:
+ *
+ * a) Driven by AMD 751 aka IRONGATE (northbridge):
+ *     4 PCI slots
+ *     1 AGP slot
+ *
+ * b) Driven by ALI M1543C (southbridge)
+ *     2 ISA slots
+ *     2 IDE connectors
+ *     1 dual drive capable FDD controller
+ *     - AGP slot
+ *     0 Slot and driver
+ *     0 Ported
+ *     1 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 FS SET REMOTE
+ *     0 Dual RESET REMOTE
+ *      0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET REMOTE
+ *     0 Dual RESET
+ *     0 Dual RESET
+
