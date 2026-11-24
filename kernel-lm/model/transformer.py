@@ -31,6 +31,7 @@ class ModelConfig:
     tie_embeddings: bool = True
     dropout: float = 0.0
     bias: bool = False
+    n_loop: int = 1  # apply the block stack n_loop times (looped/shared layers)
 
     def to_dict(self):
         return asdict(self)
@@ -176,8 +177,9 @@ class Transformer(nn.Module):
         cos = self.rope_cos[:T]
         sin = self.rope_sin[:T]
         x = self.tok_emb(idx)
-        for block in self.blocks:
-            x = block(x, cos, sin)
+        for _ in range(max(1, self.cfg.n_loop)):
+            for block in self.blocks:
+                x = block(x, cos, sin)
         x = self.ln_f(x)
         logits = self.lm_head(x)
         loss = None
