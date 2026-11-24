@@ -259,6 +259,22 @@ Lexical breakdown (small-16k, val): identifier_seen 0.90 nats vs identifier_nove
 9–64 → 1.09, 65–512 → 1.64, 512+ → 3.13. Cheapest: whitespace 0.41, preprocessor
 0.59, string 0.61. Hardest: novel identifiers, operators 1.55, types 1.54.
 
+Compile eval (evaluation/compile_eval.py, gcc -fsyntax-only with stub harness):
+0/45 generated function bodies syntax-valid — generated code is kernel-plausible
+but references real kernel symbols the stub harness lacks. Treat the balanced-
+delimiter rate (81.8%) and exact-line match (30.4%) as the generation metrics;
+full kernel-tree compilation of generations is future work.
+
+## Negative / limitation results (kept per methodology)
+
+- Looped transformer (n_loop=2): +1.5% BPB at equal tokens but 2× FLOPs → not a
+  per-FLOP win (E11).
+- ctx 2048 at equal tokens: slightly worse than ctx 1024 (E8).
+- BPE vocab 1024/16384 vs 4096: BPB-neutral at 4k steps (E11b).
+- gcc syntax-check of sampled function bodies: 0/45 with stub harness.
+- 1,605 near-duplicate file pairs straddle train/eval splits (mostly boilerplate
+  headers) — file-level splits cannot fully remove templated-code leakage (E9).
+
 ## E11b — Tokenizer vocab sweep with models (tiny, 4000 steps = 131M tokens, val BPB)
 
 | tokenizer | bytes/token (val) | val BPB |

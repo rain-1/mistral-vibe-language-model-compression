@@ -1,0 +1,33 @@
+{
+  "checkpoint": "checkpoints/small-16k/ckpt_016000.pt",
+  "n": 45,
+  "syntax_valid": 0,
+  "rate": 0.0,
+  "examples": [
+    {
+      "file": "drivers/infiniband/ulp/opa_vnic/opa_vnic_vema.c",
+      "ok": false,
+      "body": "adapter = vema_add_vport(port, vport_num);\n\t\tif (adapter) {\n\t\t\tcport->vnic_ver = vport_num;\n\t\t\tcport->vnic_ver = vport_num;\n\t\t\tcport->vnic_ver_num = vport_num;\n\t\t}"
+    },
+    {
+      "file": "drivers/infiniband/ulp/opa_vnic/opa_vnic_vema.c",
+      "ok": false,
+      "body": "static inline u8 vema_get_vport_num(struct opa_vnic_vema_mad *recvd_mad)\n{\n\treturn recvd_mad->mad_hdr.mad_hdr.port_num;\n}"
+    },
+    {
+      "file": "arch/mips/ralink/clk.c",
+      "ok": false,
+      "body": "void __init plat_time_init(void)\n{\n\tint ret;\n\n\tret = clk_prepare_enable(plat_clk);\n\tif (ret)\n\t\treturn;\n\n\tret = clk_prepare_enable(plat_clk);\n\tif (ret)\n\t\tpr_err(\"failed to enable clock\\n\");\n}"
+    },
+    {
+      "file": "arch/mips/ralink/clk.c",
+      "ok": false,
+      "body": "static const char *clk_cpu(int *idx)\n{\n\tint i;\n\n\tfor (i = 0; i < ARRAY_SIZE(clk_cpu); i++) {\n\t\tif (idx[i] == 0)\n\t\t\treturn \"CPU\";\n\t}"
+    },
+    {
+      "file": "arch/x86/kvm/svm/avic.c",
+      "ok": false,
+      "body": "if (next_vm_id_wrapped) {\n\t\tk2 = next_vm_id;\n\t\tif (k2->vm_id == 0) {\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t\tk2->vm_id = next_vm_id;\n\t\t"
+    }
+  ]
+}

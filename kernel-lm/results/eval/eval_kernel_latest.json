@@ -1,40 +1,40 @@
 {
-  "checkpoint": "checkpoints/medium-8k/ckpt_008000.pt",
-  "step": 7999,
+  "checkpoint": "checkpoints/small-16k/ckpt_016000.pt",
+  "step": 15999,
   "results": {
     "data/tokens": {
       "val": {
         "files": 600,
         "tokens": 2779824,
-        "nll_nats": 3086487.2408447266,
+        "nll_nats": 3062305.1790771484,
         "bytes": 6244152,
-        "cross_entropy_nats": 1.1103175024191196,
-        "perplexity": 3.035321963526049,
-        "bits_per_token": 1.6018495545522835,
-        "bits_per_byte": 0.7131248304227294,
-        "ideal_ratio": 11.218232290772603
+        "cross_entropy_nats": 1.1016183683129395,
+        "perplexity": 3.009031807299191,
+        "bits_per_token": 1.5892993569172693,
+        "bits_per_byte": 0.7075376280947663,
+        "ideal_ratio": 11.306819146201642
       },
       "holdout_subsystem": {
         "files": 600,
         "tokens": 5969941,
-        "nll_nats": 9078672.959472656,
+        "nll_nats": 8982118.946777344,
         "bytes": 12498006,
-        "cross_entropy_nats": 1.520730767602671,
-        "perplexity": 4.575567650317117,
-        "bits_per_token": 2.19395073694764,
-        "bits_per_byte": 1.047987691515265,
-        "ideal_ratio": 7.633677441796054
+        "cross_entropy_nats": 1.5045574063089306,
+        "perplexity": 4.502160561400504,
+        "bits_per_token": 2.1706175088146553,
+        "bits_per_byte": 1.0368420739428732,
+        "ideal_ratio": 7.7157362736813235
       },
       "holdout_driver": {
         "files": 600,
         "tokens": 5835533,
-        "nll_nats": 6536184.328369141,
+        "nll_nats": 6537313.762451172,
         "bytes": 12207101,
-        "cross_entropy_nats": 1.120066380974821,
-        "perplexity": 3.0650576580553888,
-        "bits_per_token": 1.6159142132988227,
-        "bits_per_byte": 0.7724783072470949,
-        "ideal_ratio": 10.356277872073651
+        "cross_entropy_nats": 1.1202599252632401,
+        "perplexity": 3.0656509398700824,
+        "bits_per_token": 1.6161934386839174,
+        "bits_per_byte": 0.7726117893039041,
+        "ideal_ratio": 10.354488645853719
       }
     }
   }

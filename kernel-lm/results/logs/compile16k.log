@@ -1,0 +1,7 @@
+{
+  "checkpoint": "checkpoints/small-16k/ckpt_016000.pt",
+  "n": 45,
+  "syntax_valid": 0,
+  "rate": 0.0
+}
+saved -> results/eval/small16k_compile.json
