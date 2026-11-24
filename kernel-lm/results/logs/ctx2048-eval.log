@@ -1,0 +1,5 @@
+loaded checkpoints/small-ctx2048-4k/ckpt_004000.pt  params=12.19M step=3999 ctx=2048
+  val                      files=  600 toks=  2779824 ce=1.2571 ppl=    3.52 bpt=1.814 BPB=0.8074 ratio=9.91x
+  holdout_subsystem        files=  600 toks=  5969941 ce=1.6119 ppl=    5.01 bpt=2.325 BPB=1.1108 ratio=7.20x
+  holdout_driver           files=  600 toks=  5835533 ce=1.1590 ppl=    3.19 bpt=1.672 BPB=0.7993 ratio=10.01x
+saved -> results/eval/ctx2048_kernel.json

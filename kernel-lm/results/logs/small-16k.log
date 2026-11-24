@@ -1,0 +1,6 @@
+device=cuda  run=small-16k
+model params: 12.19M
+step     0 | loss 8.9038 | lr 6.00e-06 | gnorm 6.73 | 46602 tok/s | 1.61 GB | 0.70s
+step    10 | loss 7.5237 | lr 6.60e-05 | gnorm 3.90 | 69888 tok/s | 1.71 GB | 0.47s
+step    20 | loss 6.7661 | lr 1.26e-04 | gnorm 1.77 | 69853 tok/s | 1.71 GB | 0.47s
+step    30 | loss 6.1667 | lr 1.86e-04 | gnorm 1.11 | 70050 tok/s | 1.71 GB | 0.47s

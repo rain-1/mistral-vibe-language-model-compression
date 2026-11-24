@@ -1,0 +1,41 @@
+{
+  "checkpoint": "checkpoints/small-ctx2048-4k/ckpt_004000.pt",
+  "step": 3999,
+  "results": {
+    "data/tokens": {
+      "val": {
+        "files": 600,
+        "tokens": 2779824,
+        "nll_nats": 3494590.7927246094,
+        "bytes": 6244152,
+        "cross_entropy_nats": 1.2571266356159991,
+        "perplexity": 3.5153062062287717,
+        "bits_per_token": 1.8136503629726288,
+        "bits_per_byte": 0.8074160921451025,
+        "ideal_ratio": 9.90815030543422
+      },
+      "holdout_subsystem": {
+        "files": 600,
+        "tokens": 5969941,
+        "nll_nats": 9622920.322265625,
+        "bytes": 12498006,
+        "cross_entropy_nats": 1.611895380920117,
+        "perplexity": 5.012302452683605,
+        "bits_per_token": 2.3254734724852795,
+        "bits_per_byte": 1.1108123510104126,
+        "ideal_ratio": 7.201936486142841
+      },
+      "holdout_driver": {
+        "files": 600,
+        "tokens": 5835533,
+        "nll_nats": 6763150.9951171875,
+        "bytes": 12207101,
+        "cross_entropy_nats": 1.158960286081355,
+        "perplexity": 3.186618381659029,
+        "bits_per_token": 1.6720262573168252,
+        "bits_per_byte": 0.7993023406162384,
+        "ideal_ratio": 10.008728354069673
+      }
+    }
+  }
+}

@@ -188,19 +188,21 @@ Equal-token scaling ladder at 262.1M tokens (val BPB):
 Monotonic gains with params at fixed tokens; medium beats xz-6 (1.51) on val by
 **2.1x**. Diminishing per-param returns (4.2→12.2: −0.13 BPB; 12.2→27.3: −0.06).
 
-## E8 — Context sweep at equal tokens (262.1M): small ctx512 vs ctx1024
+medium-8k vs small-8k on external repos (BPB): medium wins 12/13 — linux-v6.12
+0.762, nginx 0.878, freebsd 0.979, cpython 1.085, redis 1.104, git 1.110,
+openbsd 1.116 (small better), xv6 1.122, lua 1.411, sqlite 1.443, doom 1.501,
+busybox 1.574, musl 1.641 (small better). Cross-repo transfer scales with params.
 
-small-ctx512-16k: 16×512×2 = 16,384 tok/step × 16000 steps = 262.1M tokens,
-~62 min, 1.71 GB. Final val loss 1.2059.
+## E8 — Context sweep at equal tokens (262.1M tokens, small 12.2M)
 
-| corpus | ctx512 BPB | ctx1024 (small-8k) BPB |
-|---|---:|---:|
-| val | 0.7948 | **0.7753** |
-| holdout_subsystem | 1.1410 | **1.0968** |
-| holdout_driver | 0.9079 | **0.8147** |
+| ctx | val BPB | holdout_subsystem | holdout_driver |
+|---:|---:|---:|---:|
+| 512 (16k steps) | 0.7948 | 1.1410 | 0.9079 |
+| **1024 (8k steps)** | **0.7753** | **1.0968** | **0.8147** |
+| 2048 (4k steps) | 0.8074 | 1.1108 | 0.7993 |
 
-Conclusion: longer context (1024) wins at equal tokens; 512 loses ~0.02–0.09 BPB.
-(ctx 2048 run queued; 4×2048 fits at 2.7 GB.)
+Conclusion: **ctx 1024 is the sweet spot** at 262M tokens; 512 and 2048 both lose.
+(2048 has fewer optimizer steps at equal tokens, which may partly explain it.)
 
 ## E9 — Contamination audit (scripts/near_dup_audit.py)
 
