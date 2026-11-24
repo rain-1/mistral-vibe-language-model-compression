@@ -67,6 +67,17 @@ Turing it falls back to the math/efficient path — benchmarked, still OK).
   cpython) pinned to explicit revisions in `data/eval/*/REVISION.txt`, used for
   evaluation only.
 
+## Results so far (see EXPERIMENTS.md for the full ledger)
+
+| model | params | tokens | wall | val BPB | vs xz-6 (1.51) |
+|---|---:|---:|---:|---:|---|
+| tiny-pilot | 4.2M | 33M | 7.5 min | 2.011 | 1.3x worse |
+| **small-8k** | 12.2M | 262M | 70 min | **0.775 (10.3x)** | **1.9x better** |
+
+small-8k also beats xz on held-out subsystems (1.10 vs 1.26) and reaches
+BPB 0.85–1.60 on 13 external codebases (nginx/freebsd/openbsd/linux-v6.12
+best; busybox/doom worst). Range coder verified byte-exact (actual ≈ ideal).
+
 ## Metrics
 
 `evaluation/perplexity.py` computes, per corpus: NLL (nats), cross-entropy,

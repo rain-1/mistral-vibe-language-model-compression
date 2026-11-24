@@ -88,6 +88,8 @@ def main():
     ap.add_argument("--eval-steps", type=int, default=20)
     ap.add_argument("--wandb", action="store_true")
     ap.add_argument("--wandb-project", default="kernel-lm")
+    ap.add_argument("--tokens-dir", default=str(DATA / "tokens"),
+                    help="directory with train.bin/val.bin (allows tokenizer experiments)")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -118,8 +120,9 @@ def main():
     n_params = sum(p.numel() for p in model.parameters())
     print(f"model params: {n_params/1e6:.2f}M")
 
-    train_stream = TokenStream(DATA / "tokens" / "train.bin", mc.context_length, tc["seed"])
-    val_stream = TokenStream(DATA / "tokens" / "val.bin", mc.context_length, tc["seed"] + 1)
+    tdir = Path(args.tokens_dir)
+    train_stream = TokenStream(tdir / "train.bin", mc.context_length, tc["seed"])
+    val_stream = TokenStream(tdir / "val.bin", mc.context_length, tc["seed"] + 1)
 
     # AdamW with weight decay only on >=2D params (standard)
     decay, no_decay = [], []

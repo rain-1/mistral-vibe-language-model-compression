@@ -158,9 +158,31 @@ external codebases it compresses at 5–8.7x (BPB 0.85–1.60) — i.e., between
 gzip and xz territory. Compression is real: the range coder (E4) achieves
 actual ≈ ideal (within 0.5%).
 
-Comparison vs tiny-pilot (4.2M, 33M tokens, val BPB 2.01): +8x more params and
-+8x more tokens → 2.6x lower BPB. Compute-matched comparison (tiny at 262M
-tokens) queued as E7.
+## E7 — Compute-matched comparison: tiny-8k (4.2M, 262M tokens) vs small-8k
+
+Both trained on exactly 262.1M tokens (8000 × 32,768). (tiny-8k survived a
+machine freeze; resumed from ckpt_005500 via --resume, finished 8000.)
+
+| corpus | tiny-8k BPB (4.2M) | small-8k BPB (12.2M) |
+|---|---:|---:|
+| val | 0.9070 | **0.7753** |
+| holdout_subsystem | 1.2254 | **1.0968** |
+| holdout_driver | 0.9244 | **0.8147** |
+
+Conclusion: at equal training tokens (262M), the 12.2M model is uniformly
+better (~0.13–0.17 BPB). At this scale, under a fixed token budget, **more
+parameters beats more of the same** — consistent with Chinchilla scaling.
+(tiny-8k wall ~45 min at ~135k tok/s vs small-8k 70 min at ~62k tok/s, so at
+equal *wall-clock* the gap narrows; FLOPs-matched comparison still queued.)
+
+## E10 — Lexical breakdown & generation (small-8k, val sample)
+
+Mean NLL by category: whitespace 0.42 < preprocessor 0.65 < string 0.66 <
+comment 1.20 < identifier_novel 1.34 < char 1.34 < keyword 1.37 < number 1.54 <
+type 1.62 < operator 1.67 nats. Identifier NLL vs distance to previous
+occurrence: 1–8 tokens → 0.40, 9–64 → 1.23, 65–512 → 1.87, 512+ → 3.50 nats
+(clear recency/copy signal). Generation (next-line, 148 samples): greedy
+exact-line 28.4%, token-acc 51.6%, balanced 79.7%; sampled t=0.8: 25.7% exact.
 
 ## Planned next
 
