@@ -175,6 +175,30 @@ parameters beats more of the same** — consistent with Chinchilla scaling.
 (tiny-8k wall ~45 min at ~135k tok/s vs small-8k 70 min at ~62k tok/s, so at
 equal *wall-clock* the gap narrows; FLOPs-matched comparison still queued.)
 
+## E8 — Context sweep at equal tokens (262.1M): small ctx512 vs ctx1024
+
+small-ctx512-16k: 16×512×2 = 16,384 tok/step × 16000 steps = 262.1M tokens,
+~62 min, 1.71 GB. Final val loss 1.2059.
+
+| corpus | ctx512 BPB | ctx1024 (small-8k) BPB |
+|---|---:|---:|
+| val | 0.7948 | **0.7753** |
+| holdout_subsystem | 1.1410 | **1.0968** |
+| holdout_driver | 0.9079 | **0.8147** |
+
+Conclusion: longer context (1024) wins at equal tokens; 512 loses ~0.02–0.09 BPB.
+(ctx 2048 run queued; 4×2048 fits at 2.7 GB.)
+
+## E9 — Contamination audit (scripts/near_dup_audit.py)
+
+Exact dups: 166 files (hash-grouped into the same split by construction).
+Near-dups (8-gram shingles, whitespace-normalized, 64-perm minhash LSH over
+56,902 files): 117,531 pairs with est. Jaccard ≥ 0.5, of which **1,605 straddle
+train/eval splits** — mostly boilerplate (dt-bindings headers, trace wrappers,
+selftests). Report: data/near_dup_report.json. Kernel code is highly templated,
+so some leakage is unavoidable at file level; function-level de-dup is a
+possible later refinement.
+
 ## E10 — Lexical breakdown & generation (small-8k, val sample)
 
 Mean NLL by category: whitespace 0.42 < preprocessor 0.65 < string 0.66 <

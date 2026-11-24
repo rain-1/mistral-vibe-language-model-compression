@@ -1,0 +1,23 @@
+files=56902 candidate_pairs=238169 pairs>=0.5: 117531 cross-split: 1605
+saved -> /home/snake/Code/linux-transformer/kernel-lm/data/near_dup_report.json
+  CROSS train vs val  J=0.703  include/dt-bindings/clock/sun8i-a83t-ccu.h <-> include/dt-bindings/reset/sun8i-r40-ccu.h
+  CROSS val vs train  J=0.5  tools/testing/selftests/bpf/progs/btf__core_reloc_nesting___err_array_container.c <-> tools/testing/selftests/bpf/progs/btf__core_reloc_type_based___all_missing.c
+  CROSS train vs holdout_driver  J=0.5  drivers/infiniband/hw/usnic/usnic_debugfs.h <-> drivers/net/ethernet/chelsio/cxgb4/srq.h
+  CROSS train vs holdout_subsystem  J=0.625  drivers/hv/hv_trace.c <-> fs/nfsd/trace.c
+  CROSS train vs val  J=0.672  arch/sparc/include/asm/atomic.h <-> arch/sparc/include/asm/pgtable.h
+  CROSS holdout_driver vs holdout_subsystem  J=0.703  drivers/staging/rtl8192u/ieee80211/ieee80211_crypt_wep.c <-> net/wireless/lib80211_crypt_wep.c
+  CROSS holdout_driver vs train  J=0.516  drivers/gpu/drm/radeon/rs100d.h <-> include/drm/drm_atomic_uapi.h
+  CROSS holdout_driver vs train  J=0.547  drivers/gpu/drm/amd/include/asic_reg/smuio/smuio_12_0_0_sh_mask.h <-> tools/testing/selftests/sync/sync_alloc.c
+  CROSS holdout_driver vs train  J=0.5  drivers/gpu/drm/radeon/radeon_kms.h <-> include/drm/display/drm_scdc.h
+  CROSS train vs holdout_driver  J=0.516  drivers/infiniband/hw/qedr/qedr_roce_cm.h <-> drivers/net/ethernet/chelsio/cxgb3/version.h
+  CROSS holdout_driver vs train  J=0.516  drivers/gpu/drm/amd/display/dc/irq/dcn315/irq_service_dcn315.h <-> include/drm/display/drm_scdc.h
+  CROSS holdout_driver vs train  J=0.531  drivers/net/ethernet/chelsio/cxgb4/t4fw_version.h <-> include/linux/mlx5/doorbell.h
+  CROSS holdout_driver vs train  J=0.5  drivers/staging/media/atomisp/pci/atomisp_drvfs.h <-> tools/arch/arm64/include/uapi/asm/bitsperlong.h
+  CROSS train vs holdout_driver  J=0.5  drivers/infiniband/hw/qib/qib_user_sdma.h <-> drivers/net/ethernet/chelsio/cxgb4/cxgb4_tc_u32.h
+  CROSS holdout_driver vs train  J=0.641  drivers/gpu/drm/i915/selftests/mock_drm.h <-> include/drm/i915_component.h
+  CROSS holdout_driver vs train  J=0.578  drivers/net/ethernet/chelsio/cxgb3/version.h <-> tools/include/uapi/linux/tls.h
+  CROSS val vs train  J=0.781  include/uapi/asm-generic/kvm_para.h <-> include/uapi/linux/irqnr.h
+  CROSS holdout_driver vs train  J=0.5  drivers/net/ethernet/chelsio/cxgb3/version.h <-> include/linux/mlx5/transobj.h
+  CROSS holdout_driver vs train  J=0.531  drivers/gpu/drm/radeon/si.h <-> include/drm/intel_lpe_audio.h
+  CROSS holdout_driver vs train  J=0.625  drivers/gpu/drm/amd/display/dc/virtual/virtual_link_hwss.h <-> include/drm/intel_lpe_audio.h
+EXIT=0

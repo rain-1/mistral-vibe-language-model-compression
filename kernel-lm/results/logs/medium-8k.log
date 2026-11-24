@@ -1,0 +1,2 @@
+device=cuda  run=medium-8k
+model params: 27.27M

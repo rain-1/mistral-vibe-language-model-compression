@@ -1,0 +1,41 @@
+{
+  "checkpoint": "checkpoints/small-ctx512-16k/ckpt_016000.pt",
+  "step": 15999,
+  "results": {
+    "data/tokens": {
+      "val": {
+        "files": 600,
+        "tokens": 2779824,
+        "nll_nats": 3439815.077270508,
+        "bytes": 6244152,
+        "cross_entropy_nats": 1.2374218933538625,
+        "perplexity": 3.446715998958733,
+        "bits_per_token": 1.7852224290290493,
+        "bits_per_byte": 0.7947603058915363,
+        "ideal_ratio": 10.065927979412434
+      },
+      "holdout_subsystem": {
+        "files": 600,
+        "tokens": 5969941,
+        "nll_nats": 9884604.063171387,
+        "bytes": 12498006,
+        "cross_entropy_nats": 1.6557289365458363,
+        "perplexity": 5.236895896013052,
+        "bits_per_token": 2.388711925811035,
+        "bits_per_byte": 1.1410195564867114,
+        "ideal_ratio": 7.011273342792324
+      },
+      "holdout_driver": {
+        "files": 600,
+        "tokens": 5835533,
+        "nll_nats": 7681852.255859375,
+        "bytes": 12207101,
+        "cross_entropy_nats": 1.3163925653165487,
+        "perplexity": 3.7299415575527246,
+        "bits_per_token": 1.8991530258452858,
+        "bits_per_byte": 0.9078789594982476,
+        "ideal_ratio": 8.811747332949885
+      }
+    }
+  }
+}
