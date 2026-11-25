@@ -1,0 +1,366 @@
+===== sample 0 (temp=0.8 top_k=40 rp=1.0) =====
+She opened the door and found 
+"Hey, my name is Viktor," she said before looking down at her hands. "I was wondering if you'd have left me here with you, you know."
+
+"Wait, wait..." Viktor's voice was shaking. "What do you mean by that?"
+
+"I just came here to visit you and I want to meet you," she answered him.
+
+"Well, I'm sorry."
+
+"I'm sorry for not getting back to you, too," Viktor said, "but I was just curious. You're Viktor. And I really love you."
+
+Viktor smiled sadly. "I'm glad you're here," he said.
+
+"I'm glad I was there to let you know that I'm here," she said.
+
+"How are you going to find out if you leave?"
+
+"Well, I didn't really leave until I found you," Viktor said.
+
+"You didn't leave me?"
+
+"I didn't leave Viktor," Viktor said. "I thought you'd never come back. I thought you'd know that."
+
+"I know enough
+
+===== sample 1 (temp=0.8 top_k=40 rp=1.0) =====
+The letter began, "My dearest ..." I whispered. He placed the note in my hand and handed it to me. He wrote it, writing it with the words 'I love you' written in the letter. I looked at the letter and read it. I looked at the letter before me and I smiled.
+
+"My dearest ..I knew it was you. My dearest ..I had to see you sooner. I knew you'd be here with me. I couldn't bear the thought of you leaving without saying goodbye." He told me softly. I smiled. "My dearest ..I was the only one who could stand up to you. I wasn't the only one who wanted to go to bed together. I wanted to see you all day. I thought that if I didn't have time, I would just stay with you until I got a chance to talk with you." He told me, his eyes shining with hope. I nodded. The envelope was filled with the story of how my dearest ..I had to see my dearest ..I had to see his soul mate. I reached for the letter and read it. "You always tell me that it isn't real. The rest of the world is dead.
+
+===== sample 2 (temp=0.8 top_k=40 rp=1.0) =====
+It was the best of times, it was icing me up like a butterbeer, and … well, I was trying to make myself known. 
+
+I didn't know exactly what to do, exactly. 
+
+It was easier to just not talk. 
+
+I told the story of what I had been told about my life. I had to make myself not want to be here, and not just to be someone I was meant to be, if not friends. I never really liked the sound of it. I didn't care about what people thought. I didn't ever want to be a good person. I just wanted to make people miserable. And I couldn't stop thinking about him. I thought about him. I wanted to be with him. 
+
+I was an idiot, so I never did. I didn't have a choice. But, because it was better that way, I could stay and stay with him. I could stay and help him learn more about life. I didn't want anyone to get hurt. People didn't know I was capable of anything. They did know. They did. I didn't want it to happen. 
+
+I didn't want to take the risk. I didn't want to lose him. I wanted to be with
+
+===== sample 3 (temp=0.8 top_k=40 rp=1.0) =====
+In a small village by the sea, 
+and the two other servants, 
+and my brothers and sisters, 
+and their brothers and sisters! 
+But I can’t let them take over my house.”
+
+Kaori, 
+I know, I can’t let them take over my house.
+
+Kaori, 
+my sister, 
+It’s my family. And we can, you know. I would, I would, if you were my brother, I would, but it’s mine! And we will not get a house. If you get a guest, you won’t get a house, 
+them is a place, 
+all I have is a house, 
+and a bed, 
+and a bed, a bed, a chair, a bed, a bed, a bed, a bed, a bed, 
+your mother and me are living together, 
+and a bed. A bed, 
+and a bed. 
+And a bed.
+And a bed.
+It’s beautiful. 
+But the bed is a bed. 
+
+Kaori takes Kahje in his arms, 
+and he’s crying.
+
+===== sample 4 (temp=0.8 top_k=40 rp=1.0) =====
+He had not seen her in ten years, 
+but she had made the mistake twice.
+She had not seen her own mother in a week.
+She had watched her mother grow up, and she would not have known it.
+She had met her mother, had seen her smile.
+She had watched that same moment in the snow, had watched that same smile and heard it in her face as she watched her mother run away to pick a woman who could no longer see her.
+It had felt so right.
+
+*
+
+*
+
+The day before the funeral.
+
+She had not known that, had not known that her mother had been right, it had always felt right, and they had come home for the first time in years, at last.
+
+It had felt right, when they had gone out into the snow together, and then to return home and return to the family, to move in with her mother.
+
+She had not been able to say goodbye to her mother, to see her through the tears she had shed for so long.
+
+She had never even thought about that, and not before they had finally reached the funeral.
+
+“I’m sorry, but it was hard, you know,” she had
+
+===== sample 5 (temp=0.8 top_k=40 rp=1.0) =====
+The machine hummed to life as 
+“So what I’m waiting for 
+“Just give me a minute to think! ” 
+The machine jerked slightly as 
+“I just gotta give it a minute to think 
+“I’m ready 
+“The machine, 
+
+“ 
+“The machine” 
+“The machine? ” 
+“The machine” 
+“I want something in my hand!” 
+“No” 
+“A machine” 
+“Yes! ” 
+“Then let me see it” 
+“That’s what the machine is for 
+“A machine” 
+“A machine” 
+“A machine 
+“So that’s what the machine is for” 
+“No way, I’m not letting the machine 
+“And you can’t” 
+“But what if it’s 
+“But you just” 
+“I’m not going to touch him” 
+“I know, I know” 
+“Now you’re not going to push 
+“You’ve always been so sure 
+“It’s not hard to get 
+“You’ve been making
+
+===== sample 6 (temp=0.8 top_k=40 rp=1.0) =====
+"I never thought I'd see you again," she said. "I always thought you were going to go away."
+
+"I am," he repeated. "And if you're going to come back, then what do you want me to do? I don't want to leave you behind when we're both on the same wavelength. I don't want to leave you behind."
+
+"I'm not leaving you here," she said. "I'm not leaving you here."
+
+"I am leaving, and I will never go back."
+
+"What if you leave me?" She said, her voice cracking.
+
+"Then you won't," he said. "But you will leave me."
+
+"But not because I want to," she said. "You can't just leave me."
+
+"I know."
+
+"I will."
+
+"And I will."
+
+"Fine."
+
+"Okay."
+
+"Go on, if you're not going to stay, I'll stay."
+
+"I know."
+
+"I'm going to stay."This was not a very common argument. The only one that had ever been in his life was the one that always kept it from his mother. This was
+
+===== sample 7 (temp=0.8 top_k=40 rp=1.0) =====
+Chapter 1
+
+“I'm sorry. I'm a bit rusty.”
+
+“What are you talking about?”
+
+“I wanted to talk to you about it.”
+
+“You've been avoiding me? It's not my job to know that.”
+
+“That's how you know me.”
+
+“It's not.”
+
+“I know it's not.”
+
+“I don't believe that.”
+
+“Then what do you mean you don't believe it?”
+
+“I don't know.”
+
+“But I saw you when you were drunk. You had a friend to protect you, and she was a girl you thought was her. You said you'd have her back if you wanted her back. You told me you were a girl.”
+
+“Why?"
+
+“Because...she got away.”
+
+“I don't think that's the same for you.”
+
+“You know what?"
+
+“I just don't think it's different. I just don't like it, and I know what you're thinking, and I don't know if I'm really in love with you. If we could be together. It wouldn't be right to love you.”
+
+===== sample 8 (temp=0.8 top_k=40 rp=1.0) =====
+The stars were unusually bright that night. 
+The sky was bright and bright, the stars were white, the moon was blue.
+The lights were still bright, but at the same time they were just a small dot to it.
+
+"I think they're still out there."
+
+Shoot. 
+"Well, that's not like you, it's like I'm a different person."
+
+"I see."
+
+"I just didn't think you'd be the same."
+
+"I mean, I was." 
+"I'm not." 
+"I know."
+
+"I'm not." 
+"Is there anything I can do?"
+
+"I don't know." 
+"How about you go get some sleep?" 
+"I'll see you tomorrow."
+
+"Of course."
+
+"Don't be so cold." 
+"But it's not like we're going to be on a ship anymore." 
+"Okay, then leave us."
+
+"Where are you going?" 
+"To the ship." 
+"Alright, then." 
+"Okay. Get some sleep." 
+"Okay." 
+"Okay." 
+"So
+
+===== sample 9 (temp=0.8 top_k=40 rp=1.0) =====
+Once upon a time, in a kingdom far away, 
+"She will be one of these things. No one is meant to stay here. Not even her."
+
+"You're not meant to go to her, you know," she says, not unkindly.
+
+He looks at her, his eyes blazing for just a moment, and then at her, and then he's gone, disappearing into the shadows of the forest.
+
+"You'd better go to her," he says, and walks out of the shadow of the forest.
+
+---
+
+"The sun on your head, I see."
+
+She doesn't say anything, only continues her walk, the silence of the forest much as her footsteps stop.
+
+"What happened?"
+
+He turns to her. "There was a fight in the forest. I can't tell you what happened. What happened. All I know is, she was there, and I don't have the right to be angry at her."
+
+"I can tell you everything you know," she says, and she's right.
+
+He wants to tell her everything, the things he wants to say, the things he wants to say to her.
+
+But something about this whole situation makes her
+
+===== sample 10 (temp=0.8 top_k=40 rp=1.0) =====
+The detective examined the magnifying glass and ion-locked screen. For a short moment, he could see a figure, a figure in a grey and white suit. He was tall, with a face that was probably a head taller than Bruce's. He was a handsome man, with white-armored glasses perched on his nose and a dark-blue hair on his head. The figure in the suit was a young man, but it appeared to be one of the more mature doctors before him.
+
+"I thought you might like to see the detective," Bruce said, as if he were listening to a perfectly good question.
+
+"Yeah," the man said. "I'd like it."
+
+"Good," Bruce said, and the doctor said, "I'm Bruce Banner. I take it you've got this?"
+
+"I don't have to," the man replied, "But I can ask you again. Where is he?"
+
+"Oh, he's a doctor," Bruce said. "I didn't know that you were going to be here. That's it. Why aren't you here?"
+
+The man's face was blank.
+
+Bruce didn't know what to say.
+
+"I'm
+
+===== sample 11 (temp=0.8 top_k=40 rp=1.0) =====
+Dear diary, today something strange happened: 
+1:16 PM
+
+"If you think this is a 'yes'. It's 'no'. I'm not going to talk about this either. I can't even imagine how you've started this whole thing."
+
+"I know, okay," the doctor whispered.
+
+"Well, now you know," she whispered back, "I mean, I know. I'm sure you understand, so thank you."
+
+"I have to do something important, okay? I'm scared."
+
+She had her head in her hands, her eyes were wide with fear, her face was pale, her eyes were wide with fear.
+
+"I need you to do something," she said, "please, please."
+
+"I'm...I'm sorry about this," the doctor said, "I'm sorry. I don't know if I can even be good. I can't do this, she's my friend, she's my best friend. She does what she does best. She's my best friend, she's my best friend, she isn't going to break down on me. She'll be better off without me."
+
+Suddenly, her heart broke in her chest.
+
+
+===== sample 12 (temp=0.8 top_k=40 rp=1.0) =====
+Sanji floated beside the Sunny, too shocked to be irritated, as Nami and Zoro climbed up to the deck. This was all too weird. He didn't feel any different. If anything, the tail felt more natural compared to the pain and discomfort he had felt in his legs for the last week. The powerful appendage beat leisurely under the surface, holding his shoulders above the water as easily as if he had been kicking with feet.
+
+But the part of him that felt no different was completely at odds with what he was seeing and was capable of believing. Every time Sanji looked down, he expected to see two legs, not a tail. He couldn't stare at his new body part for more than a few seconds at a time before he began to feel sick. Questions flew around his mind, giving him a headache that rivaled the one he had awoken to. Many of them revolved around the mechanics of his situation and cursed his terrible luck, but the biggest and most important asked if he would ever return to normal. Now that he had transformed, would he ever walk again?
+
+Sanji huffed and sank down until only his head was above water as he waited for his crewmates to figure out how to kill him. He didn't even know if they had the decency to talk when he was a child, but they were probably all on board with the idea. He could see the ship's status in a different planet. The planet was huge, and he was still in the same boat as his father. He had been there for about five years. He could already feel the pain of the last one. He had always been a strong captain, but he really couldn't help but feel he had to do something to prevent it.
+
+He felt the energy flowing down from his body, and heard a small groan. He had to admit it seemed to have been very loud indeed. It seemed to be his only source of energy in the ship. For some reason, it was very much like the pain he heard. Like how his entire body felt like he was being ripped apart. He felt completely drained, and his legs felt like they were made of ice. He could feel the pain in his back as it was pressed against his leg, but it wasn't as if it was physically. It was just as well. He was barely conscious enough to hear his name being called over and over again. It gave him the feeling he had always
+
+===== sample 13 (temp=0.8 top_k=40 rp=1.0) =====
+When she did not answer him, he skirted around her, through the living room and into the kitchen. The refrigerator was opened, hands idly grabbing a few items from inside before the cold was shut away again. A glass of milk was poured, the electric kettle turned on, his fruit bowl raided for a pair of apples. His mouth pulled into a frown as he looked down to his shirt, the darkened colour from the water had spread nearly to his umbilicus. In the pocket of his pants, a phone vibrated.
+
+_ 
+
+i need her ready in a month 
+
+will it be a problem? 
+
+_ 
+
+The boy was too impatient. He sighed, placing the phone back in his pocket without responding.
+
+He took a bite of the blushed red fruit, one arm reaching into a cabinet to locate a mug and teabag. His mind was clear; the temporary distance from the girl afforded him returned lucidity as teeth bit again into the flesh of the apple, licking his lower lip to catch the lingering juices. He was calm, he was always calm, he was waiting. 
+
+When she finally met him in the room, and he knew that was a lie. A lie. But he refused to think that the woman in front of him was a lie, even if she had no words other than to tell him that he was a liar. She was a liar, he knew that, but he wasn’t so sure. 
+
+He waited until she was done eating, before he stood up and left the room, leaving the girl in her wake. He left the kitchen, his mind not thinking straight. He tried to calm himself, trying to focus on the task at hand, the memory of the way he had felt on her back in his apartment in the early morning. He had been too focused on his feelings, to have his thoughts cut off by the image of the girl in his apartment with her lips around his fingers, the feeling of her breasts against his own and the scent of her perfume that was driving him mad. 
+
+He let himself believe that this was all just a lie. 
+
+_ 
+
+“I said, I wasn’t gonna go back again. I’m just going to tell her how sorry she was of me.” She said, her voice rough and weak. “And that I’m sorry. I never meant to make
+
+===== sample 14 (temp=0.8 top_k=40 rp=1.0) =====
+Проектор перестаёт работать на третий день лекций Марка. Он обращается в ремонтную службу, но прибор не работает и на следующий день, так что Марк просто встаёт на стол, чтобы посмотреть на это. После того, как он открыл крышку ключами (отвёртка не потребовалась), увидеть порванный провод было не очень тяжело. Марк распрямляет скрепку, вставляет её вместо недостающего участка и включает проектор.
+
+- Что-то не так, профессор Уотни? – спрашивает первый из пришедших студентов.
+
+Проецируемая картинка выходит яркой и чёткой.
+
+- Не-а, – отвечает Марк. – Всё о’кей.
+
+***
+
+Марк не покупает стаканы, он просто съедает варень и закрывает глаза. Он смотрит на него сбивчивое бормотание, но не хочет, чтобы Марк просто не подготал.
+
+- Один из пути, в то же время! – с удивленным видом спрашивает тот, когда он сбивает сюда и уходит и встает. – Я думаю, что ты спал.
+
+Марк не знает, что он может пойти в каюты, когда у него начинает разобраться с ним.
+
+- Где я, – тихонько говорит Марк, и его глаза сзади отсутствуют друг другу, и Марку не хочет, чтобы ему обычно страшно подозревать.
+
+- Подойдите, – говорит Марк, неожиданно усмехаясь. Он спящий гудел, и Марк вымахивает изо всех сил. Он не хочет, чтобы они отбрасывали в одичогнах, но тот же парень
+
+===== sample 15 (temp=0.8 top_k=40 rp=1.0) =====
+Slowing down the car and steering it to the sidewalk Josh checked his watch while waiting for Ella to get in. Smiling on the way the girl gave a high pitched scream and hugged him the drummer could still not help but growl a bit in her ear. "This better be really important babe, I gotta catch that plane in four hours and be in LA by tomorrow morning!" "It is, I promise!" Ella beamed at him, waving with her keys. "We can go home and talk there, mum and dad are out until the evening." "As you wish, princess!" the man gave. They smalltalked a bit until they reached the Josephs house. 
+
+Following Ella into the rooms of the family Josh was striken by the realisation how incredibly genuine it felt to just come here, even when Tyler was not there. While they had been best friends throughout their band time they had truely become family over the past years. Ripping himself out of his thoughts before he could get melancholic Josh switched on the coffe machine and took out two mugs to prepare for them. Ella had slumbed down on the counter behind him and waited for him to shift his attention towards her. 
+
+"I got what you came for, Ella. I'm not going to try and get you to stop with this, that's what the two of you are thinking, right?" A small smile crossed her lips before she leaned against the counter and said, "I'm going home, I have to go home, there's a lot more to do than going home, just don't let go of me again." "Of course I will, we can't have a baby without you." "I know, but you need to be more careful, I can't wait till you're back home." "I'm sorry," "I'm so sorry, I-I'm sorry!" Josh's voice was muffled from his throat and he was still struggling, "But this is just another chance, this is the best chance I'll ever have." "I don't think you'll be able to handle it yet," "I know you'll be there, it's your own fault." Josh didn't move as Ella went to hug him and hug him back. "I love you, I love you too," she whispered in his ear before leaving, leaving Josh's side behind. 
+
+Longing into the house and closing it quickly
+

@@ -55,6 +55,11 @@ charts = {
     "bench": b64(CH / "gpu_benchmark.png"),
     "story": b64(CH / "story_neural_vs_conventional.png"),
     "storyloss": b64(CH / "story_loss_so_far.png"),
+    "storylossfull": b64(CH / "story_full_loss.png"),
+    "storyprog": b64(CH / "story_full_progress.png"),
+    "storycorpora": b64(CH / "story_full_bpb_corpora.png"),
+    "storyamort": b64(CH / "story_full_amortization.png"),
+    "storyrep": b64(CH / "story_full_rep.png"),
 }
 
 ext_rows = "\n".join(
@@ -219,8 +224,13 @@ HTML = """<!DOCTYPE html>
   over corpora &gtr; ~1.2 GB vs xz-6 — shown stacked on the neural bars below.</p>
   <div class="grid cols2">
     <div class="card wide"><h3>Story model vs conventional compressors (neural bar stacked with 169 MB model; gray = original)</h3><img src="data:image/png;base64,@@CH_STORY@@"></div>
-    <div class="card"><h3>Story training loss (983M tokens)</h3><img src="data:image/png;base64,@@CH_STORYLOSS@@"></div>
+    <div class="card"><h3>Story training loss + val PPL (983M tokens)</h3><img src="data:image/png;base64,@@CH_STORYLOSSFULL@@"></div>
+    <div class="card"><h3>Val BPB over training vs xz/gzip</h3><img src="data:image/png;base64,@@CH_STORYPROG@@"></div>
+    <div class="card"><h3>BPB by held-out corpus vs gzip/zstd/xz</h3><img src="data:image/png;base64,@@CH_STORYCORPORA@@"></div>
+    <div class="card"><h3>Model-cost amortization (xz crossover ≈ 1.25 GB)</h3><img src="data:image/png;base64,@@CH_STORYAMORT@@"></div>
+    <div class="card"><h3>Repetition penalty vs repeated 4-grams in samples</h3><img src="data:image/png;base64,@@CH_STORYREP@@"></div>
   </div>
+  <p>Full write-up: <code>kernel-lm/STORY_REPORT.md</code>.</p>
   <p>Free prose samples (temp 0.8, top-k 40, repetition penalty 1.2) — fluent fanfic-style prose
   with consistent characters and dialogue; full batch in <code>results/samples/story-ckpt_030000.txt</code>.</p>
 </div></section>
@@ -351,7 +361,9 @@ vals = {
     '@@CH_CURVES@@': charts['curves'], '@@CH_BENCH@@': charts['bench'],
     '@@V612@@': f"{ext['linux-v6.12']['bits_per_byte']:.3f}",
     '@@STORY_ROWS@@': story_rows, '@@CH_STORY@@': charts['story'],
-    '@@CH_STORYLOSS@@': charts['storyloss'],
+    '@@CH_STORYLOSS@@': charts['storyloss'], '@@CH_STORYLOSSFULL@@': charts['storylossfull'],
+    '@@CH_STORYPROG@@': charts['storyprog'], '@@CH_STORYCORPORA@@': charts['storycorpora'],
+    '@@CH_STORYAMORT@@': charts['storyamort'], '@@CH_STORYREP@@': charts['storyrep'],
 }
 for k, v in vals.items():
     HTML = HTML.replace(k, v)
