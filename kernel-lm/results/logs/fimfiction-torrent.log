@@ -1,0 +1,69 @@
+2026-11-24 22:32:26.333832 [NOTICE] [Context.cc:310] Downloading 1 item(s)
+2026-11-24 22:32:26.392174 [ERROR] [DHTSetup.cc:106] Exception caught while loading DHT routing table from /home/snake/.cache/aria2/dht.dat
+Exception: [DHTRoutingTableDeserializer.cc:82] errorCode=1 Failed to load DHT routing table from /home/snake/.cache/aria2/dht.dat
+2026-11-24 22:32:26.392287 [NOTICE] [DHTConnectionImpl.cc:82] IPv4 DHT: listening on UDP port 6974
+2026-11-24 22:32:26.392946 [NOTICE] [PeerListenCommand.cc:78] IPv4 BitTorrent: listening on TCP port 6980
+2026-11-24 22:32:26.392995 [NOTICE] [PeerListenCommand.cc:78] IPv6 BitTorrent: listening on TCP port 6980
+2026-11-24 22:32:27.407858 [ERROR] [AbstractCommand.cc:349] CUID#20 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_09.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_09.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:27.413614 [ERROR] [AbstractCommand.cc:349] CUID#22 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_14.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_14.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:27.440339 [ERROR] [AbstractCommand.cc:349] CUID#19 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_00.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_00.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:27.455774 [ERROR] [AbstractCommand.cc:349] CUID#21 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_04.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_04.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:27.502068 [ERROR] [AbstractCommand.cc:349] CUID#23 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_02.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_02.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.249314 [ERROR] [AbstractCommand.cc:349] CUID#29 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_12.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_12.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.271119 [ERROR] [AbstractCommand.cc:349] CUID#27 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_15.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_15.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.330717 [ERROR] [AbstractCommand.cc:349] CUID#26 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_10.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_10.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.385434 [ERROR] [AbstractCommand.cc:349] CUID#30 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_05.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_05.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.426381 [ERROR] [AbstractCommand.cc:349] CUID#31 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_01.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_01.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:28.439600 [ERROR] [AbstractCommand.cc:349] CUID#39 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_18.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_18.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:28.463722 [ERROR] [AbstractCommand.cc:349] CUID#42 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_13.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_13.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:28.487611 [ERROR] [AbstractCommand.cc:349] CUID#45 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_07.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_07.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:28.500482 [ERROR] [AbstractCommand.cc:349] CUID#49 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_08.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_08.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:28.512229 [ERROR] [AbstractCommand.cc:349] CUID#51 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_19.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_19.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:28.539186 [ERROR] [AbstractCommand.cc:349] CUID#54 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_17.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=22 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_17.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:239] errorCode=22 The response status is not successful. status=429
+2026-11-24 22:32:29.177131 [ERROR] [AbstractCommand.cc:349] CUID#34 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_16.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_16.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:29.184452 [ERROR] [AbstractCommand.cc:349] CUID#36 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_11.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_11.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:29.247523 [ERROR] [AbstractCommand.cc:349] CUID#32 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_03.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_03.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 22:32:29.264725 [ERROR] [AbstractCommand.cc:349] CUID#37 - Download aborted. URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_06.jsonl.zst
+Exception: [AbstractCommand.cc:351] errorCode=3 URI=https://academictorrents.com/autowebseed.php?p=/fimfiction/fimfiction_06.jsonl.zst
+  -> [HttpSkipResponseCommand.cc:218] errorCode=3 Resource not found
+2026-11-24 23:12:36.549324 [NOTICE] [SeedCheckCommand.cc:79] Seeding is over.
+2026-11-24 23:12:39.730939 [NOTICE] [RequestGroup.cc:1214] Download complete: /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/fimfiction
+2026-11-24 23:12:39.731075 [NOTICE] [RequestGroup.cc:1228] Your share ratio was 0.0, uploaded/downloaded=0B/3.7GiB

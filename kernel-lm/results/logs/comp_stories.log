@@ -1,0 +1,12 @@
+corpus test ...
+  gzip-6    BPB=3.0032 ratio=2.664x comp=17.1MB/s decomp=239.7MB/s
+  xz-6      BPB=2.2092 ratio=3.621x comp=1.5MB/s decomp=93.2MB/s
+  bzip2-9   BPB=2.2683 ratio=3.527x comp=13.5MB/s decomp=34.2MB/s
+  zstd-6    BPB=2.7604 ratio=2.898x comp=90.8MB/s decomp=612.8MB/s
+corpus val ...
+  truncated to 100 MB
+  gzip-6    BPB=2.9830 ratio=2.682x comp=17.3MB/s decomp=241.9MB/s
+  xz-6      BPB=2.2022 ratio=3.633x comp=1.7MB/s decomp=111.5MB/s
+  bzip2-9   BPB=2.2643 ratio=3.533x comp=14.2MB/s decomp=36.0MB/s
+  zstd-6    BPB=2.7484 ratio=2.911x comp=101.5MB/s decomp=639.1MB/s
+saved -> /home/snake/Code/linux-transformer/kernel-lm/results/benchmarks/compressors_stories.json

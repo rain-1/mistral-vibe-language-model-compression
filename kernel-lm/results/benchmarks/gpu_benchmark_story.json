@@ -1,0 +1,41 @@
+{
+  "device": "NVIDIA GeForce RTX 2060",
+  "torch": "2.15.0+cu132",
+  "cuda": "13.2",
+  "rows": [
+    {
+      "micro_batch": 8,
+      "context": 1024,
+      "sec_per_step": 0.2365,
+      "tokens_per_sec": 34644.8,
+      "peak_vram_gb": 2.71,
+      "alloc_vram_gb": 0.397,
+      "tflops": 5.67,
+      "model": "medium",
+      "n_params": 27267584
+    },
+    {
+      "model": "medium",
+      "micro_batch": 16,
+      "context": 1024,
+      "oom": true
+    },
+    {
+      "micro_batch": 8,
+      "context": 1024,
+      "sec_per_step": 0.3476,
+      "tokens_per_sec": 23564.6,
+      "peak_vram_gb": 3.825,
+      "alloc_vram_gb": 0.549,
+      "tflops": 5.63,
+      "model": "large",
+      "n_params": 39852544
+    },
+    {
+      "model": "large",
+      "micro_batch": 16,
+      "context": 1024,
+      "oom": true
+    }
+  ]
+}

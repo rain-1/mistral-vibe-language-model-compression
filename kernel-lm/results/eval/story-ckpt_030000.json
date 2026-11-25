@@ -1,0 +1,65 @@
+{
+  "checkpoint": "checkpoints/story-medium-16k/ckpt_030000.pt",
+  "step": 29999,
+  "results": {
+    "data/ao3/story_tokens": {
+      "val": {
+        "files": 6670,
+        "tokens": 27727143,
+        "nll_nats": 84775579.85449219,
+        "bytes": 109418906,
+        "cross_entropy_nats": 3.0574942342415947,
+        "perplexity": 21.274182200083693,
+        "bits_per_token": 4.411031769286947,
+        "bits_per_byte": 1.1177712619843065,
+        "ideal_ratio": 7.157099374516143
+      },
+      "test": {
+        "files": 6141,
+        "tokens": 23174772,
+        "nll_nats": 70612848.68066406,
+        "bytes": 92437262,
+        "cross_entropy_nats": 3.046970588563463,
+        "perplexity": 21.051474150173885,
+        "bits_per_token": 4.395849357855034,
+        "bits_per_byte": 1.10207512003803,
+        "ideal_ratio": 7.259033304121718
+      }
+    },
+    "data/story_eval_tokens": {
+      "fimfiction": {
+        "files": 3000,
+        "tokens": 15022432,
+        "nll_nats": 51505456.03222656,
+        "bytes": 57105420,
+        "cross_entropy_nats": 3.4285697570291256,
+        "perplexity": 30.83251321392187,
+        "bits_per_token": 4.946380585807798,
+        "bits_per_byte": 1.301219148662558,
+        "ideal_ratio": 6.1480804430389
+      },
+      "pg19-test": {
+        "files": 100,
+        "tokens": 12759192,
+        "nll_nats": 59298834.325683594,
+        "bytes": 41289101,
+        "cross_entropy_nats": 4.647538364943767,
+        "perplexity": 104.32785212446731,
+        "bits_per_token": 6.704980551445574,
+        "bits_per_byte": 2.0719786127617543,
+        "ideal_ratio": 3.8610437147981687
+      },
+      "pg19-val": {
+        "files": 50,
+        "tokens": 5549345,
+        "nll_nats": 25947931.78125,
+        "bytes": 17733002,
+        "cross_entropy_nats": 4.675854858771621,
+        "perplexity": 107.32427498569034,
+        "bits_per_token": 6.745832616666382,
+        "bits_per_byte": 2.1110330051355377,
+        "ideal_ratio": 3.78961389070578
+      }
+    }
+  }
+}

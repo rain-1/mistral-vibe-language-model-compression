@@ -1,0 +1,16 @@
+corpus fimfiction ...
+  gzip-6    BPB=2.9419 ratio=2.719x comp=17.5MB/s decomp=246.7MB/s
+  xz-6      BPB=2.1458 ratio=3.728x comp=1.5MB/s decomp=98.8MB/s
+  bzip2-9   BPB=2.1967 ratio=3.642x comp=13.8MB/s decomp=35.4MB/s
+  zstd-6    BPB=2.6806 ratio=2.984x comp=83.0MB/s decomp=608.4MB/s
+corpus pg19-test ...
+  gzip-6    BPB=2.9840 ratio=2.681x comp=17.7MB/s decomp=250.6MB/s
+  xz-6      BPB=2.2332 ratio=3.582x comp=1.5MB/s decomp=107.9MB/s
+  bzip2-9   BPB=2.2163 ratio=3.610x comp=13.5MB/s decomp=35.0MB/s
+  zstd-6    BPB=2.6884 ratio=2.976x comp=81.1MB/s decomp=633.3MB/s
+corpus pg19-val ...
+  gzip-6    BPB=3.0263 ratio=2.643x comp=17.4MB/s decomp=244.9MB/s
+  xz-6      BPB=2.3065 ratio=3.468x comp=1.6MB/s decomp=96.3MB/s
+  bzip2-9   BPB=2.2932 ratio=3.489x comp=13.5MB/s decomp=35.1MB/s
+  zstd-6    BPB=2.7467 ratio=2.913x comp=91.7MB/s decomp=612.5MB/s
+saved -> /home/snake/Code/linux-transformer/kernel-lm/results/benchmarks/compressors_story_eval.json

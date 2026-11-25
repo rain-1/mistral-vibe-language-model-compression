@@ -324,3 +324,58 @@ large vocabs is offset by fewer tokens. (Longer runs may differ; queued.)
 - E13: cross-subsystem generalization matrix (train per subsystem)
 - E14: small ctx2048 (4×2048, 4000 steps = 262M tokens) vs ctx1024
 - E15: compile-based generation eval (evaluation/compile_eval.py, gcc -fsyntax-only)
+
+## E16 — Story model: human prose (AO3 fanfiction) instead of code
+
+**Data.** The Academic Torrents AO3 dump `51c21fd1...` (163.8 GB) is DMCA-banned
+on academictorrents.com. Substitutes used:
+- `huggingface.co/datasets/ray0rf1re/AO3-2020` config `full` — real AO3 2020
+  dump; 20 of 563 parquet shards (~185 MB each) downloaded individually
+  (the "individually unpacked" requirement — each shard is one file).
+  Unpacked: 338,132 chapters / 128,554 stories / 5.07 GB text.
+  Splits are STORY-level (all chapters of a story share a split), seeded,
+  hash-grouped: train 325,321 files / 4.87 GB, val 6,670 / 109 MB,
+  test 6,141 / 92 MB. Manifest: `data/ao3/story_manifest.jsonl`.
+- Fimfiction torrent `08d162a9c91f...` (2025-04-25, 815,740 stories, 4 GB as
+  20 individually-selectable `fimfiction_XX.jsonl.zst` shards) — torrented OK,
+  used as EXTERNAL eval corpus (fimfiction, 3,000 files / 57 MB).
+- PG-19 books (4,800-book pack + official val/test) — external eval
+  (pg19-val 18 MB, pg19-test 41 MB).
+
+**Tokenizer.** Byte-level BPE-16384 trained on a 400 MB sample of AO3 train
+chapters (`data/ao3/tokenizer-16k.json`); 200/200 files byte-exact roundtrip.
+Prose = 3.94 bytes/token (vs 2.5 for kernel code @16k). Train = 1.230B tokens.
+
+**Conventional baselines (100 MB AO3 val):** gzip-6 2.98 BPB, zstd-6 2.75,
+bzip2-9 2.26, **xz-6 2.20**. On fimfiction 57 MB: xz-6 2.15; pg19-test: 2.23.
+
+**Run S1** — story-medium-16k: 27.3M params, ctx 1024, 8×1024×accum4
+(32,768 tok/step), lr 6e-4 cosine→6e-5, warmup 200, **30,000 steps ≈ 983M
+tokens** (Chinchilla 20×N = 546M; we over-train ~1.8× since data allows),
+~32k tok/s, 4.15 GB VRAM, ~8.4 h. GPU benchmark first: medium 8×1024 =
+34.6k tok/s @2.7GB; large 8×1024 = 23.6k tok/s @3.8GB (16×1024 OOMs).
+Log: `results/story-medium-16k/log.jsonl`. Results below (filled after run).
+
+### E16 results — story-medium-16k @ 30,000 steps (983M tokens, 8.7 h, 32.2k tok/s, 4.15 GB)
+
+Final train loss 3.03, **val loss 3.065 nats (PPL 21.4)**.
+
+| corpus (held out) | files | tokens | CE nats | PPL | BPB | ideal ratio | xz-6 BPB |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| AO3 val | 6,670 | 27.7M | 3.058 | 21.3 | **1.118** | 7.16x | 2.20 |
+| AO3 test | 6,141 | 23.2M | 3.047 | 21.1 | **1.102** | 7.26x | 2.21 |
+| fimfiction (external archive) | 3,000 | 15.0M | 3.429 | 30.8 | **1.301** | 6.15x | 2.15 |
+| pg19-test (external books) | 100 | 12.8M | 4.648 | 104 | 2.072 | 3.86x | 2.23 |
+| pg19-val | 50 | 5.5M | 4.676 | 107 | 2.111 | 3.79x | 2.31 |
+
+- The 33.6M-param model beats xz-6 by **~2x on AO3 fanfic** (conditional BPB) and by ~1.65x on
+  cross-archive fanfic; on 1820s-era PG-19 books only 1.08x — prose from a different era is much
+  harder (domain shift), still beats xz.
+- Range coder on 40 AO3 test files (715 KB): **actual 103,975 B vs ideal 103,751 B (0.2% overhead),
+  BPB 1.163, ALL byte-exact**. Total incl. 169 MB model+tokenizer on that sample: 1890 BPB —
+  model cost dominates small corpora; xz crossover at N ≈ 8·169MB/(2.20−1.10) ≈ **1.2 GB**.
+- Free samples (temp 0.8, top-k 40, rep-penalty 1.2, 300 tokens): fluent fanfic-style prose,
+  consistent character names/dialogue (results/samples/story-ckpt_030000.txt).
+- Charts: results/charts/story_neural_vs_conventional.png, story_loss_so_far.png.
+- Queued (no time in the 10 h budget): lr sweep (1.2e-3 run config ready: configs/story-medium-16k-lr12.yaml),
+  ctx 2048 variant, large-16k story run, quantized story model.

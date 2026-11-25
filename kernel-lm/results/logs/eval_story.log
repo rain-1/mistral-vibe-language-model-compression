@@ -1,0 +1,49 @@
+++ dirname scripts/eval_story.sh
++ cd scripts/..
++ PY=../.venv/bin/python3
++ CK=checkpoints/story-medium-16k/ckpt_030000.pt
++ TOK=data/ao3/tokenizer-16k.json
+++ basename checkpoints/story-medium-16k/ckpt_030000.pt .pt
++ TAG=ckpt_030000
++ ../.venv/bin/python3 -u evaluation/perplexity.py --checkpoint checkpoints/story-medium-16k/ckpt_030000.pt --corpora data/ao3/story_tokens data/story_eval_tokens --corpus-names val test fimfiction pg19-test pg19-val --batch 4 --out results/eval/story-ckpt_030000.json
+loaded checkpoints/story-medium-16k/ckpt_030000.pt  params=33.56M step=29999 ctx=1024
+  val                      files= 6670 toks= 27727143 ce=3.0575 ppl=   21.27 bpt=4.411 BPB=1.1178 ratio=7.16x
+  test                     files= 6141 toks= 23174772 ce=3.0470 ppl=   21.05 bpt=4.396 BPB=1.1021 ratio=7.26x
+  fimfiction               files= 3000 toks= 15022432 ce=3.4286 ppl=   30.83 bpt=4.946 BPB=1.3012 ratio=6.15x
+  pg19-test                files=  100 toks= 12759192 ce=4.6475 ppl=  104.33 bpt=6.705 BPB=2.0720 ratio=3.86x
+  pg19-val                 files=   50 toks=  5549345 ce=4.6759 ppl=  107.32 bpt=6.746 BPB=2.1110 ratio=3.79x
+saved -> results/eval/story-ckpt_030000.json
++ tee results/eval/story-ckpt_030000-compression.txt
+++ python3 -c $'\nimport json\nrecs=[json.loads(l) for l in open(\'data/ao3/story_manifest.jsonl\') if json.loads(l)[\'split\']==\'test\']\nprint(\' \'.join(\'data/ao3/stories/\'+r[\'path\'] for r in recs[:40]))'
+++ python3 -c 'import torch; ck=torch.load('\''checkpoints/story-medium-16k/ckpt_030000.pt'\'',map_location='\''cpu'\'',weights_only=False); print(sum(p.numel() for p in ck['\''model'\''].values())*4)'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import torch; ck=torch.load('checkpoints/story-medium-16k/ckpt_030000.pt',map_location='cpu',weights_only=False); print(sum(p.numel() for p in ck['model'].values())*4)
+    ^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'torch'
++ ../.venv/bin/python3 -u evaluation/compression.py --checkpoint checkpoints/story-medium-16k/ckpt_030000.pt --tokenizer data/ao3/tokenizer-16k.json --files data/ao3/stories/s019/11965212_0.txt data/ao3/stories/s010/6510202_9.txt data/ao3/stories/s002/25185586_1.txt data/ao3/stories/s008/5294576_15.txt data/ao3/stories/s008/4932358_4.txt data/ao3/stories/s002/175523_1.txt data/ao3/stories/s018/11382282_4.txt data/ao3/stories/s007/4266312_3.txt data/ao3/stories/s005/3678018_0.txt data/ao3/stories/s012/7367101_1.txt data/ao3/stories/s015/9832139_0.txt data/ao3/stories/s013/8362402_1.txt data/ao3/stories/s009/5546891_4.txt data/ao3/stories/s008/4947109_3.txt data/ao3/stories/s019/12158304_0.txt data/ao3/stories/s015/9832139_1.txt data/ao3/stories/s000/24452869_8.txt data/ao3/stories/s013/7959490_3.txt data/ao3/stories/s000/24208627_0.txt data/ao3/stories/s017/11094924_0.txt data/ao3/stories/s002/146302_0.txt data/ao3/stories/s008/5076310_0.txt data/ao3/stories/s006/3964303_8.txt data/ao3/stories/s002/206636_0.txt data/ao3/stories/s009/5769718_0.txt data/ao3/stories/s018/11615853_0.txt data/ao3/stories/s004/564263_0.txt data/ao3/stories/s004/527530_9.txt data/ao3/stories/s015/9802820_0.txt data/ao3/stories/s005/3177005_1.txt data/ao3/stories/s001/24916705_1.txt data/ao3/stories/s015/9335033_4.txt data/ao3/stories/s008/4953484_0.txt data/ao3/stories/s018/11466819_2.txt data/ao3/stories/s001/24789589_0.txt data/ao3/stories/s008/5181452_0.txt data/ao3/stories/s005/3478619_21.txt data/ao3/stories/s007/4302549_6.txt data/ao3/stories/s005/3681237_19.txt data/ao3/stories/s003/293890_0.txt --model-bytes
+usage: compression.py [-h] --checkpoint CHECKPOINT --files FILES [FILES ...] [--tokenizer TOKENIZER]
+                      [--model-bytes MODEL_BYTES]
+compression.py: error: argument --model-bytes: expected one argument
++ ../.venv/bin/python3 -u scripts/sample_stories.py --checkpoint checkpoints/story-medium-16k/ckpt_030000.pt --tokenizer data/ao3/tokenizer-16k.json --temperature 0.8 --top-k 40 --repetition-penalty 1.2 --max-new-tokens 300 --real-prefixes 8 --out results/samples/story-ckpt_030000.txt
+sample 0 done
+sample 1 done
+sample 2 done
+sample 3 done
+sample 4 done
+sample 5 done
+sample 6 done
+sample 7 done
+sample 8 done
+sample 9 done
+sample 10 done
+sample 11 done
+sample 12 done
+sample 13 done
+sample 14 done
+sample 15 done
+sample 16 done
+sample 17 done
+sample 18 done
+sample 19 done
+wrote results/samples/story-ckpt_030000.txt

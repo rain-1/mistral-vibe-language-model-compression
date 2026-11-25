@@ -1,0 +1,43 @@
+unpacking 20 parquet shards ...
+  shard 000: 17430 chapters
+  shard 001: 17161 chapters
+  shard 002: 17135 chapters
+  shard 003: 15211 chapters
+  shard 004: 14847 chapters
+  shard 005: 18400 chapters
+  shard 006: 17248 chapters
+  shard 007: 16331 chapters
+  shard 008: 17463 chapters
+  shard 009: 17284 chapters
+  shard 010: 17149 chapters
+  shard 011: 17220 chapters
+  shard 012: 18027 chapters
+  shard 013: 16744 chapters
+  shard 014: 16905 chapters
+  shard 015: 16812 chapters
+  shard 016: 17391 chapters
+  shard 017: 16792 chapters
+  shard 018: 16946 chapters
+  shard 019: 15636 chapters
+note: 1 duplicate-hash groups straddle splits -> moved to train
+{
+  "repo": "ao3",
+  "revision": "huggingface.co/datasets/ray0rf1re/AO3-2020 config=full (AO3 dump 2020), shards 0-11",
+  "splits": {
+    "train": {
+      "files": 325321,
+      "bytes": 4867537403,
+      "stories": 123413
+    },
+    "val": {
+      "files": 6670,
+      "bytes": 109418906,
+      "stories": 2570
+    },
+    "test": {
+      "files": 6141,
+      "bytes": 92437262,
+      "stories": 2571
+    }
+  }
+}

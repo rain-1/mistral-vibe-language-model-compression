@@ -1,0 +1,128 @@
+{
+  "fimfiction": {
+    "gzip-6": {
+      "orig_bytes": 57117420,
+      "compressed_bytes": 21004001,
+      "bits_per_byte": 2.9419,
+      "ratio": 2.719,
+      "comp_s": 3.26,
+      "decomp_s": 0.23,
+      "comp_MBps": 17.5,
+      "decomp_MBps": 246.7
+    },
+    "xz-6": {
+      "orig_bytes": 57117420,
+      "compressed_bytes": 15320060,
+      "bits_per_byte": 2.1458,
+      "ratio": 3.728,
+      "comp_s": 38.05,
+      "decomp_s": 0.58,
+      "comp_MBps": 1.5,
+      "decomp_MBps": 98.8
+    },
+    "bzip2-9": {
+      "orig_bytes": 57117420,
+      "compressed_bytes": 15683929,
+      "bits_per_byte": 2.1967,
+      "ratio": 3.642,
+      "comp_s": 4.14,
+      "decomp_s": 1.61,
+      "comp_MBps": 13.8,
+      "decomp_MBps": 35.4
+    },
+    "zstd-6": {
+      "orig_bytes": 57117420,
+      "compressed_bytes": 19138792,
+      "bits_per_byte": 2.6806,
+      "ratio": 2.984,
+      "comp_s": 0.69,
+      "decomp_s": 0.09,
+      "comp_MBps": 83.0,
+      "decomp_MBps": 608.4
+    }
+  },
+  "pg19-test": {
+    "gzip-6": {
+      "orig_bytes": 41289501,
+      "compressed_bytes": 15400962,
+      "bits_per_byte": 2.984,
+      "ratio": 2.681,
+      "comp_s": 2.33,
+      "decomp_s": 0.16,
+      "comp_MBps": 17.7,
+      "decomp_MBps": 250.6
+    },
+    "xz-6": {
+      "orig_bytes": 41289501,
+      "compressed_bytes": 11525744,
+      "bits_per_byte": 2.2332,
+      "ratio": 3.582,
+      "comp_s": 26.72,
+      "decomp_s": 0.38,
+      "comp_MBps": 1.5,
+      "decomp_MBps": 107.9
+    },
+    "bzip2-9": {
+      "orig_bytes": 41289501,
+      "compressed_bytes": 11438877,
+      "bits_per_byte": 2.2163,
+      "ratio": 3.61,
+      "comp_s": 3.05,
+      "decomp_s": 1.18,
+      "comp_MBps": 13.5,
+      "decomp_MBps": 35.0
+    },
+    "zstd-6": {
+      "orig_bytes": 41289501,
+      "compressed_bytes": 13875093,
+      "bits_per_byte": 2.6884,
+      "ratio": 2.976,
+      "comp_s": 0.51,
+      "decomp_s": 0.07,
+      "comp_MBps": 81.1,
+      "decomp_MBps": 633.3
+    }
+  },
+  "pg19-val": {
+    "gzip-6": {
+      "orig_bytes": 17733202,
+      "compressed_bytes": 6708269,
+      "bits_per_byte": 3.0263,
+      "ratio": 2.643,
+      "comp_s": 1.02,
+      "decomp_s": 0.07,
+      "comp_MBps": 17.4,
+      "decomp_MBps": 244.9
+    },
+    "xz-6": {
+      "orig_bytes": 17733202,
+      "compressed_bytes": 5112664,
+      "bits_per_byte": 2.3065,
+      "ratio": 3.468,
+      "comp_s": 10.95,
+      "decomp_s": 0.18,
+      "comp_MBps": 1.6,
+      "decomp_MBps": 96.3
+    },
+    "bzip2-9": {
+      "orig_bytes": 17733202,
+      "compressed_bytes": 5083286,
+      "bits_per_byte": 2.2932,
+      "ratio": 3.489,
+      "comp_s": 1.31,
+      "decomp_s": 0.51,
+      "comp_MBps": 13.5,
+      "decomp_MBps": 35.1
+    },
+    "zstd-6": {
+      "orig_bytes": 17733202,
+      "compressed_bytes": 6088576,
+      "bits_per_byte": 2.7467,
+      "ratio": 2.913,
+      "comp_s": 0.19,
+      "decomp_s": 0.03,
+      "comp_MBps": 91.7,
+      "decomp_MBps": 612.5
+    }
+  }
+}

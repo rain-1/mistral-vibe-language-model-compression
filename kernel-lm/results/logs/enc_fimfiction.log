@@ -1,0 +1,2 @@
+encoding 3000 files from /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories as 'fimfiction'
+  tokens=15025432 bytes=57105420 -> /home/snake/Code/linux-transformer/kernel-lm/data/story_eval_tokens/fimfiction.bin

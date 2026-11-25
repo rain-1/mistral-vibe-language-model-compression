@@ -1,0 +1,2 @@
+encoding 100 files from /home/snake/Code/linux-transformer/kernel-lm/data/pg19/raw/test as 'pg19-test'
+  tokens=12759292 bytes=41289101 -> /home/snake/Code/linux-transformer/kernel-lm/data/story_eval_tokens/pg19-test.bin

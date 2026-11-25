@@ -1,0 +1,2 @@
+encoding 50 files from /home/snake/Code/linux-transformer/kernel-lm/data/pg19/raw/validation as 'pg19-val'
+  tokens=5549395 bytes=17733002 -> /home/snake/Code/linux-transformer/kernel-lm/data/story_eval_tokens/pg19-val.bin

@@ -1,0 +1,39 @@
+unpacking 20 shards ...
+  shard 00: 40786 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s00
+  shard 01: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s01
+  shard 02: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s02
+  shard 03: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s03
+  shard 04: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s04
+  shard 05: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s05
+  shard 06: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s06
+  shard 07: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s07
+  shard 08: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s08
+  shard 09: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s09
+  shard 10: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s10
+  shard 11: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s11
+  shard 12: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s12
+  shard 13: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s13
+  shard 14: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s14
+  shard 15: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s15
+  shard 16: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s16
+  shard 17: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s17
+  shard 18: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s18
+  shard 19: 40787 stories -> /home/snake/Code/linux-transformer/kernel-lm/data/fimfiction/stories/s19
+{
+  "repo": "fimfiction",
+  "revision": "academictorrents.com/details/08d162a9c91f0801549e2e3907f9b6884b5a2547 (Fimfiction 2025-04-25)",
+  "splits": {
+    "train": {
+      "files": 783112,
+      "bytes": 14476374054
+    },
+    "val": {
+      "files": 16313,
+      "bytes": 300440469
+    },
+    "test": {
+      "files": 16314,
+      "bytes": 304363837
+    }
+  }
+}

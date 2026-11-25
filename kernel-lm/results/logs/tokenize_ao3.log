@@ -1,0 +1,5 @@
+tokenizer vocab=16384, sep_id=0
+train                files=325321 tokens=1230222904 bytes=4867537403 -> /home/snake/Code/linux-transformer/kernel-lm/data/ao3/story_tokens/train.bin
+val                  files=  6670 tokens=  27733813 bytes= 109418906 -> /home/snake/Code/linux-transformer/kernel-lm/data/ao3/story_tokens/val.bin
+test                 files=  6141 tokens=  23180913 bytes=  92437262 -> /home/snake/Code/linux-transformer/kernel-lm/data/ao3/story_tokens/test.bin
+manifest updated with token_count

@@ -27,9 +27,25 @@ med = load(ROOT / "results/eval/medium8k_kernel.json")["results"]["data/tokens"]
 tiny = load(ROOT / "results/eval/tiny8k_kernel.json")["results"]["data/tokens"]
 small = load(ROOT / "results/eval/small8k_kernel.json")["results"]["data/tokens"]
 ext = load(ROOT / "results/eval/small16k_external.json")["results"]["data/eval_tokens"]
+story = load(ROOT / "results/eval/story-ckpt_030000.json")["results"]
 
 val_bpb = small16k["val"]["bits_per_byte"]
 val_ratio = small16k["val"]["ideal_ratio"]
+
+def _flat(d):
+    out = {}
+    for _c, corpora in d.items():
+        for k, v in corpora.items():
+            out[k] = v
+    return out
+
+story = _flat(story)
+story_xz = {"val": 2.202, "test": 2.209, "fimfiction": 2.146, "pg19-test": 2.233, "pg19-val": 2.307}
+story_rows = "\n".join(
+    f"<tr><td>{k}</td><td>{story[k]['bits_per_byte']:.3f}</td><td>{story[k]['ideal_ratio']:.2f}&times;</td>"
+    f"<td>{story[k]['perplexity']:.1f}</td><td>{story_xz[k]:.2f}</td></tr>"
+    for k in ("val", "test", "fimfiction", "pg19-test", "pg19-val")
+)
 
 charts = {
     "neural": b64(CH / "neural_vs_conventional.png"),
@@ -37,6 +53,8 @@ charts = {
     "ext": b64(CH / "bpb_small16k_external.png"),
     "curves": b64(CH / "small-16k_curves.png"),
     "bench": b64(CH / "gpu_benchmark.png"),
+    "story": b64(CH / "story_neural_vs_conventional.png"),
+    "storyloss": b64(CH / "story_loss_so_far.png"),
 }
 
 ext_rows = "\n".join(
@@ -182,6 +200,31 @@ HTML = """<!DOCTYPE html>
   itself much sooner.</p>
 </div></section>
 
+<section id="stories"><div class="wrap">
+  <h2>Human prose: AO3 fanfiction story model</h2>
+  <p>The original Academic Torrents AO3 dump (163.8 GB) is DMCA-banned there, so we used the real
+  AO3-2020 dump on HuggingFace (<code>ray0rf1re/AO3-2020</code>, 20 of 563 parquet shards downloaded
+  individually = 128.5k stories / 5.07 GB) plus the Fimfiction torrent (815,740 stories, 20
+  individually-unpackable zstd shards) as an external corpus, and PG-19 books as a second external
+  corpus. A fresh BPE-16384 tokenizer was trained on the story train split (byte-exact roundtrip);
+  prose is 3.94 bytes/token. Splits are <b>story-level</b> (all chapters of a story share a split).
+  A new <b>medium-16k transformer (33.6M params incl. 16k vocab)</b> was trained from scratch for
+  <b>983M tokens (~8.7 h, 32k tok/s, 4.2 GB VRAM)</b> on the 6 GB RTX 2060.</p>
+  <div class="card"><table>
+    <tr><th>corpus (held out)</th><th>neural BPB</th><th>ideal ratio</th><th>PPL</th><th>xz-6 BPB</th></tr>
+    @@STORY_ROWS@@
+  </table></div>
+  <p>Range coder driven by the model: <b>actual &asymp; ideal (within 0.2%), byte-for-byte exact</b>,
+  1.16 BPB on a 715 KB AO3 test sample. The 169 MB model (fp32 weights + tokenizer) only amortizes
+  over corpora &gtr; ~1.2 GB vs xz-6 — shown stacked on the neural bars below.</p>
+  <div class="grid cols2">
+    <div class="card wide"><h3>Story model vs conventional compressors (neural bar stacked with 169 MB model; gray = original)</h3><img src="data:image/png;base64,@@CH_STORY@@"></div>
+    <div class="card"><h3>Story training loss (983M tokens)</h3><img src="data:image/png;base64,@@CH_STORYLOSS@@"></div>
+  </div>
+  <p>Free prose samples (temp 0.8, top-k 40, repetition penalty 1.2) — fluent fanfic-style prose
+  with consistent characters and dialogue; full batch in <code>results/samples/story-ckpt_030000.txt</code>.</p>
+</div></section>
+
 <section id="experiments"><div class="wrap">
   <h2>Controlled experiments</h2>
   <div class="card"><table>
@@ -307,6 +350,8 @@ vals = {
     '@@CH_PROGRESS@@': charts['progress'], '@@CH_EXT@@': charts['ext'],
     '@@CH_CURVES@@': charts['curves'], '@@CH_BENCH@@': charts['bench'],
     '@@V612@@': f"{ext['linux-v6.12']['bits_per_byte']:.3f}",
+    '@@STORY_ROWS@@': story_rows, '@@CH_STORY@@': charts['story'],
+    '@@CH_STORYLOSS@@': charts['storyloss'],
 }
 for k, v in vals.items():
     HTML = HTML.replace(k, v)
