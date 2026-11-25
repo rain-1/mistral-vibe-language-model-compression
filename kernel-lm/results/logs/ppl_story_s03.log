@@ -1,0 +1,7 @@
+loaded checkpoints/story-medium-16k-s03-dequant.pt  params=33.56M step=29999 ctx=1024
+  val                      files= 6670 toks= 27727143 ce=3.1578 ppl=   23.52 bpt=4.556 BPB=1.1544 ratio=6.93x
+  test                     files= 6141 toks= 23174772 ce=3.1477 ppl=   23.28 bpt=4.541 BPB=1.1385 ratio=7.03x
+  fimfiction               files= 3000 toks= 15022432 ce=3.5102 ppl=   33.46 bpt=5.064 BPB=1.3322 ratio=6.01x
+  pg19-test                files=  100 toks= 12759192 ce=4.7646 ppl=  117.28 bpt=6.874 BPB=2.1241 ratio=3.77x
+  pg19-val                 files=   50 toks=  5549345 ce=4.7916 ppl=  120.50 bpt=6.913 BPB=2.1633 ratio=3.70x
+saved -> results/eval/story-s03-dequant.json

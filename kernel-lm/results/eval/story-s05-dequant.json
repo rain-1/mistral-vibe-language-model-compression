@@ -1,0 +1,65 @@
+{
+  "checkpoint": "checkpoints/story-medium-16k-s05-dequant.pt",
+  "step": 29999,
+  "results": {
+    "data/ao3/story_tokens": {
+      "val": {
+        "files": 6670,
+        "tokens": 27727143,
+        "nll_nats": 111996994.49438477,
+        "bytes": 109418906,
+        "cross_entropy_nats": 4.039254765425517,
+        "perplexity": 56.784009626102666,
+        "bits_per_token": 5.827412818966507,
+        "bits_per_byte": 1.4766872970884708,
+        "ideal_ratio": 5.417531535466785
+      },
+      "test": {
+        "files": 6141,
+        "tokens": 23174772,
+        "nll_nats": 93305196.20703125,
+        "bytes": 92437262,
+        "cross_entropy_nats": 4.02615379374741,
+        "perplexity": 56.044935787842796,
+        "bits_per_token": 5.808512112095674,
+        "bits_per_byte": 1.456241140689084,
+        "ideal_ratio": 5.493595652856264
+      }
+    },
+    "data/story_eval_tokens": {
+      "fimfiction": {
+        "files": 3000,
+        "tokens": 15022432,
+        "nll_nats": 67724760.29394531,
+        "bytes": 57105420,
+        "cross_entropy_nats": 4.508242093819783,
+        "perplexity": 90.76212688642352,
+        "bits_per_token": 6.504018511880679,
+        "bits_per_byte": 1.710979024783789,
+        "ideal_ratio": 4.675685606964664
+      },
+      "pg19-test": {
+        "files": 100,
+        "tokens": 12759192,
+        "nll_nats": 71376585.32324219,
+        "bytes": 41289101,
+        "cross_entropy_nats": 5.594130515728754,
+        "perplexity": 268.8437929900365,
+        "bits_per_token": 8.070624353127492,
+        "bits_per_byte": 2.4939909852101034,
+        "ideal_ratio": 3.2077100709031026
+      },
+      "pg19-val": {
+        "files": 50,
+        "tokens": 5549345,
+        "nll_nats": 30823237.376953125,
+        "bytes": 17733002,
+        "cross_entropy_nats": 5.554391982648966,
+        "perplexity": 258.36982341753475,
+        "bits_per_token": 8.01329376852108,
+        "bits_per_byte": 2.5076708223386888,
+        "ideal_ratio": 3.1902113821060007
+      }
+    }
+  }
+}

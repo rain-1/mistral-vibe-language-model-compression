@@ -102,3 +102,22 @@ rp 1.0 → 1.56 %, **rp 1.2 → 0 %**, rp 1.5 → 0 % (`story_full_rep.png`).
 - AO3 `full` config is the general corpus; the separate `adult_18plus_100K` config was
   deliberately excluded.
 - Fimfiction/PG-19 used only for eval, never trained on.
+
+## 8. Quantized + pruned story model
+
+`scripts/quantize_prune.py` (global magnitude pruning of Linear weights + per-channel INT8,
+embedding per-row INT8, LN fp16) applied to `ckpt_030000.pt`:
+
+| artifact | size | AO3 val BPB | test BPB | fimfiction | pg19-test |
+|---|---:|---:|---:|---:|---:|
+| dense fp32 (+tokenizer) | 169.0 MB | 1.118 | 1.102 | 1.301 | 2.072 |
+| **pruned 30% + INT8** | **43.4 MB (3.9× smaller)** | **1.154** | 1.139 | 1.332 | 2.124 |
+| pruned 50% + INT8 | 43.4 MB | 1.477 | 1.456 | 1.711 | 2.494 |
+
+- 30% pruning costs only **+0.037 BPB** (same delta as the kernel small-16k model); 50% is too
+  lossy (+0.36). Range coder on the 30% model: still **byte-exact**, actual 107,065 B vs ideal
+  106,840 B, BPB 1.198 on the 715 KB sample.
+- **xz-6 total-compression crossover drops from ≈1.25 GB (dense) to ≈330 MB** with the 43 MB
+  artifact (`results/charts/story_quant.png`).
+- Artifacts: `checkpoints/story-medium-16k-s03-quant.pt` (42.3 MB), `…-s03-dequant.pt` (eval),
+  eval JSONs `results/eval/story-s03-dequant.json`, `story-s05-dequant.json`.

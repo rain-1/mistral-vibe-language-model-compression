@@ -1,0 +1,43 @@
+data/ao3/stories/s019/11965212_0.txt: orig=7263B tokens=2028 ideal=1188B actual=1194B BPB=1.3152 exact=True
+data/ao3/stories/s010/6510202_9.txt: orig=11744B tokens=2856 ideal=1676B actual=1681B BPB=1.1451 exact=True
+data/ao3/stories/s002/25185586_1.txt: orig=18294B tokens=4458 ideal=2588B actual=2593B BPB=1.1339 exact=True
+data/ao3/stories/s008/5294576_15.txt: orig=4291B tokens=1034 ideal=677B actual=682B BPB=1.2715 exact=True
+data/ao3/stories/s008/4932358_4.txt: orig=9877B tokens=2455 ideal=1416B actual=1421B BPB=1.1510 exact=True
+data/ao3/stories/s002/175523_1.txt: orig=5588B tokens=1431 ideal=796B actual=800B BPB=1.1453 exact=True
+data/ao3/stories/s018/11382282_4.txt: orig=24774B tokens=6228 ideal=3925B actual=3931B BPB=1.2694 exact=True
+data/ao3/stories/s007/4266312_3.txt: orig=9493B tokens=2419 ideal=1485B actual=1490B BPB=1.2557 exact=True
+data/ao3/stories/s005/3678018_0.txt: orig=3734B tokens=845 ideal=635B actual=639B BPB=1.3690 exact=True
+data/ao3/stories/s012/7367101_1.txt: orig=42681B tokens=10895 ideal=5774B actual=5782B BPB=1.0838 exact=True
+data/ao3/stories/s015/9832139_0.txt: orig=48832B tokens=11344 ideal=7066B actual=7075B BPB=1.1591 exact=True
+data/ao3/stories/s013/8362402_1.txt: orig=6089B tokens=1558 ideal=916B actual=921B BPB=1.2101 exact=True
+data/ao3/stories/s009/5546891_4.txt: orig=37051B tokens=9474 ideal=4921B actual=4930B BPB=1.0645 exact=True
+data/ao3/stories/s008/4947109_3.txt: orig=15532B tokens=3624 ideal=2301B actual=2306B BPB=1.1877 exact=True
+data/ao3/stories/s019/12158304_0.txt: orig=10320B tokens=2523 ideal=1502B actual=1507B BPB=1.1682 exact=True
+data/ao3/stories/s015/9832139_1.txt: orig=119222B tokens=27377 ideal=16949B actual=16966B BPB=1.1384 exact=True
+data/ao3/stories/s000/24452869_8.txt: orig=29332B tokens=7444 ideal=5107B actual=5114B BPB=1.3948 exact=True
+data/ao3/stories/s013/7959490_3.txt: orig=296B tokens=103 ideal=55B actual=58B BPB=1.5676 exact=True
+data/ao3/stories/s000/24208627_0.txt: orig=18244B tokens=4539 ideal=2728B actual=2734B BPB=1.1989 exact=True
+data/ao3/stories/s017/11094924_0.txt: orig=9666B tokens=2396 ideal=1632B actual=1637B BPB=1.3549 exact=True
+data/ao3/stories/s002/146302_0.txt: orig=16149B tokens=4180 ideal=2461B actual=2466B BPB=1.2216 exact=True
+data/ao3/stories/s008/5076310_0.txt: orig=3457B tokens=853 ideal=459B actual=463B BPB=1.0714 exact=True
+data/ao3/stories/s006/3964303_8.txt: orig=7557B tokens=1803 ideal=961B actual=965B BPB=1.0216 exact=True
+data/ao3/stories/s002/206636_0.txt: orig=24747B tokens=6275 ideal=3607B actual=3614B BPB=1.1683 exact=True
+data/ao3/stories/s009/5769718_0.txt: orig=43720B tokens=10626 ideal=6215B actual=6224B BPB=1.1389 exact=True
+data/ao3/stories/s018/11615853_0.txt: orig=19479B tokens=4774 ideal=2798B actual=2804B BPB=1.1516 exact=True
+data/ao3/stories/s004/564263_0.txt: orig=19667B tokens=5377 ideal=3203B actual=3209B BPB=1.3053 exact=True
+data/ao3/stories/s004/527530_9.txt: orig=27831B tokens=6894 ideal=4140B actual=4147B BPB=1.1921 exact=True
+data/ao3/stories/s015/9802820_0.txt: orig=5639B tokens=1304 ideal=858B actual=862B BPB=1.2229 exact=True
+data/ao3/stories/s005/3177005_1.txt: orig=2196B tokens=589 ideal=367B actual=370B BPB=1.3479 exact=True
+data/ao3/stories/s001/24916705_1.txt: orig=3340B tokens=791 ideal=571B actual=574B BPB=1.3749 exact=True
+data/ao3/stories/s015/9335033_4.txt: orig=7740B tokens=2060 ideal=1131B actual=1135B BPB=1.1731 exact=True
+data/ao3/stories/s008/4953484_0.txt: orig=6035B tokens=1412 ideal=840B actual=844B BPB=1.1188 exact=True
+data/ao3/stories/s018/11466819_2.txt: orig=4706B tokens=1200 ideal=749B actual=753B BPB=1.2801 exact=True
+data/ao3/stories/s001/24789589_0.txt: orig=8564B tokens=4188 ideal=3085B actual=3090B BPB=2.8865 exact=True
+data/ao3/stories/s008/5181452_0.txt: orig=7806B tokens=1946 ideal=1140B actual=1144B BPB=1.1724 exact=True
+data/ao3/stories/s005/3478619_21.txt: orig=7286B tokens=1879 ideal=1078B actual=1082B BPB=1.1880 exact=True
+data/ao3/stories/s007/4302549_6.txt: orig=37147B tokens=9523 ideal=5084B actual=5093B BPB=1.0968 exact=True
+data/ao3/stories/s005/3681237_19.txt: orig=15100B tokens=3880 ideal=2438B actual=2443B BPB=1.2943 exact=True
+data/ao3/stories/s003/293890_0.txt: orig=14742B tokens=3779 ideal=2316B actual=2322B BPB=1.2601 exact=True
+ALL EXACT
+TOTAL orig=715231 ideal=106840 actual=107065 BPB=1.1975 ratio=6.680x
+total incl. model+tokenizer (43431055 B): 486.9825 BPB, ratio=0.016x

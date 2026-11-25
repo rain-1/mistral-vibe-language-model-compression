@@ -1,0 +1,65 @@
+{
+  "checkpoint": "checkpoints/story-medium-16k-s03-dequant.pt",
+  "step": 29999,
+  "results": {
+    "data/ao3/story_tokens": {
+      "val": {
+        "files": 6670,
+        "tokens": 27727143,
+        "nll_nats": 87556584.81201172,
+        "bytes": 109418906,
+        "cross_entropy_nats": 3.1577932429609397,
+        "perplexity": 23.51863870016212,
+        "bits_per_token": 4.555732651772425,
+        "bits_per_byte": 1.1544389842963998,
+        "ideal_ratio": 6.929772910324741
+      },
+      "test": {
+        "files": 6141,
+        "tokens": 23174772,
+        "nll_nats": 72946892.3359375,
+        "bytes": 92437262,
+        "cross_entropy_nats": 3.1476854372477754,
+        "perplexity": 23.282114254872976,
+        "bits_per_token": 4.541150170595774,
+        "bits_per_byte": 1.138503213361276,
+        "ideal_ratio": 7.026769802766816
+      }
+    },
+    "data/story_eval_tokens": {
+      "fimfiction": {
+        "files": 3000,
+        "tokens": 15022432,
+        "nll_nats": 52732427.377441406,
+        "bytes": 57105420,
+        "cross_entropy_nats": 3.5102457030553644,
+        "perplexity": 33.45648713525459,
+        "bits_per_token": 5.064214068099767,
+        "bits_per_byte": 1.3322170027200944,
+        "ideal_ratio": 6.0050276971887895
+      },
+      "pg19-test": {
+        "files": 100,
+        "tokens": 12759192,
+        "nll_nats": 60791894.04589844,
+        "bytes": 41289101,
+        "cross_entropy_nats": 4.76455672474389,
+        "perplexity": 117.27911883240898,
+        "bits_per_token": 6.8738023588221715,
+        "bits_per_byte": 2.124148066732307,
+        "ideal_ratio": 3.766215795072533
+      },
+      "pg19-val": {
+        "files": 50,
+        "tokens": 5549345,
+        "nll_nats": 26590335.166992188,
+        "bytes": 17733002,
+        "cross_entropy_nats": 4.791616878567144,
+        "perplexity": 120.4960387043032,
+        "bits_per_token": 6.912841908548673,
+        "bits_per_byte": 2.163296698494425,
+        "ideal_ratio": 3.698059542903988
+      }
+    }
+  }
+}
