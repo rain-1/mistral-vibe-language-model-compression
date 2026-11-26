@@ -1,0 +1,4 @@
+pruned 10065101/33550336 linear weights (30%)
+params=33.56M
+dense fp32 model: 134.2 MB | fp16: 67.1 MB | pruned int8 artifact: 42.29 MB
+saved quant checkpoints/story-medium-16k-s03-quant.pt (42.29 MB), dequant checkpoints/story-medium-16k-s03-dequant.pt (167.81 MB)

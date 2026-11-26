@@ -1,0 +1,4 @@
+70006 candidate stories
+wrote 12000 pairs (300 val) -> data/ft/pairs.jsonl
+train: 11700 files, 9330410 tokens -> /home/snake/Code/linux-transformer/kernel-lm/data/ft_tokens/train.bin
+val: 300 files, 235963 tokens -> /home/snake/Code/linux-transformer/kernel-lm/data/ft_tokens/val.bin

@@ -1,0 +1,4 @@
+loaded checkpoints/story-ft-outline/ckpt_002500.pt  params=33.56M step=2499 ctx=1024
+  val                      files= 6670 toks= 27727143 ce=3.4969 ppl=   33.01 bpt=5.045 BPB=1.2784 ratio=6.26x
+  test                     files= 6141 toks= 23174772 ce=3.5172 ppl=   33.69 bpt=5.074 BPB=1.2721 ratio=6.29x
+saved -> results/eval/story-ft-regression.json

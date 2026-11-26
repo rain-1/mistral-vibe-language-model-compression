@@ -1,0 +1,30 @@
+{
+  "checkpoint": "checkpoints/story-ft-outline/ckpt_002500.pt",
+  "step": 2499,
+  "results": {
+    "data/ao3/story_tokens": {
+      "val": {
+        "files": 6670,
+        "tokens": 27727143,
+        "nll_nats": 96958195.16967773,
+        "bytes": 109418906,
+        "cross_entropy_nats": 3.4968693013080263,
+        "perplexity": 33.01193957415065,
+        "bits_per_token": 5.044915999633944,
+        "bits_per_byte": 1.2783997981558903,
+        "ideal_ratio": 6.257823265882951
+      },
+      "test": {
+        "files": 6141,
+        "tokens": 23174772,
+        "nll_nats": 81509845.37792969,
+        "bytes": 92437262,
+        "cross_entropy_nats": 3.5171800343032364,
+        "perplexity": 33.68929173869302,
+        "bits_per_token": 5.074218193402953,
+        "bits_per_byte": 1.2721476941881442,
+        "ideal_ratio": 6.288577998095904
+      }
+    }
+  }
+}

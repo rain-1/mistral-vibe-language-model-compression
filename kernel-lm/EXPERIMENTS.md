@@ -379,3 +379,11 @@ Final train loss 3.03, **val loss 3.065 nats (PPL 21.4)**.
 - Charts: results/charts/story_neural_vs_conventional.png, story_loss_so_far.png.
 - Queued (no time in the 10 h budget): lr sweep (1.2e-3 run config ready: configs/story-medium-16k-lr12.yaml),
   ctx 2048 variant, large-16k story run, quantized story model.
+
+## E17 — outline->story fine-tune (story-ft-outline)
+
+12k Fimfiction (outline, story) pairs (extractive bullet outlines; base model can't follow
+few-shot outline instructions). FT from story-medium-16k weights, lr 1e-4 cosine, 2,500 steps
+(82M tokens, 43 min). Conditional BPB on held-out stories: 1.192 uncond -> **1.019 with
+outline** (1.17x gain, beats xz-6 2.15 by >2x conditioned). Regression: unconditional AO3 val
+BPB 1.118 -> 1.278. See STORY_REPORT.md section 9.

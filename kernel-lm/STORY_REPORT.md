@@ -121,3 +121,33 @@ embedding per-row INT8, LN fp16) applied to `ckpt_030000.pt`:
   artifact (`results/charts/story_quant.png`).
 - Artifacts: `checkpoints/story-medium-16k-s03-quant.pt` (42.3 MB), `…-s03-dequant.pt` (eval),
   eval JSONs `results/eval/story-s03-dequant.json`, `story-s05-dequant.json`.
+
+## 9. Fine-tune: bullet-outline -> story (E17)
+
+**Data**: 12,000 Fimfiction stories (never used in pretraining; eval split excluded) turned into
+(OUTLINE -> STORY) pairs. Outlines are extractive skeletons (up to 6 evenly-spaced sentences as
+bullets) — chosen because the 33M base model does not follow few-shot outline instructions
+reliably (tested: generates prose or empty bullets). Format: `OUTLINE:\n- ...\n\nSTORY:\n<story>`.
+11,700 train / 300 val pairs = 9.57M tokens (`data/ft_tokens/`).
+
+**Run** `story-ft-outline`: resumed weights from `ckpt_030000.pt` (new `--resume-weights-only`
+flag in train.py), lr 1e-4 -> 1e-5 cosine, 2,500 steps x 32,768 tok = 82M tokens, ~43 min,
+32k tok/s, 4.15 GB. FT val loss 2.74. (`results/story-ft-outline/log.jsonl`)
+
+**Conditional eval** (`scripts/cond_eval.py`, 200 held-out fimfiction pairs + 150 AO3-test
+stories with extractive outlines):
+
+| setting | CE nats | PPL | BPB |
+|---|---:|---:|---:|
+| story alone (unconditional) | 3.139 | 23.1 | 1.192 |
+| story given its bullet outline | **2.676** | **14.5** | **1.019** |
+
+-> the outline is worth **0.17 BPB (1.17x)**; conditioned, the model beats xz-6 (2.15) by >2x.
+
+**Regression**: unconditional AO3 val BPB 1.118 -> 1.278 after FT (small model, 82M FT tokens:
+format shift costs some general prose). Net: use the base model for compression, the FT model
+for outline->story generation.
+
+**Samples** (`results/samples/outline_ft.txt`): given 5-bullet outlines, the FT model writes
+coherent fanfic-style scenes that follow the outline's beats; it sometimes re-emits the
+`OUTLINE:` marker mid-story (no stop-sequence support in generate()). Chart: `story_ft.png`.

@@ -80,6 +80,8 @@ def main():
     ap.add_argument("--config", default=str(ROOT / "configs" / "tiny.yaml"))
     ap.add_argument("--run-name", default=None)
     ap.add_argument("--resume", default=None, help="checkpoint path to resume from")
+    ap.add_argument("--resume-weights-only", default=None,
+                    help="load model weights only (fresh optimizer, step 0, new LR schedule) — for fine-tuning")
     ap.add_argument("--max-steps", type=int, default=None, help="override max_steps")
     ap.add_argument("--micro-batch", type=int, default=None, help="override micro_batch_size")
     ap.add_argument("--grad-accum", type=int, default=None, help="override gradient_accumulation_steps")
@@ -147,6 +149,10 @@ def main():
         scaler.load_state_dict(ck["scaler"])
         start_step = ck["step"] + 1
         print(f"resumed from {args.resume} at step {start_step}")
+    if args.resume_weights_only:
+        ck = torch.load(args.resume_weights_only, map_location="cpu", weights_only=False)
+        model.load_state_dict(ck["model"])
+        print(f"fine-tune: loaded weights from {args.resume_weights_only} (step 0, fresh optimizer)")
 
     if args.grad_checkpointing:
         for block in model.blocks:

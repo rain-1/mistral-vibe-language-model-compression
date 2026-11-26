@@ -61,6 +61,7 @@ charts = {
     "storyamort": b64(CH / "story_full_amortization.png"),
     "storyrep": b64(CH / "story_full_rep.png"),
     "storyquant": b64(CH / "story_quant.png"),
+    "storyft": b64(CH / "story_ft.png"),
 }
 
 ext_rows = "\n".join(
@@ -231,6 +232,7 @@ HTML = """<!DOCTYPE html>
     <div class="card"><h3>Model-cost amortization (xz crossover ≈ 1.25 GB)</h3><img src="data:image/png;base64,@@CH_STORYAMORT@@"></div>
     <div class="card"><h3>Repetition penalty vs repeated 4-grams in samples</h3><img src="data:image/png;base64,@@CH_STORYREP@@"></div>
     <div class="card"><h3>Quantized model: 43 MB artifact, +0.037 BPB, xz crossover 1.25 GB → 330 MB</h3><img src="data:image/png;base64,@@CH_STORYQUANT@@"></div>
+    <div class="card wide"><h3>Fine-tune: bullet outline → story (1.19 → 1.02 BPB conditioned)</h3><img src="data:image/png;base64,@@CH_STORYFT@@"></div>
   </div>
   <p>Full write-up: <code>kernel-lm/STORY_REPORT.md</code>.</p>
   <p>Free prose samples (temp 0.8, top-k 40, repetition penalty 1.2) — fluent fanfic-style prose
@@ -366,7 +368,7 @@ vals = {
     '@@CH_STORYLOSS@@': charts['storyloss'], '@@CH_STORYLOSSFULL@@': charts['storylossfull'],
     '@@CH_STORYPROG@@': charts['storyprog'], '@@CH_STORYCORPORA@@': charts['storycorpora'],
     '@@CH_STORYAMORT@@': charts['storyamort'], '@@CH_STORYREP@@': charts['storyrep'],
-    '@@CH_STORYQUANT@@': charts['storyquant'],
+    '@@CH_STORYQUANT@@': charts['storyquant'], '@@CH_STORYFT@@': charts['storyft'],
 }
 for k, v in vals.items():
     HTML = HTML.replace(k, v)
