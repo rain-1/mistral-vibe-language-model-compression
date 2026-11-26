@@ -23,6 +23,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--log", default=str(ROOT / "results/story-medium-16k/log.jsonl"))
     ap.add_argument("--eval", default=str(ROOT / "results/eval/story-ckpt_030000.json"))
+    ap.add_argument("--eval-quant", default=str(ROOT / "results/eval/story-s03-dequant.json"))
+    ap.add_argument("--quant-bytes", type=int, default=43_431_055)  # 42.3MB int8 artifact + 1.1MB tokenizer
     ap.add_argument("--comp", nargs="+",
                     default=[str(ROOT / "results/benchmarks/compressors_stories.json"),
                              str(ROOT / "results/benchmarks/compressors_story_eval.json")])
@@ -48,6 +50,13 @@ def main():
         for name, r in corpora.items():
             if r.get("bits_per_byte"):
                 neural[name] = r
+    with open(args.eval_quant) as f:
+        evq = json.load(f)
+    neural_q = {}
+    for _c, corpora in evq["results"].items():
+        for name, r in corpora.items():
+            if r.get("bits_per_byte"):
+                neural_q[name] = r
     comp = {}
     comp_bytes = {}
     for p in args.comp:
@@ -60,7 +69,9 @@ def main():
     names = [n for n in ("val", "test", "fimfiction", "pg19-test", "pg19-val") if n in neural]
     labels = [f"{n}\n({comp_bytes.get(n, neural[n].get('bytes', 0))/1e6:.0f} MB)" for n in names]
     cond = [neural[n]["bits_per_byte"] for n in names]
+    cond_q = [neural_q[n]["bits_per_byte"] for n in names]
     ovh = [8 * args.model_bytes / comp_bytes.get(n, neural[n].get("bytes", 1)) for n in names]
+    ovh_q = [8 * args.quant_bytes / comp_bytes.get(n, neural[n].get("bytes", 1)) for n in names]
     gz = [comp.get(n, {}).get("gzip-6", np.nan) for n in names]
     zs = [comp.get(n, {}).get("zstd-6", np.nan) for n in names]
     xz = [comp.get(n, {}).get("xz-6", np.nan) for n in names]
@@ -79,18 +90,22 @@ def main():
     x = np.arange(len(names))
     w = 0.16
     ax2.bar(x - 2 * w, [8.0] * len(names), w, color="#3a3a44", label="original (8 BPB)")
-    ax2.bar(x - w, cond, w, color="crimson", label="neural stream (conditional BPB)")
-    ax2.bar(x - w, ovh, w, bottom=cond, color="darkred", hatch="//", edgecolor="white",
-            label=f"+ model ({args.model_bytes/1e6:.0f} MB)")
-    ax2.bar(x, gz, w, color="gray", label="gzip-6")
-    ax2.bar(x + w, zs, w, color="steelblue", label="zstd-6")
-    ax2.bar(x + 2 * w, xz, w, color="seagreen", label="xz-6")
+    ax2.bar(x - 1.5 * w, cond, w, color="crimson", label="neural stream (dense model)")
+    ax2.bar(x - 1.5 * w, ovh, w, bottom=cond, color="darkred", hatch="//", edgecolor="white",
+            label=f"+ dense model ({args.model_bytes/1e6:.0f} MB)")
+    ax2.bar(x - 0.5 * w, cond_q, w, color="#ff8205", label="neural stream (pruned+INT8)")
+    ax2.bar(x - 0.5 * w, ovh_q, w, bottom=cond_q, color="#b34700", hatch="..", edgecolor="white",
+            label=f"+ quantized model ({args.quant_bytes/1e6:.1f} MB)")
+    ax2.bar(x + 0.5 * w, gz, w, color="gray", label="gzip-6")
+    ax2.bar(x + 1.5 * w, zs, w, color="steelblue", label="zstd-6")
+    ax2.bar(x + 2.5 * w, xz, w, color="seagreen", label="xz-6")
     ax2.set_xticks(x)
     ax2.set_xticklabels(labels, fontsize=8)
     ax2.set_yscale("log")
-    ax2.set_ylim(0.05, 40)
-    for xi, c, o in zip(x, cond, ovh):
-        ax2.text(xi - w, c + o * 1.2, f"{c:.2f}\n(+{o:.1f})", ha="center", fontsize=6.5, color="darkred")
+    ax2.set_ylim(0.05, 130)
+    for xi, c, o, cq, oq in zip(x, cond, ovh, cond_q, ovh_q):
+        ax2.text(xi - 1.5 * w, c + o * 1.2, f"{c:.2f}\n(+{o:.1f})", ha="center", fontsize=6.5, color="darkred")
+        ax2.text(xi - 0.5 * w, cq + oq * 1.2, f"{cq:.2f}\n(+{oq:.1f})", ha="center", fontsize=6.5, color="#b34700")
     ax2.set_ylabel("bits per byte (log, lower = better)")
     ax2.set_title("AO3 story model vs conventional compressors — neural bar stacked with model size")
     ax2.legend(fontsize=7.5, loc="upper right")
