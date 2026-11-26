@@ -1,0 +1,19 @@
+{
+  "checkpoint": "checkpoints/story-ft-outline-big/ckpt_008000.pt",
+  "step": 7999,
+  "results": {
+    "data/ao3/story_tokens": {
+      "val": {
+        "files": 6670,
+        "tokens": 27727143,
+        "nll_nats": 93569447.06396484,
+        "bytes": 109418906,
+        "cross_entropy_nats": 3.3746515846931957,
+        "perplexity": 29.214103367044217,
+        "bits_per_token": 4.868593105964956,
+        "bits_per_byte": 1.2337189448586194,
+        "ideal_ratio": 6.484459068525349
+      }
+    }
+  }
+}

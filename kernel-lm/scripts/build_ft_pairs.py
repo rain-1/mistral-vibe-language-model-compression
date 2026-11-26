@@ -24,11 +24,26 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def sentences(text: str) -> list[str]:
+    # strip leading fanfic header comment block (//----// ... //----//)
+    text = re.sub(r"^\s*(//[-=]+//.*?//[-=]+//)\s*", "", text, flags=re.S)
+    # drop any comment-looking lines anywhere at the start
+    lines = text.splitlines()
+    while lines and (lines[0].strip().startswith("//") or not lines[0].strip()):
+        lines.pop(0)
+    text = " ".join(lines)
     sents = re.split(r"(?<=[.!?])\s+", text.replace("\n", " "))
-    return [s.strip() for s in sents if len(s.strip()) > 20]
+    out = []
+    for s in sents:
+        s = s.strip()
+        if len(s) < 20:
+            continue
+        if s.startswith("//") or "Story:" in s[:80] or re.match(r"^by\s+\w", s):
+            continue  # header/comment junk, not a story sentence
+        out.append(s)
+    return out
 
 
-def make_outline(sents: list[str], k: int = 5) -> str | None:
+def make_outline(sents: list[str], k: int = 8) -> str | None:
     if len(sents) < 3:
         return None
     k = min(k, len(sents))
@@ -46,7 +61,7 @@ def make_outline(sents: list[str], k: int = 5) -> str | None:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--n", type=int, default=12000)
+    ap.add_argument("--n", type=int, default=100000)
     ap.add_argument("--min-bytes", type=int, default=500)
     ap.add_argument("--max-bytes", type=int, default=4000)
     ap.add_argument("--seed", type=int, default=123)
@@ -81,7 +96,8 @@ def main():
     n_val = 300
     for i, p in enumerate(pairs):
         p["split"] = "val" if i < n_val else "train"
-    with open(ROOT / "data/ft/pairs.jsonl", "w") as f:
+    (ROOT / "data/ft2").mkdir(parents=True, exist_ok=True)
+    with open(ROOT / "data/ft2/pairs.jsonl", "w") as f:
         for p in pairs:
             f.write(json.dumps(p, ensure_ascii=False) + "\n")
     print(f"wrote {len(pairs)} pairs ({n_val} val) -> data/ft/pairs.jsonl")
@@ -89,7 +105,7 @@ def main():
     # ---- tokenize to memmaps
     tok = Tokenizer.from_file(str(ROOT / "data/ao3/tokenizer-16k.json"))
     sep = tok.token_to_id("<|file|>")
-    out_dir = ROOT / "data/ft_tokens"
+    out_dir = ROOT / "data/ft2_tokens"
     out_dir.mkdir(parents=True, exist_ok=True)
     for split in ("train", "val"):
         recs = [p for p in pairs if p["split"] == split]

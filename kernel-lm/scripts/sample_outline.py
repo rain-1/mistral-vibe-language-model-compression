@@ -70,8 +70,14 @@ def main():
                                stop_seqs=stop_ids)
             gen = y[0, len(ids):].tolist()  # generate() already truncated at stop seq
             text = tok.decode(gen, skip_special_tokens=True)
-            f.write(f"===== outline sample {i} =====\n{p}\n--- generated story ---\n{text}\n\n")
-            print(f"sample {i} done", flush=True)
+            # outline adherence: fraction of outline bullet content-words appearing in the story
+            import re as _re
+            stop = set("a an the and or but if then so to of in on at for with by from as is are was were be been it its this that these those he she they them his her their you your i my me we our not no do does did have has had will would can could should may might".split())
+            words = set(w.lower() for w in _re.findall(r"[a-zA-Z']+", text) if w.lower() not in stop)
+            ow = [w.lower() for w in _re.findall(r"[a-zA-Z']+", p.split("STORY:")[0]) if w.lower() not in stop]
+            adh = (sum(1 for w in ow if w in words) / len(ow)) if ow else 0.0
+            f.write(f"===== outline sample {i} (adherence {adh:.0%}, {len(text.split())} words) =====\n{p}\n--- generated story ---\n{text}\n\n")
+            print(f"sample {i} done, adherence {adh:.0%}", flush=True)
     print(f"wrote {out}")
 
 

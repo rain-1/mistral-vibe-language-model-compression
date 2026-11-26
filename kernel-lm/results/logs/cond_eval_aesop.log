@@ -1,0 +1,6 @@
+evaluating 40 pairs (0 from AO3 test)
+  25/40
+uncond: ce=5.5743 ppl=263.56 bpt=8.042 BPB=2.0107
+cond: ce=2.8771 ppl=17.76 bpt=4.151 BPB=1.0513
+outline conditioning saves 0.9594 BPB (1.91x)
+saved results/eval/story-ft-aesop-cond.json

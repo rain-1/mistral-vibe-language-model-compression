@@ -151,3 +151,40 @@ for outline->story generation.
 **Samples** (`results/samples/outline_ft.txt`): given 5-bullet outlines, the FT model writes
 coherent fanfic-style scenes that follow the outline's beats; it sometimes re-emits the
 `OUTLINE:` marker mid-story (no stop-sequence support in generate()). Chart: `story_ft.png`.
+
+## 10. Aesop's Fables FT (E18) — and why small-data FT just memorizes
+
+Data: Aesop's Fables, Vernon Jones 1912 (Gutenberg #11339 via the PG-19 GCS mirror, public
+domain) — 279 parsed fables → 242 (outline, story) pairs (202 train / 40 val, 65k tokens),
+extractive 5-bullet outlines. FT from the base story checkpoint, lr 1e-4, 1,500 steps
+(≈760 epochs — deliberate memorization-scale overfit).
+
+Results:
+- On the held-out 40 fables of the *same book*: uncond BPB 2.01 → **cond 1.05** (1.9×).
+- Honest cross-book test (Bierce's *Fantastic Fables*, #374, never trained on, 40 stories):
+  uncond **2.48 → cond 1.24 BPB** — the outline still halves the loss on unseen fables.
+- But qualitative samples show the model **recites memorized fables** when given an unrelated
+  outline (adherence ~10–30% word overlap): 242 fables is far too little data for true
+  outline-*controlled* generation. Conclusion: outline conditioning generalizes (BPB), but
+  content control needs the large FT (E19, 69k fimfiction pairs) now running.
+
+Checkpoint `checkpoints/story-ft-aesop/ckpt_001500.pt`; samples `results/samples/aesop_ft.txt`.
+
+## 11. E19 — large outline→story FT (69k pairs): outline conditioning works
+
+Data: 69,027 fimfiction pairs (68,727 train / 58.0M tokens; 8-bullet extractive outlines,
+fanfic header comments stripped from stories). FT from base `ckpt_030000.pt`, lr 5e-5
+cosine→5e-6, 8,000 steps = 262M tokens (~4.5 epochs, 2.2 h). FT val loss 2.51.
+
+**Held-out eval** (200 fimfiction val pairs + 100 AO3-test stories, extractive outlines):
+uncond BPB **1.134** → cond **0.865** (PPL 19.4 → 9.5), a **1.31× gain**; conditioned it is
+**2.5× better than xz-6 (2.15)** on the same bytes. Regression: unconditional AO3 val BPB
+1.118 → 1.234 (mild format shift).
+
+**Samples** (`results/samples/outline_ft_big.txt`, 700-token cap): held-out-outline samples
+reach 24–64% bullet-word adherence (vs 10–30% for the 12k-pair FT) — more data → better
+outline following. Arbitrary out-of-distribution demo outlines (librarian/food-truck) are
+still only loosely followed at 33M params. Chart: `results/charts/story_ft_big.png`.
+
+Takeaway: outline→story works as *conditioning* (compression/PPL) at this scale; faithful
+open-ended outline following needs a bigger model or instruction-style data.

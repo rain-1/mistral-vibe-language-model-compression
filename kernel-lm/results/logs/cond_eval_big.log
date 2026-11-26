@@ -1,0 +1,17 @@
+evaluating 300 pairs (100 from AO3 test)
+  25/300
+  50/300
+  75/300
+  100/300
+  125/300
+  150/300
+  175/300
+  200/300
+  225/300
+  250/300
+  275/300
+  300/300
+uncond: ce=2.9664 ppl=19.42 bpt=4.280 BPB=1.1337
+cond: ce=2.2555 ppl=9.54 bpt=3.254 BPB=0.8647
+outline conditioning saves 0.2689 BPB (1.31x)
+saved results/eval/story-ft-big-cond.json

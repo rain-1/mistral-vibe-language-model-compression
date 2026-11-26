@@ -387,3 +387,17 @@ few-shot outline instructions). FT from story-medium-16k weights, lr 1e-4 cosine
 (82M tokens, 43 min). Conditional BPB on held-out stories: 1.192 uncond -> **1.019 with
 outline** (1.17x gain, beats xz-6 2.15 by >2x conditioned). Regression: unconditional AO3 val
 BPB 1.118 -> 1.278. See STORY_REPORT.md section 9.
+
+## E18 — Aesop fables FT (story-ft-aesop)
+
+242 (extractive-outline, fable) pairs from Gutenberg #11339, lr 1e-4, 1500 steps (~760 epochs).
+Held-out same-book: 2.01 -> 1.05 BPB cond. Cross-book (Bierce #374, unseen): 2.48 -> 1.24 BPB
+cond — outline signal generalizes, but generation from arbitrary outlines mostly recites
+memorized fables (adherence 10-30%): too little data for content control.
+
+## E19 — large outline->story FT (story-ft-outline-big)
+
+69,027 fimfiction pairs (68,727 train / 58M tokens, 8-bullet outlines, headers stripped),
+from base story-medium-16k, lr 5e-5 cosine, 8,000 steps (262M tokens, 2.2 h).
+Held-out: cond BPB 1.134 -> **0.865** (1.31x; 2.5x over xz-6 conditioned). Sample adherence
+24-64% (vs 10-30% at 12k pairs). Regression: AO3 val 1.118 -> 1.234 uncond.
