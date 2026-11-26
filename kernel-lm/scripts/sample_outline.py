@@ -32,7 +32,9 @@ def main():
     ap.add_argument("--temperature", type=float, default=0.8)
     ap.add_argument("--top-k", type=int, default=40)
     ap.add_argument("--repetition-penalty", type=float, default=1.2)
-    ap.add_argument("--max-new-tokens", type=int, default=400)
+    ap.add_argument("--max-new-tokens", type=int, default=900)
+    ap.add_argument("--stop", nargs="*", default=["\nOUTLINE:", "\n//---", "\nSTORY:"],
+                    help="stop strings (tokenized) that end generation")
     ap.add_argument("--seed", type=int, default=99)
     ap.add_argument("--out", default=str(ROOT / "results/samples/outline_ft.txt"))
     args = ap.parse_args()
@@ -59,12 +61,15 @@ def main():
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "w") as f:
+        stop_ids = [tok.encode(s).ids for s in args.stop if s]
         for i, p in enumerate(prompts):
             ids = tok.encode(p).ids
             x = torch.tensor([ids], dtype=torch.long, device=device)
             y = model.generate(x, args.max_new_tokens, temperature=args.temperature,
-                               top_k=args.top_k, repetition_penalty=args.repetition_penalty)
-            text = tok.decode(y[0, len(ids):].tolist(), skip_special_tokens=True)
+                               top_k=args.top_k, repetition_penalty=args.repetition_penalty,
+                               stop_seqs=stop_ids)
+            gen = y[0, len(ids):].tolist()  # generate() already truncated at stop seq
+            text = tok.decode(gen, skip_special_tokens=True)
             f.write(f"===== outline sample {i} =====\n{p}\n--- generated story ---\n{text}\n\n")
             print(f"sample {i} done", flush=True)
     print(f"wrote {out}")

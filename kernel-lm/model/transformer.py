@@ -191,13 +191,18 @@ class Transformer(nn.Module):
 
     @torch.no_grad()
     def generate(self, idx: torch.Tensor, max_new_tokens: int, temperature: float = 1.0,
-                 top_k: int | None = None, repetition_penalty: float = 1.0):
+                 top_k: int | None = None, repetition_penalty: float = 1.0,
+                 stop_seqs: list | None = None):
         """Greedy/sampled decoding. idx: (B, T) prompt.
 
         repetition_penalty: HF-style — logits of tokens already present in the
         sequence are divided by the penalty (>1 discourages repetition).
+        stop_seqs: list of token-id lists; generation stops (per row) when the
+        tail of the sequence matches one of them.
         """
         self.eval()
+        stop_seqs = [list(s) for s in (stop_seqs or [])]
+        stop_at = [None] * idx.shape[0]  # first generated-token index where a stop matched
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -self.cfg.context_length:]
             logits, _ = self(idx_cond)
@@ -214,6 +219,17 @@ class Transformer(nn.Module):
             probs = F.softmax(logits, dim=-1)
             next_tok = torch.multinomial(probs, num_samples=1)
             idx = torch.cat([idx, next_tok], dim=1)
+            if stop_seqs:
+                for b in range(idx.shape[0]):
+                    if stop_at[b] is not None:
+                        continue
+                    for s in stop_seqs:
+                        if len(s) and idx[b, -len(s):].tolist() == s:
+                            stop_at[b] = idx.shape[1] - len(s)
+                            break
+        if any(x is not None for x in stop_at):
+            keep = min(x for x in stop_at if x is not None)
+            idx = idx[:, :keep]
         return idx
 
 
