@@ -188,3 +188,20 @@ still only loosely followed at 33M params. Chart: `results/charts/story_ft_big.p
 
 Takeaway: outline→story works as *conditioning* (compression/PPL) at this scale; faithful
 open-ended outline following needs a bigger model or instruction-style data.
+
+## 12. Memorization probe (E20)
+
+`scripts/memorization_probe.py`: greedy-continue held-out docs from a 200-token prefix,
+100 tokens, count exact-match vs the true continuation (192 AO3 test stories; 40 held-out
+Aesop fables with a 60-token prefix).
+
+| model | AO3 test exact-match | longest verbatim run | fable val exact-match |
+|---|---:|---:|---:|
+| base story-medium-16k | 2.2% | 1.3 tok | 2.2% |
+| story-ft-aesop | 1.3% | 0.8 tok | 2.0% |
+| story-ft-outline-big | 1.9% | 1.2 tok | — |
+
+~2% with ~1-token runs is chance level: **no verbatim memorization of held-out text** in any
+variant. The "recited fables" seen in Aesop-FT samples are not memorization either — the
+extractive outline literally contains the story's own sentences, so following it looks like
+copying. With an unrelated outline the model writes new (generic) text instead.

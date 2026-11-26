@@ -1,0 +1,2 @@
+checkpoints/story-ft-aesop/ckpt_001500.pt
+  docs=40  mean exact-match continuation: 2.0%  mean longest verbatim run: 1.0 tokens

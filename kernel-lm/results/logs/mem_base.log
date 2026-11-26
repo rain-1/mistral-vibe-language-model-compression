@@ -1,0 +1,2 @@
+checkpoints/story-medium-16k/ckpt_030000.pt
+  docs=192  mean exact-match continuation: 2.2%  mean longest verbatim run: 1.3 tokens
