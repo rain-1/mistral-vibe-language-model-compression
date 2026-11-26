@@ -205,3 +205,12 @@ Aesop fables with a 60-token prefix).
 variant. The "recited fables" seen in Aesop-FT samples are not memorization either — the
 extractive outline literally contains the story's own sentences, so following it looks like
 copying. With an unrelated outline the model writes new (generic) text instead.
+
+### E20 addendum — novel-outline fables
+
+Given three *novel* outlines (robot/flowers, rival lighthouses, shy dragon), the Aesop-FT
+model ignores them and emits near-verbatim training fables (samples:
+`results/samples/aesop_novel_outlines.txt`). So: held-out text is NOT memorized (E20 probe,
+~2% chance level), but the 202 training fables ARE reproduced — 760 epochs on 242 fables is
+classic training-set memorization. The 69k-pair fimfiction FT is the model that actually
+follows outlines (E19).
